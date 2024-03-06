@@ -1,6 +1,6 @@
 import React from 'react'
-import { FaArrowCircleRight, FaOpencart, FaStore, FaPersonBooth, FaChevronDown, FaUser } from 'react-icons/fa'
-import { BiCartAdd, BiGift, BiHeart, BiLogInCircle, BiUserCircle } from 'react-icons/bi'
+import { FaOpencart, FaStore } from 'react-icons/fa'
+import { BiLogInCircle } from 'react-icons/bi'
 const NavBar = () => {
   return (
     <>
@@ -27,7 +27,7 @@ const NavBar = () => {
             </ul>
           </div>
         </div>
-        <a className="navbar-brand" href="/"><img src="img/logo.png" height="90" className="d-inline-block mx-3"/></a>
+        <a className="navbar-brand" href="/"><img src="img/logo.png" height="90" className="d-inline-block mx-3" alt=''/></a>
 
       </nav>
     </>

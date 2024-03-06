@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { validateRequired } from '../Utils/FormValidation';
 
 
 function Login() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];

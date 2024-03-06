@@ -9,10 +9,12 @@ import Login from "./Componet/Login";
 import SignUp from './Componet/SignUp';
 import NavBar from './Componet/partials/NavBar';
 import Footer from './Componet/partials/Footer';
+import {AuthProvider} from './Utils/AuthContext'
 
 function App () {
   return (
     <>
+    <AuthProvider>
     <Router>
       <NavBar/>
       <Routes>
@@ -22,6 +24,7 @@ function App () {
       </Routes>
       <Footer/>
     </Router>
+    </AuthProvider>
     </>
   );
 }

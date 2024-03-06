@@ -2,7 +2,6 @@ import React from 'react'
 import Carousel from './Carousel'
 import Hero from './Hero'
 import Contact from './Contact'
-import HorizontalNav from './partials/HorizontalNav'
 import LowerNav from './partials/LowerNav'
 
 

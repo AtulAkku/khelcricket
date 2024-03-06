@@ -76,7 +76,7 @@ const SignUp = () => {
     <>
       <ToastContainer />
       <div className="container p-4 g-0 shadow mx-auto my-4 bg-light rounded row w-75 ">
-        <div className='col-5' ><img className='img-fluid rounded' src='./img/cricket.png' /></div>
+        <div className='col-5' ><img className='img-fluid rounded' src='./img/cricket.png' alt='' /></div>
         <div className='col-7 d-flex align-item-center flex-column justify-content-center p-2'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>
           <form className="g-0 p-3">
@@ -85,15 +85,6 @@ const SignUp = () => {
                 <label className="ms-1" htmlFor="email">Email</label>
                 <input type="email" className="form-control" id="email" placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
               </div>
-              {/* <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="email">Email</label>
-                <div className="input-group mb-3">
-                  <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                  <div className="input-group-append">
-                    <span className="input-group-text" id="basic-addon2">@example.com</span>
-                  </div>
-                </div>
-              </div> */}
 
               <div className="form-group col-md-6">
                 <label className="ms-1" htmlFor="name">Name</label>

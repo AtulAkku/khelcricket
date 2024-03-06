@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaChevronDown } from 'react-icons/fa'
 const HorizontalNav = () => {
   return (
     <div className="container w-100">
@@ -34,22 +33,6 @@ const HorizontalNav = () => {
           <img src="../../img/services/work.png" alt="123" />
           <p className="item-text">Office Bash</p>
         </div>
-        {/* <div className="nav flex-column scrollmenu-item">
-          <img src="../../img/home-appliance.png" alt="123" />
-          <p className="item-text">Home Appliances</p>
-        </div>
-        <div className="nav flex-column scrollmenu-item">
-          <img src="../../img/toys.png" alt="123" />
-          <p className="item-text">Toys</p>
-        </div>
-        <div className="nav flex-column  scrollmenu-item">
-          <img src="../../img/travel.png" alt="123" />
-          <p className="item-text">Travel</p>
-        </div>
-        <div className="nav flex-column scrollmenu-item" >
-          <img src="../../img/bikes.png" alt="123" />
-          <p className="item-text">Two Wheelers</p>
-        </div> */}
       </div>
     </div>
     </div>
