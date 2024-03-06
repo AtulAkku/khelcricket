@@ -9,7 +9,9 @@ import Login from "./Componet/Login";
 import SignUp from './Componet/SignUp';
 import NavBar from './Componet/partials/NavBar';
 import Footer from './Componet/partials/Footer';
-import {AuthProvider} from './Utils/AuthContext'
+import Dashboard from './Componet/Dashboard';
+import GLogIn from './Componet/GLogIn';
+import {AuthProvider} from './Utils/AuthContext';
 
 function App () {
   return (
@@ -21,6 +23,9 @@ function App () {
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<SignUp />}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/gLogin' element={<GLogIn/>}/>
+
       </Routes>
       <Footer/>
     </Router>
