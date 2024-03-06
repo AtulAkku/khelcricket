@@ -2,9 +2,9 @@
 
 body {
     scrollbar-width: none;
-    font-family: "Noto Sans Georgian", sans-serif;
+    font-family: "Noto Sans Georgian", sans-serif;                                                                          
     /* background: #c3c2c293; */
-    background-image: linear-gradient(60deg, #ff0707, #ff8c00);
+    background-image: linear-gradient(60deg, #007EE3, #FFFFFF);
     /* background-image: linear-gradient(60deg, #007bff, #28a745); */
     /* background-image: linear-gradient(60deg, #fccf31, #f55555); */
     /* background-image: linear-gradient(60deg, #fcd03169, #f5555578),url('../public/img/img2.jpg'); */
@@ -15,7 +15,7 @@ body {
 }
 
 .bg-nav{
-    background-image: linear-gradient(60deg, #ff0707, #ff8c00);
+    background-image: linear-gradient(60deg, #add8e6, #17ead9);
     /* background-image: linear-gradient(60deg, #007bff, #28a745); */
     /* background-image: linear-gradient(60deg, #fccf31, #f55555); */
     /* background-image: linear-gradient(60deg, #fcd03169, #f5555578),url('../public/img/img2.jpg'); */
