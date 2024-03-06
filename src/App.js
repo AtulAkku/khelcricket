@@ -12,6 +12,7 @@ import Footer from './Componet/partials/Footer';
 import Dashboard from './Componet/Dashboard';
 import GLogIn from './Componet/GLogIn';
 import {AuthProvider} from './Utils/AuthContext';
+import GSignAdd from './Componet/GSignAdd'
 
 function App () {
   return (
@@ -25,6 +26,7 @@ function App () {
         <Route path="/signup" element={<SignUp />}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/gLogin' element={<GLogIn/>}/>
+        <Route path='/gSignAdd' element={<GSignAdd/>}/>
 
       </Routes>
       <Footer/>

@@ -14,9 +14,7 @@ const HorizontalNav = () => {
         </div>
         <div className="nav flex-column scrollmenu-item dropdown">
           <img src="../../img/services/destination.png" alt="123" />
-          <p className="item-text">Travels 
-          
-          </p>
+          <p className="item-text">Travels</p>
           
         </div>
         <div className="nav flex-column scrollmenu-item dropdown">

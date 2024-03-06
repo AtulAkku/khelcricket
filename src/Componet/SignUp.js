@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google'
+import { jwtDecode } from 'jwt-decode'
 import { validateRequired, validatePhone, validatePinCode, validateEmail, validatePassword, confirmPassword } from '../Utils/FormValidation';
 import { toast, ToastContainer } from 'react-toastify';
 import jsonData from '../Utils/pincode.json';
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const SignUp = () => {
+  const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -13,6 +17,9 @@ const SignUp = () => {
   const [state, setState] = useState('');
   const [password, setPassword] = useState('');
   const [conPassword, setConPassword] = useState('');
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+
   const validateForm = () => {
     const requiredFields = ['email', 'name', 'phoneNo', 'pinCode', 'password', 'conPassword'];
     const phoneInput = document.getElementById('phoneNo');
@@ -29,11 +36,22 @@ const SignUp = () => {
     return document.querySelector('.is-invalid') === null;
   }
 
+  const gLogin = (credentialResponse) => {
+    const cred = jwtDecode(credentialResponse.credential);
+    console.log(storedUsers);
+    if (storedUsers.find((user) => user.email === cred.email)) {
+      toast.error('Account already exists! Please Login', {
+        position: 'top-right',
+      });
+      return;
+    }
+    navigate('/gSignAdd', { state: { email: cred.email, name: cred.name } })
+  }
+
   const searchCity = (e) => {
     const newPincode = e.target.value;
     setPinCode(newPincode);
 
-    // Find the corresponding city and state in the JSON data
     const matchingEntry = jsonData.find(entry => entry.pincode === parseInt(newPincode));
     if (matchingEntry) {
       console.log(matchingEntry.Taluk);
@@ -45,11 +63,22 @@ const SignUp = () => {
       setState('');
     }
   }
+  const togglePasswordVisibility1 = () => {
+    setShowPassword1(!showPassword1);
+  }
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
+  }
   const Register = async (e) => {
     e.preventDefault();
     const isValid = validateForm();
+    if (storedUsers.find((user) => user.email === email)) {
+      toast.error('Account already exists! Please Login', {
+        position: 'top-right',
+      });
+      return;
+    }
     if (isValid) {
-      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
       const newUser = { email, name, phoneNo, pinCode, city, state, password, };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
@@ -75,9 +104,9 @@ const SignUp = () => {
   return (
     <>
       <ToastContainer />
-      <div className="container p-4 g-0 shadow mx-auto my-4 bg-light rounded row w-75 ">
-        <div className='col-5' ><img className='img-fluid rounded' src='./img/cricket.png' alt='' /></div>
-        <div className='col-7 d-flex align-item-center flex-column justify-content-center p-2'>
+      <div className="container p-4 g-0 shadow mx-auto my-4 bg-light rounded row w-75 d-flex justify-content-center align-items-center just">
+        <div className='col-5'><img className='w-100 rounded' src='./img/cricket.png' alt='' /></div>
+        <div className='col-7 d- flex align-item-center flex-column justify-content-center p-2'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>
           <form className="g-0 p-3">
             <div className="row">
@@ -104,27 +133,47 @@ const SignUp = () => {
             <div className="row">
               <div className="form-group col-md-6">
                 <label className="ms-1" htmlFor="city">City</label>
-                <input type="text" className="form-control" id="city" placeholder="City" value={city} readOnly/>
+                <input type="text" className="form-control" id="city" placeholder="City" value={city} readOnly />
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1" htmlFor="state">State</label>
-                <input id="state" className="form-control" value={state} readOnly/>
+                <input id="state" className="form-control" value={state} readOnly />
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-6">
                 <label className="ms-1" htmlFor="password">Password</label>
-                <input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
+                <div className="input-group">
+                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
+                  <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility1}>
+                    {showPassword1 ? <FaEyeSlash/> : <FaEye/>}
+                  </button>
+                </div>
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1" htmlFor="conPassword">Password</label>
-                <input type="password" className="form-control" id="conPassword" placeholder="Confirm Password" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> <div id="conPasswordError" className="invalid-feedback"></div>
+                <div className="input-group">
+                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" placeholder="Confirm Password" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> <div id="conPasswordError" className="invalid-feedback"></div>
+                  <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility2}>
+                    {showPassword2 ? <FaEyeSlash/> : <FaEye/>}
+                  </button>
+                </div>
               </div>
             </div>
             <div className="mt-2">
               <a href="/login" className='text-decoration-none'>Already Registered? Login!</a>
             </div>
-            <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-between mt-2">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  gLogin(credentialResponse);
+                }}
+                onError={() => {
+                  toast.error('Login Failed', {
+                    position: 'top-right',
+                  });
+                }}
+              />
               <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Submit</button>
             </div>
           </form>

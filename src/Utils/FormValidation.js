@@ -55,12 +55,15 @@ export const validatePinCode = (pinCodeInput, pinCodeValue) => {
 }
 export const confirmPassword = (passwordValue, confirmPasswordValue, confirmPasswordInput) => {
     const conPasswordError = document.getElementById('conPasswordError');
-    if (!(confirmPasswordValue === passwordValue)) {
-        confirmPasswordInput.classList.add('is-invalid');
-        conPasswordError.textContent = 'Password and Confirm Passwords do not match';
-    } else {
-        confirmPasswordInput.classList.remove('is-invalid');
-        conPasswordError.textContent = null;
+    console.log(confirmPasswordValue);
+    if(confirmPasswordValue !== ''){
+        if (!(confirmPasswordValue === passwordValue)) {
+            confirmPasswordInput.classList.add('is-invalid');
+            conPasswordError.textContent = 'Password and Confirm Passwords do not match';
+        } else {
+            confirmPasswordInput.classList.remove('is-invalid');
+            conPasswordError.textContent = null;
+        }
     }
 }
 

@@ -20,7 +20,6 @@ function Login() {
     if (isValid) {
       let user;
       if (storedUsers != null) {
-
         user = storedUsers.find((user) => user.email === email && user.password === password);
       }
 
