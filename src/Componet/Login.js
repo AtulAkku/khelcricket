@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-// import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { validateRequired } from '../Utils/FormValidation';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode'
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
@@ -13,6 +15,18 @@ function Login() {
     const requiredFields = ['email', 'password'];
     validateRequired(requiredFields);
     return document.querySelector('.is-invalid') === null;
+  }
+  const gLogin = (credentialResponse) => {
+    const cred = jwtDecode(credentialResponse.credential);
+    const user = storedUsers.find((user) => user.email === cred.email)
+    if (user) {
+      sessionStorage.setItem('isAuth', true);
+      sessionStorage.setItem('isGUser', true);
+      sessionStorage.setItem('userData', JSON.stringify(user));
+      navigate('/');
+    } else {
+      navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: 'You are not registered yet???' } })
+    }
   }
   const Login = async (e) => {
     e.preventDefault();
@@ -25,9 +39,10 @@ function Login() {
 
       if (user) {
         toast.success('Logged In Successfully!', { position: 'top-right' });
-        setEmail('');
-        setPassword('');
-        // navigate('/')
+        sessionStorage.setItem('isAuth', true);
+        sessionStorage.setItem('isGUser', true);
+        sessionStorage.setItem('userData', JSON.stringify(user));
+        navigate('/');
       } else {
         toast.error('Invalid email or password', { position: 'top-right' });
       }
@@ -56,7 +71,17 @@ function Login() {
             <div className="mt-2">
               <a href="/signup" className='text-decoration-none'>New User? Register!</a>
             </div>
-            <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-between">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  gLogin(credentialResponse);
+                }}
+                onError={() => {
+                  toast.error('Login Failed', {
+                    position: 'top-right',
+                  });
+                }}
+              />
               <button type="button" className="btn bg-nav px-5 fs-6" onClick={Login}>Log In</button>
             </div>
           </form>

@@ -1,6 +1,8 @@
 import React from 'react'
+import { useAuth } from '../../Utils/AuthContext'
 
 const LowerNav = () => {
+    const { user, isAuth } = useAuth();
     return (
         <>
             <div className="container py-3">
@@ -8,14 +10,20 @@ const LowerNav = () => {
 
                     <div className="col">
                         <div className="card w-75 shadow border border-5">
-                            <img className="card-img-top" src="./img/heroLogin.jpg" alt="Card cap"/>
+                            <img className="card-img-top" src="./img/heroLogin.jpg" alt="Card cap" />
                             <div className="card-body">
-                                <h5 className="card-title text-center">Your all venue search solution</h5>
                                 {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                                 <div className="d-flex justify-content-around p-3">
-                                <a href="/login" className="btn bg-nav btn -warning px-5">Log In</a>
-                                <a href="/signup" className="btn btn-dark px-5">Sign Up</a>
+                                    {
+                                        isAuth ?
+                                            <p className="h4">Welcome {user.name} !</p> :
+                                            <>
+                                                <a href="/login" className="btn bg-nav btn -warning px-5">Log In</a>
+                                                <a href="/signup" className="btn btn-dark px-5">Sign Up</a>
+                                            </>
+                                    }
                                 </div>
+                                <h5 className="card-title text-center">Your all venue search solution is here !</h5>
                             </div>
                         </div>
                     </div>
@@ -31,8 +39,8 @@ const LowerNav = () => {
                     </div>
                 </div>
                 <div className="welcome-container">
-    <div className="welcome-message">Welcome to our <span className="highlight">Awesome</span> Website!</div>
-  </div>
+                    <div className="welcome-message">Welcome to our <span className="highlight">Awesome</span> Website!</div>
+                </div>
             </div>
         </>
     )

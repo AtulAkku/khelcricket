@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { GoogleLogin } from '@react-oauth/google'
-import { jwtDecode } from 'jwt-decode'
+import React, { useState } from 'react'
 import { validateRequired, validatePhone, validatePinCode, validateEmail, validatePassword, confirmPassword } from '../Utils/FormValidation';
 import { toast, ToastContainer } from 'react-toastify';
 import jsonData from '../Utils/pincode.json';
@@ -10,7 +8,7 @@ const GSignAdd = () => {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
     const navigate = useNavigate();
     const location = useLocation();
-    const { email, name } = location.state;
+    const { email, name, message } = location.state;
     const [phoneNo, setPhoneNo] = useState('');
     const [pinCode, setPinCode] = useState('');
     const [city, setCity] = useState('');
@@ -54,13 +52,9 @@ const GSignAdd = () => {
             const newUser = { email, name, phoneNo, pinCode, city, state };
             const updatedUsers = [...storedUsers, newUser];
             localStorage.setItem('users', JSON.stringify(updatedUsers));
-            // setPhoneNo('');
-            // setPinCode('');
-            // setCity('');
-            // setState('');
-            // toast.success('Registration Successful', {
-            //     position: 'top-right',
-            // });
+            sessionStorage.setItem('isAuth', true);
+            sessionStorage.setItem('isGUser', true);
+            sessionStorage.setItem('userData', JSON.stringify(newUser));
             navigate('/', {state:{newUser}})
         } else {
             toast.error('Form Fields are invalid', {
@@ -76,7 +70,7 @@ const GSignAdd = () => {
                 <div className='col-7 d-flex align-item-center flex-column justify-content-center p-2'>
                     <div className='text-center m-0 p-3 rounded' >
                         <p className="h3">Welcome {name}!</p>
-                        <p className='h5'>Please fill the additional details</p>
+                        <p className='h5'>{message}</p>
                     </div>
                     <form className="g-0 p-3">
                         <div className="row">

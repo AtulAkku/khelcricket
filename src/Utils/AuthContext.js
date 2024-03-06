@@ -1,30 +1,40 @@
 import { useContext, useState, useEffect, createContext } from 'react';
+import { googleLogout } from '@react-oauth/google';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(false);
+    const [isGUser, setIsGUser] = useState(false);
     const [user, setUser] = useState('');
-    const logIn = (adminData) => {
+    // const gLogOut = googleLogout();
+    const logIn = (userData, isGUser) => {
         setIsAuth(true);
-        setUser(adminData)
+        setUser(userData);
+        setIsGUser(isGUser);
         sessionStorage.setItem('isAuth', true);
-        sessionStorage.setItem('adminData', JSON.stringify(adminData));
+        sessionStorage.setItem('isGUser', isGUser);
+        sessionStorage.setItem('userData', JSON.stringify(userData));
     }
     const logOut = () => {
+        if(isGUser){
+            googleLogout();
+        }
         setIsAuth(false);
+        setIsGUser(false);
         sessionStorage.clear();
     }
     useEffect(() => {
         const storedIsAuth = sessionStorage.getItem('isAuth');
-        const adminData = JSON.parse(sessionStorage.getItem('adminData'));
+        const storedIsGUser = sessionStorage.getItem('isGUser');
+        const userData = JSON.parse(sessionStorage.getItem('userData'));
         if (storedIsAuth === 'true') {
-            console.log(adminData);
+            setIsGUser(storedIsGUser);
             setIsAuth(true);
-            setUser(adminData);
+            setUser(userData);
         }
     }, [])
     return (
-        <AuthContext.Provider value={{ isAuth, user, logIn, logOut }}>
+        <AuthContext.Provider value={{ isAuth, isGUser, user, logIn, logOut }}>
             {children}
         </AuthContext.Provider>
     )

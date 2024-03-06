@@ -36,16 +36,14 @@ const SignUp = () => {
     return document.querySelector('.is-invalid') === null;
   }
 
-  const gLogin = (credentialResponse) => {
+  const gSignUp = (credentialResponse) => {
     const cred = jwtDecode(credentialResponse.credential);
-    console.log(storedUsers);
-    if (storedUsers.find((user) => user.email === cred.email)) {
-      toast.error('Account already exists! Please Login', {
-        position: 'top-right',
-      });
-      return;
+    const user = storedUsers.find((user) => user.email === cred.email)
+    if (user) {
+      navigate('/', { state: { user } })
+    } else {
+      navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: "Please add your profile information" } });
     }
-    navigate('/gSignAdd', { state: { email: cred.email, name: cred.name } })
   }
 
   const searchCity = (e) => {
@@ -146,7 +144,7 @@ const SignUp = () => {
                 <div className="input-group">
                   <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
                   <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility1}>
-                    {showPassword1 ? <FaEyeSlash/> : <FaEye/>}
+                    {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
               </div>
@@ -155,7 +153,7 @@ const SignUp = () => {
                 <div className="input-group">
                   <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" placeholder="Confirm Password" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> <div id="conPasswordError" className="invalid-feedback"></div>
                   <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility2}>
-                    {showPassword2 ? <FaEyeSlash/> : <FaEye/>}
+                    {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
               </div>
@@ -166,7 +164,7 @@ const SignUp = () => {
             <div className="d-flex justify-content-between mt-2">
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
-                  gLogin(credentialResponse);
+                  gSignUp(credentialResponse);
                 }}
                 onError={() => {
                   toast.error('Login Failed', {

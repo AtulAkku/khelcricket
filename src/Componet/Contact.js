@@ -27,32 +27,20 @@ const Contact = () => {
             <form>
               <div className="row">
                 <div className="col">
-                  <label for="formGroupExampleInput">Name</label>
+                  <label htmlFor="formGroupExampleInput">Name</label>
                   <input type="text" className="form-control" placeholder="Full name" />
                 </div>
                 <div className="col">
-                  <label for="formGroupExampleInput">E-mail</label>
+                  <label htmlFor="formGroupExampleInput">E-mail</label>
                   <input type="text" className="form-control" placeholder="Email address" />
                 </div>
               </div>
               <div className="form-group">
-                <label for="formGroupExampleInput">Query</label>
+                <label htmlFor="formGroupExampleInput">Query</label>
                 <textarea type="text" className="form-control" id="formGroupExampleInput" placeholder="Submit Query" />
               </div>
-              <div className="d-flex justify-content-end p-3"><button className="btn btn-outline-light text-light" type="submit">Send Query</button></div>
+              <div className="d-flex justify-content-end p-3"><button className="btn btn-outline-light" type="submit">Send Query</button></div>
             </form>
-            {/* <div className="form-control d-flex flex-column w-100">
-                    <div className="form-inputs">
-                        <input type="text" className="input-field" placeholder="Name"/>
-                        <input type="text" className="input-field" placeholder="Email"/>
-                    </div>
-                    <div className="text-area">
-                        <textarea placeholder="Message"></textarea>
-                    </div>
-                    <div className="form-button">
-                        <button className="btn">Send <i className="uil uil-message"></i></button>
-                    </div>
-                </div> */}
           </div>
         </div>
       </section>
