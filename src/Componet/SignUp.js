@@ -112,49 +112,49 @@ const SignUp = () => {
           <form className="g-0 p-3">
             <div className="row">
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="email">Email</label>
-                <input type="email" className="form-control" id="email" placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
+                <label className="ms-1 mb-1" htmlFor="email">Email Address</label>
+                <input type="email" className="form-control" id="email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
               </div>
 
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="name">Name</label>
-                <input type="text" className="form-control" id="name" placeholder="Name" value={name} onChange={(e) => { setName(e.target.value) }} /> <div id="nameError" className="invalid-feedback"></div>
+                <label className="ms-1 mb-1" htmlFor="name">Name</label>
+                <input type="text" className="form-control" id="name" value={name} onChange={(e) => { setName(e.target.value) }} /> <div id="nameError" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="phoneNo">Phone Number</label>
-                <input type="text" className="form-control" id="phoneNo" placeholder="Phone Number" value={phoneNo} onChange={(e) => { setPhoneNo(e.target.value) }} /> <div id="phoneNoError" className="invalid-feedback"></div>
+                <label className="ms-1 mb-1" htmlFor="phoneNo">Phone Number</label>
+                <input type="text" className="form-control" id="phoneNo" value={phoneNo} onChange={(e) => { setPhoneNo(e.target.value) }} /> <div id="phoneNoError" className="invalid-feedback"></div>
               </div>
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="pinCode">Pin Code</label>
-                <input type="text" className="form-control" id="pinCode" placeholder="Pin Code" value={pinCode} onChange={searchCity} /> <div id="pinCodeError" className="invalid-feedback"></div>
+                <label className="ms-1 mb-1" htmlFor="pinCode">Pin Code</label>
+                <input type="text" className="form-control" id="pinCode" value={pinCode} onChange={searchCity} /> <div id="pinCodeError" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="city">City</label>
-                <input type="text" className="form-control" id="city" placeholder="City" value={city} readOnly />
+                <label className="ms-1 mb-1" htmlFor="city">City</label>
+                <input type="text" className="form-control" id="city" value={city} readOnly />
               </div>
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="state">State</label>
+                <label className="ms-1 mb-1" htmlFor="state">State</label>
                 <input id="state" className="form-control" value={state} readOnly />
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="password">Password</label>
+                <label className="ms-1 mb-1" htmlFor="password">Password</label>
                 <div className="input-group">
-                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
+                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
                   <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility1}>
                     {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
               </div>
               <div className="form-group col-md-6">
-                <label className="ms-1" htmlFor="conPassword">Password</label>
+                <label className="ms-1 mb-1" htmlFor="conPassword">Confirm Password</label>
                 <div className="input-group">
-                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" placeholder="Confirm Password" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> <div id="conPasswordError" className="invalid-feedback"></div>
+                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> <div id="conPasswordError" className="invalid-feedback"></div>
                   <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility2}>
                     {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                   </button>

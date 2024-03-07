@@ -5,6 +5,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Utils/AuthContext';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 
 function Login() {
@@ -12,11 +13,15 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [showPassword, setShowPassword] = useState();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const validateForm = () => {
     const requiredFields = ['email', 'password'];
     validateRequired(requiredFields);
     return document.querySelector('.is-invalid') === null;
+  }
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   }
   const gLogin = async(credentialResponse) => {
     const cred = jwtDecode(credentialResponse.credential);
@@ -64,12 +69,17 @@ function Login() {
           <div className='text-center h1 m-0 p-3 rounded' >Login</div>
           <form className='p-3'>
             <div className="form-group my-3">
-              <label for="email" className='fs-5 ms-1 my-3'>Email address</label>
-              <input type="email" className="form-control py-2" id="email" aria-describedby="emailHelp" placeholder="Enter Email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
+              <label for="email" className='ms-1 mb-2'>Email address</label>
+              <input type="email" className="form-control py-2" id="email" aria-describedby="emailHelp" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
             </div>
             <div className="form-group my-3">
-              <label for="password" className='fs-5 ms-1 my-3'>Password</label>
-              <input type="password" className="form-control py-2" id="password" placeholder="Enter Password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
+              <label for="password" className='ms-1 mb-2'>Password</label>
+              <div className="input-group">
+               <input type="password" className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
+              <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+              </div>
             </div>
             <div className="mt-2">
               <a href="/signup" className='text-decoration-none'>New User? Register!</a>
