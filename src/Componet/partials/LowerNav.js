@@ -38,9 +38,9 @@ const LowerNav = () => {
                         </div>
                     </div>
                 </div>
-                <div className="welcome-container">
+                {/* <div className="welcome-container">
                     <div className="welcome-message shadow">Welcome to <span className="highlight">KHEL Cricket Concierge</span> Website!</div>
-                </div>
+                </div> */}
             </div>
         </>
     )

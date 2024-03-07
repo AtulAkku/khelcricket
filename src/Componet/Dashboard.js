@@ -1,11 +1,10 @@
 import React from 'react'
 import { FaMapLocationDot } from "react-icons/fa6";
 import { useAuth } from '../Utils/AuthContext';
-import { googleLogout } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-    const { user, logOut, isGUser } = useAuth();
+    const { user, logOut} = useAuth();
     const navigate = useNavigate();
     const handleLogOut = ()=>{
         logOut();
