@@ -1,7 +1,9 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { useAuth } from '../../Utils/AuthContext'
 
 const Footer = () => {
+  const { logOut, isAuth } = useAuth();
   return (
     <footer className='bg-black text-light text-center'>
       <div>
@@ -16,7 +18,7 @@ const Footer = () => {
           </div>
           <div className="col-md-2">
             <ul>
-            <li className="h5 text-muted">Help</li>
+              <li className="h5 text-muted">Help</li>
               <li>Payments</li>
               <li>Cancelation & Returns</li>
               <li>FAQ</li>
@@ -24,15 +26,24 @@ const Footer = () => {
           </div>
           <div className="col-md-2">
             <ul>
-            <li className="h5 text-muted">Quick Links</li>
-              <li>Home</li>
-              <li>Login</li>
+              <li className="h5 text-muted">Quick Links</li>
+              <li className="nav-item">
+                <a className="nav-link" href="/">Home</a>
+              </li>
+              {
+                isAuth ? <li className="nav-item">
+                  <a className="nav-link" href="/" onClick={logOut}>Logout</a>
+                </li> :
+                  <li className="nav-item">
+                    <a className="nav-link" href="/login">Login</a>
+                  </li>
+              }
               <li>Cart</li>
             </ul>
           </div>
           <div className="col-md-3">
             <ul>
-            <li className="h5 text-muted">Consumer Policy</li>
+              <li className="h5 text-muted">Consumer Policy</li>
               <li>Terms of Use</li>
               <li>Security</li>
               <li>Policy</li>
@@ -40,10 +51,10 @@ const Footer = () => {
           </div>
           <div className="col-md-2">
             <ul>
-            <li className="h5 text-muted">Social</li>
-              <li><FaFacebook/> Facebook</li>
-              <li><FaTwitter/> Twitter</li>
-              <li><FaInstagram/> Instagram</li>
+              <li className="h5 text-muted">Social</li>
+              <li><FaFacebook /> Facebook</li>
+              <li><FaTwitter /> Twitter</li>
+              <li><FaInstagram /> Instagram</li>
             </ul>
           </div>
         </div>

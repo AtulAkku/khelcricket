@@ -6,7 +6,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import jsonData from '../Utils/pincode.json';
 import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useAuth } from '../Utils/AuthContext';
 const SignUp = () => {
+  const {logIn} = useAuth();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -40,7 +42,8 @@ const SignUp = () => {
     const cred = jwtDecode(credentialResponse.credential);
     const user = storedUsers.find((user) => user.email === cred.email)
     if (user) {
-      navigate('/', { state: { user } })
+      logIn(user, true);
+      navigate('/')
     } else {
       navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: "Please add your profile information" } });
     }

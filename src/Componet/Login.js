@@ -4,9 +4,11 @@ import { validateRequired } from '../Utils/FormValidation';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Utils/AuthContext';
 
 
 function Login() {
+  const {logIn} = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -16,13 +18,14 @@ function Login() {
     validateRequired(requiredFields);
     return document.querySelector('.is-invalid') === null;
   }
-  const gLogin = (credentialResponse) => {
+  const gLogin = async(credentialResponse) => {
     const cred = jwtDecode(credentialResponse.credential);
     const user = storedUsers.find((user) => user.email === cred.email)
     if (user) {
-      sessionStorage.setItem('isAuth', true);
-      sessionStorage.setItem('isGUser', true);
-      sessionStorage.setItem('userData', JSON.stringify(user));
+      await logIn(user, true)
+      // sessionStorage.setItem('isAuth', true);
+      // sessionStorage.setItem('isGUser', true);
+      // sessionStorage.setItem('userData', JSON.stringify(user));
       navigate('/');
     } else {
       navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: 'You are not registered yet???' } })

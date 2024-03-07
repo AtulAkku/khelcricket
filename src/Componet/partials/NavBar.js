@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { FaOpencart, FaStore } from 'react-icons/fa'
-import { BiLogInCircle, BiUserCircle } from 'react-icons/bi'
+import { BiLogInCircle } from 'react-icons/bi'
 import { useAuth } from '../../Utils/AuthContext'
 import { FaUser } from 'react-icons/fa6'
 const NavBar = () => {
@@ -8,7 +8,7 @@ const NavBar = () => {
   
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-warning bg-opacity-25 px-5 shadow">
+      <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-warning bg-opacity-25 px-5 shadow">
         <div className="container-fluid">
           <div className="collapse navbar-collapse d-flex justify-conte nt-end" id="navbarSupportedContent">
             <ul className="navbar-nav">
