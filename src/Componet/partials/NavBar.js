@@ -8,7 +8,7 @@ const NavBar = () => {
   
   return (
     <>
-      <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-warning bg-opacity-25 px-5 shadow">
+      <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-info bg-opacity-25 px-5 shadow">
         <div className="container-fluid">
           <div className="collapse navbar-collapse d-flex justify-conte nt-end" id="navbarSupportedContent">
             <ul className="navbar-nav">
@@ -27,7 +27,7 @@ const NavBar = () => {
                 <li className="nav-item">
                   <a className="nav-link btn d-flex justify-con tent-center" href="/login"><div className="pe-2 fs-4"><BiLogInCircle /></div><span className="text-nowrap pt-1 fs-4">Login</span></a>
                 </li>
-                :
+                : 
                 <li className="nav-item">
                   <a className="nav-link btn d-flex justify-con tent-center" href="/dashboard"><div className="pe-2 fs-4"><FaUser /></div><span className="text-nowrap pt-1 fs-4">Dashboard</span></a>
                 </li>}

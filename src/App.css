@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
+
 body {
+    font-family: "Roboto Mono", sans-serif;
     scrollbar-width: none;
-    font-family: "Noto Sans Georgian", sans-serif;                                                                          
+     /* font-family: "Noto Sans Georgian", sans-serif;                                                                           */
     /* background: #c3c2c293; */
-    background-image: linear-gradient(60deg, #007EE3, #FFFFFF);
+    background-image: linear-gradient(60deg, red, skyblue, red);
     /* background-image: linear-gradient(60deg, #007bff, #28a745); */
     /* background-image: linear-gradient(60deg, #fccf31, #f55555); */
     /* background-image: linear-gradient(60deg, #fcd03169, #f5555578),url('../public/img/img2.jpg'); */

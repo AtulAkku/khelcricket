@@ -23,13 +23,13 @@ const LowerNav = () => {
                                             </>
                                     }
                                 </div>
-                                <h5 className="card-title text-center">Your all venue search solution is here !</h5>
+                                <h5 className="card-title text-center">Discover your perfect venue with our comprehensive search solution !</h5>
                             </div>
                         </div>
                     </div>
                     <div className="col text-white text-shadow d-flex align-items-center ">
                         <div>
-                            <h1>KHEL     Cricket Concierge</h1>
+                            <h1>KHEL Cricket Concierge</h1>
                             <p>The sound of leather on willow is music to ears !</p>
                             <form className="form-inline my-2 my-lg-0">
                                 <input className="form-control mr-sm-2" type="search" placeholder="Find Venues" aria-label="Search" />
