@@ -10,7 +10,7 @@ const LowerNav = () => {
 
                     <div className="col">
                         <div className="card w-75 shadow border border-5">
-                            <img className="card-img-top" src="./img/heroLogin.jpg" alt="Card cap" />
+                            <img className="card-img-top" src="./img/cricketpng.png" alt="Card cap" />
                             <div className="card-body">
                                 {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                                 <div className="d-flex justify-content-around p-3">
