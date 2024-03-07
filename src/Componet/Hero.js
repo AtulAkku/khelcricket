@@ -7,7 +7,7 @@ const Hero = ({data}) => {
     return (
         <>
             <div className="mx -3 mt-2 p-5">
-                <p className="text-center pb-5 text-white fs-1 shadow"><div className="text-success text-opacity-75"><FaLocationDot /></div><span className='pt-3'>Prime Locations</span></p>
+                <p className="text-center p-2 text-white fs-1 shadow"><div className="text-success text-opacity-75"><FaLocationDot /></div><span className='pt-3'>Prime Locations</span></p>
                 <div className="row">
                     {data.map((item, index) => (
                         <div key={index} className="col-md-4 mb-3">

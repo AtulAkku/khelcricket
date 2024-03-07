@@ -145,19 +145,21 @@ const SignUp = () => {
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="password">Password</label>
                 <div className="input-group">
-                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
-                  <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility1}>
+                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                  <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility1}>
                     {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>
+                  <div id="passwordError" className="invalid-feedback"></div>
                 </div>
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="conPassword">Confirm Password</label>
                 <div className="input-group">
-                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> <div id="conPasswordError" className="invalid-feedback"></div>
-                  <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility2}>
+                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> 
+                  <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility2}>
                     {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                   </button>
+                  <div id="conPasswordError" className="invalid-feedback"></div>
                 </div>
               </div>
             </div>
@@ -175,7 +177,7 @@ const SignUp = () => {
                   });
                 }}
               />
-              <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Submit</button>
+              <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Sign Up</button>
             </div>
           </form>
         </div>

@@ -75,16 +75,17 @@ function Login() {
             <div className="form-group my-3">
               <label for="password" className='ms-1 mb-2'>Password</label>
               <div className="input-group">
-               <input type="password" className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> <div id="passwordError" className="invalid-feedback"></div>
-              <button className="btn bg-nav" type="button" onClick={togglePasswordVisibility}>
+               <input type="password" className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> 
+              <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility}>
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
+              <div id="passwordError" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="mt-2">
               <a href="/signup" className='text-decoration-none'>New User? Register!</a>
             </div>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between mt-2">
               <GoogleLogin
                 onSuccess={(credentialResponse) => {
                   gLogin(credentialResponse);

@@ -5,13 +5,9 @@ const Contact = () => {
   return (
     <>
 
-      <section className="secti on g-0 conta iner bg-black text-light " id="contact">
-        <div className="top-hea der text-center">
-          {/* <h1>Get in touch</h1> */}
-
-        </div>
+      <section className="g-0 bg-black text-light " id="contact">
         <div className="row w-100">
-          <div className="col">
+          <div className="col d-flex justify-content-center align-items-center pb-5">
             <div className="p-5  mt-5 d-flex justify-content-center align-items-center">
               <div>
                 <h2>Find Us </h2>

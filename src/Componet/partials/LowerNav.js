@@ -39,7 +39,7 @@ const LowerNav = () => {
                     </div>
                 </div>
                 <div className="welcome-container">
-                    <div className="welcome-message">Welcome to our <span className="highlight">Awesome</span> Website!</div>
+                    <div className="welcome-message shadow">Welcome to <span className="highlight">KHEL Cricket Concierge</span> Website!</div>
                 </div>
             </div>
         </>

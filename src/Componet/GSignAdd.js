@@ -3,6 +3,7 @@ import { validateRequired, validatePhone, validatePinCode, validateEmail, valida
 import { toast, ToastContainer } from 'react-toastify';
 import jsonData from '../Utils/pincode.json';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Utils/AuthContext';
 
 const GSignAdd = () => {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
@@ -13,6 +14,7 @@ const GSignAdd = () => {
     const [pinCode, setPinCode] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
+    const {logIn} = useAuth();
     const validateForm = () => {
         const requiredFields = ['phoneNo', 'pinCode'];
         const phoneInput = document.getElementById('phoneNo');
@@ -52,9 +54,10 @@ const GSignAdd = () => {
             const newUser = { email, name, phoneNo, pinCode, city, state };
             const updatedUsers = [...storedUsers, newUser];
             localStorage.setItem('users', JSON.stringify(updatedUsers));
-            sessionStorage.setItem('isAuth', true);
-            sessionStorage.setItem('isGUser', true);
-            sessionStorage.setItem('userData', JSON.stringify(newUser));
+            logIn(newUser, true)
+            // sessionStorage.setItem('isAuth', true);
+            // sessionStorage.setItem('isGUser', true);
+            // sessionStorage.setItem('userData', JSON.stringify(newUser));
             navigate('/', {state:{newUser}})
         } else {
             toast.error('Form Fields are invalid', {
@@ -93,8 +96,8 @@ const GSignAdd = () => {
                                 <input id="state" className="form-control" value={state} readOnly />
                             </div>
                         </div>
-                        <div className="d-flex justify-content-end mt-2">
-                            <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Submit</button>
+                        <div className="d-flex justify-content-end mt-4">
+                            <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Sign Up</button>
                         </div>
                     </form>
                 </div>

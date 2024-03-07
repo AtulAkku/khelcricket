@@ -37,7 +37,7 @@ export const validatePassword = (passwordInput, passwordValue) => {
     if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}\[\]:;<>,.?/~]).{6,}$/
     .test(passwordValue)) {
         passwordInput.classList.add('is-invalid');
-        passwordError.textContent = 'Password must be at least 6 characters long and contain at least one digit, one lowercase letter, and one uppercase letter';
+        passwordError.textContent = 'Password must be at least 6 characters long and contain at least one digit, one special character, one lowercase letter, and one uppercase letter';
     } else {
         passwordInput.classList.remove('is-invalid');
         passwordError.textContent = null;
@@ -66,13 +66,3 @@ export const confirmPassword = (passwordValue, confirmPasswordValue, confirmPass
         }
     }
 }
-
-
-
-
-// export const removeValidation = () => {
-//     const inValid = document.querySelectorAll('.is-invalid');
-//     inValid.forEach(element => {
-//         element.classList.remove('is-invalid');
-//     });
-// }

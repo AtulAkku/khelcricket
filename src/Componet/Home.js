@@ -33,7 +33,7 @@ const data = [
     "image-url": "../../img/location/dlc.png"
   },
   {
-    "description": "Gameshub Cricket Ground, Baliyawas, Gurugram",
+    "description": "Gameshub Ground, Baliyawas, Gurugram",
     "image-url": "../../img/location/Gameshub.png"
   },
   {
