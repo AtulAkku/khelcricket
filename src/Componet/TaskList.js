@@ -131,7 +131,7 @@ const TaskList = () => {
       />)}
       <ToastContainer />
       <div className="container-fluid row">
-        <div className="bg-mgreen col-md-3 p-3 d-flex justify-content-center align-items-center vh-100">
+        <div className="bg-mgreen bg-success col-md-3 p-3 d-flex justify-content-center align-items-center vh-100">
           <div className="flex-column container-fluid">
             <div className="card hover shadow mb-3">
               <div className="card-body text-dark">

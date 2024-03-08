@@ -18,11 +18,13 @@ import AdminDashboard from './Componet/AdminDashboard'
 import VanueDetails from './Componet/VenueDetails'
 import VenueDetails from './Componet/VenueDetails'
 import Venues from './Componet/Venues'
+import TaskList from './Componet/TaskList'
+import TaskForm from './Componet/TaskForm'
 
 function App() {
   return (
     <>
-      <AuthProvider>s
+      <AuthProvider>
         <Router>
           <NavBar />
           <Routes>
@@ -35,6 +37,8 @@ function App() {
             <Route path='/venues' element={<Venues />} />
             <Route path='/adminDashboard' element={<AdminDashboard />} />
             <Route path='/venueDetails' element={<VenueDetails />} />
+            <Route path='/taskList' element={<TaskList />} />
+            <Route path='/add-task' element={<TaskForm />} />
           </Routes>
           <Footer />
         </Router>
