@@ -21,6 +21,7 @@ import Redirecting from './Componet/Redirecting';
 import AvatarSelect from './Componet/AvatarSelect';
 import Preloader from './Componet/Preloader';
 import Error404 from './Componet/Error404';
+import ThankYouPage from './Componet/ThankYouPage';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path='/avatarSelect' element={<AvatarSelect />} />
             <Route path='/preloader' element={<Preloader />} />
             <Route path='/*' element={<Error404 />} />
+            <Route path='/thankYouPage' element={<ThankYouPage />} />
           </Routes>
           <Footer />
         </Router>
