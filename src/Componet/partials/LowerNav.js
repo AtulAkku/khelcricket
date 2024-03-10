@@ -7,8 +7,8 @@ const LowerNav = () => {
         <>
             <div className="container">
                 <div className="row mx-auto">
-                    <div className="col p-5 text-center">
-                        <div className="card shadow border border-5 ">
+                    <div className="col px-5 py-2 pb-4 text-center">
+                        <div className="card shadow">
                             <img className="card-img-top mx-auto" src="./img/cricketpng.png" alt="Card cap" />
                             <div className="card-body">
                                 <div className="d-flex justify-content-around p-3">

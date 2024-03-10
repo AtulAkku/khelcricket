@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const ProfilePicModal = ( props ) => {
+const ProfilePicModal = (props) => {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [customAvatar, setCustomAvatar] = useState(null);
 
 
   const handleAvatarSelect = (avatar) => {
     setSelectedAvatar(avatar);
-    setCustomAvatar(null); 
+    setCustomAvatar(null);
   };
 
   const handleCustomAvatarUpload = (event) => {
@@ -16,7 +16,7 @@ const ProfilePicModal = ( props ) => {
 
     reader.onloadend = () => {
       setCustomAvatar(reader.result);
-      setSelectedAvatar(null); 
+      setSelectedAvatar(null);
     };
 
     if (file) {
@@ -34,20 +34,20 @@ const ProfilePicModal = ( props ) => {
       "avatar-url": "../../img/avatars/avatar2.png",
     },
     {
-      "avatar-number":"3",
-      "avatar-url":"../../img/avatars/avatar3.png"
+      "avatar-number": "3",
+      "avatar-url": "../../img/avatars/avatar3.png"
     },
     {
-      "avatar-number":"4",
-      "avatar-url":"../../img/avatars/avatar4.png"
+      "avatar-number": "4",
+      "avatar-url": "../../img/avatars/avatar4.png"
     },
     {
-      "avatar-number":"5",
-      "avatar-url":"../../img/avatars/avatar5.png"
+      "avatar-number": "5",
+      "avatar-url": "../../img/avatars/avatar5.png"
     },
     {
-      "avatar-number":"6",
-      "avatar-url":"../../img/avatars/avatar6.png"
+      "avatar-number": "6",
+      "avatar-url": "../../img/avatars/avatar6.png"
     }
     // ... other avatars
   ];
@@ -64,41 +64,53 @@ const ProfilePicModal = ( props ) => {
   };
 
   return (
-    <div className={`modal ${selectedAvatar || customAvatar ? 'show' : ''}`}  style={{ display: props.showModal ? 'block' : 'none' }}>
-      <div className="modal-content">
-        <span className="close" onClick={props.onClose}>&times;</span>
-        <h1 className='gazpacho'>Profile Picture</h1>
-        <div>
-          <h2 className='my-4 gazpacho'>Select an Avatar:</h2>
-          <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '20px' }} className='my-4'>
-            {avatars.map((items, index) => (
-              <img
-                key={index}
-                src={items['avatar-url']}
-                alt={items['avatar-number']}
-                style={{ width: '150px', height: '150px', cursor: 'pointer' }}
-                onClick={() => handleAvatarSelect(items['avatar-url'])}
-              />
-            ))}
+    <div className={`modal ${selectedAvatar || customAvatar ? 'show' : ''}`} style={{ display: props.showModal ? 'block' : 'none' }}>
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div class="modal-header d-flex justify-content-between">
+            <h5 class="modal-title">Change Profile Picture/Avatar</h5>
+            <button type="button" class="close btn fw-bold" onClick={props.onClose} data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body p-3">
+            <div >
+              <div className='fs-5 text-center'>Select an Avatar</div>
+              <div className='text-center'>
+                {avatars.map((items, index) => (
+                  <img
+                    className="img-fluid avat"
+                    key={index}
+                    src={items['avatar-url']}
+                    alt={items['avatar-number']}
+                    onClick={() => handleAvatarSelect(items['avatar-url'])}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className='fs-2'>
+              {selectedAvatar &&
+                <div className="d-flex flex-column align-items-center">
+                  <img src={selectedAvatar} className="avat" alt="Selected Avatar" />
+                  <span className="fs-4">Selected Avatar</span>
+                </div>
+              }
+            </div>
+            <div className='d-flex flex-column align-items-center'>
+              <div className='fs-5'>Or Upload Custom Picture</div>
+              <input className="btn bg-nav" type="file" accept="image/*" onChange={handleCustomAvatarUpload} />
+              {customAvatar &&
+                <div className="d-flex flex-column align-items-center">
+                  <img src={customAvatar} className="avat" alt="Selected Avatar" />
+                  <span className="fs-4">Selected Avatar</span>
+                </div>
+              }
+            </div>
+            <div className="text-center"><button className='btn bg-nav text-light' onClick={handleSaveAvatar}>
+              Save Profile Picture
+            </button></div>
           </div>
         </div>
-        <h2 className='my-4'>Upload Custom Picture:</h2>
-        <div className='mb-5'>
-          <input type="file" accept="image/*" onChange={handleCustomAvatarUpload} />
-          {customAvatar && (
-            <img src={customAvatar} alt="Custom Avatar" style={{ width: '150px', height: '150px', marginTop: '10px' }} />
-          )}
-        </div>
-
-        <h2 className='my-2'>Selected Avatar:</h2>
-        <div>
-          {selectedAvatar && <img src={selectedAvatar} alt="Selected Avatar" style={{ width: '150px', height: '150px' }} />}
-        </div>
-
-        {/* Save button */}
-        <button className='btn btn-primary my-4' onClick={handleSaveAvatar}>
-          Save Profile Picture
-        </button>
       </div>
     </div>
   );
