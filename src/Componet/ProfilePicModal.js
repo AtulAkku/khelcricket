@@ -96,9 +96,9 @@ const ProfilePicModal = (props) => {
                 </div>
               }
             </div>
-            <div className='d-flex flex-column align-items-center'>
+            <div className='d-flex flex-column align-items-center mx-5'>
               <div className='fs-5'>Or Upload Custom Picture</div>
-              <input className="btn bg-nav" type="file" accept="image/*" onChange={handleCustomAvatarUpload} />
+              <input className="form-control m-2" type="file" accept="image/*" onChange={handleCustomAvatarUpload} />
               {customAvatar &&
                 <div className="d-flex flex-column align-items-center">
                   <img src={customAvatar} className="avat" alt="Selected Avatar" />
@@ -106,7 +106,7 @@ const ProfilePicModal = (props) => {
                 </div>
               }
             </div>
-            <div className="text-center"><button className='btn bg-nav text-light' onClick={handleSaveAvatar}>
+            <div className="text-center"><button className='btn bg-nav text-light mt-2' onClick={handleSaveAvatar}>
               Save Profile Picture
             </button></div>
           </div>
