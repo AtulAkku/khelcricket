@@ -13,13 +13,14 @@ import Dashboard from './Componet/Dashboard';
 import GLogIn from './Componet/GLogIn';
 import { AuthProvider } from './Utils/AuthContext';
 import GSignAdd from './Componet/GSignAdd'
-import Vanues from './Componet/Venues'
 import AdminDashboard from './Componet/AdminDashboard'
-import VanueDetails from './Componet/VenueDetails'
 import VenueDetails from './Componet/VenueDetails'
 import Venues from './Componet/Venues'
 import TaskList from './Componet/TaskList'
 import TaskForm from './Componet/TaskForm'
+import Redirecting from './Componet/Redirecting'
+import AvatarSelect from './Componet/AvatarSelect'
+import SomthingWrong from './Componet/SomthingWrong'
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
             <Route path='/venueDetails' element={<VenueDetails />} />
             <Route path='/taskList' element={<TaskList />} />
             <Route path='/add-task' element={<TaskForm />} />
+            <Route path='/redirecting' element={<Redirecting />} />
+            <Route path='/avatarSelect' element={<AvatarSelect />} />
+            <Route path='/somethingwrong' element={<SomthingWrong />} />
           </Routes>
           <Footer />
         </Router>

@@ -1,15 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaMapLocationDot } from "react-icons/fa6";
 import { useAuth } from '../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import ProfilePicModal from './ProfilePicModal';
+
 
 const Dashboard = () => {
-    const { user, logOut} = useAuth();
+    const [showModal, setShowModal] = useState(false);
+    const [selectedAvatar, setSelectedAvatar] = useState(null);
+    const { user, logOut } = useAuth();
     const navigate = useNavigate();
-    const handleLogOut = ()=>{
+    const handleLogOut = () => {
         logOut();
         navigate('/')
     }
+
+    const handleOpenModal = () => {
+        setShowModal(true);
+        console.log("open modal run")
+    };
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
+    useEffect(() => {
+        // Fetch the stored avatar URL from localStorage
+        const storedAvatar = localStorage.getItem('selectedAvatar');
+        if (storedAvatar) {
+            setSelectedAvatar(storedAvatar);
+        }
+    }, []);
     return (
         <>
             <div className="container w-100 bg-light rounded m-3 mx-auto">
@@ -17,7 +37,15 @@ const Dashboard = () => {
                     <div className="col-sm-5 py-5 px-2">
                         <div className="card">
                             <div className="card-body">
-                                <h5 className="card-title text-center pb-3">{user.name}</h5>
+                                <div className='w-100 d-flex 
+                                flex-column justify-content-center align-items-center'>
+                                    {selectedAvatar && <img src={selectedAvatar} alt="Selected Avatar" style={{ width: '150px', height: '150px' }} />}
+                                    <button className='btn btn-primary my-4' onClick={handleOpenModal}>
+                                        Change Profile Picture
+                                    </button>
+                                    {showModal && <ProfilePicModal onClose={handleCloseModal} showModal={showModal} />}
+                                </div>
+                                <h5 className="card-title text-center py-3">{user.name}</h5>
                                 <table className="table">
                                     <tbody>
                                         <tr>
@@ -69,17 +97,17 @@ const Dashboard = () => {
                                         <tr>
                                             <td>Mohan Cricket Ground, Kadarpur, Gurugram</td>
                                             <td>15-jun-2001</td>
-                                            <td className='text-center'><a href='#' className='fs-4'><FaMapLocationDot /></a></td>
+                                            <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
                                         </tr>
                                         <tr>
                                             <td>Mohan Cricket Ground, Kadarpur, Gurugram</td>
                                             <td>15-jun-2001</td>
-                                            <td className='text-center'><a href='#' className='fs-4'><FaMapLocationDot /></a></td>
+                                            <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
                                         </tr>
                                         <tr>
                                             <td>Mohan Cricket Ground, Kadarpur, Gurugram</td>
                                             <td>15-jun-2001</td>
-                                            <td className='text-center'><a href='#' className='fs-4'><FaMapLocationDot /></a></td>
+                                            <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
                                         </tr>
                                     </tbody>
                                 </table>
