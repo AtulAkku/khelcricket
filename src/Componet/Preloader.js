@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const SomthingWrong = () => {
+const Preloader = () => {
   const nevigate = useNavigate();
   const [count, setCount] = useState(0);
 
@@ -37,4 +37,4 @@ const SomthingWrong = () => {
   )
 }
 
-export default SomthingWrong
+export default Preloader

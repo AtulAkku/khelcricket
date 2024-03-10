@@ -20,7 +20,7 @@ import TaskList from './Componet/TaskList'
 import TaskForm from './Componet/TaskForm'
 import Redirecting from './Componet/Redirecting'
 import AvatarSelect from './Componet/AvatarSelect'
-import SomthingWrong from './Componet/SomthingWrong'
+import Preloader from './Componet/Preloader'
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
             <Route path='/add-task' element={<TaskForm />} />
             <Route path='/redirecting' element={<Redirecting />} />
             <Route path='/avatarSelect' element={<AvatarSelect />} />
-            <Route path='/somethingwrong' element={<SomthingWrong />} />
+            <Route path='/preloader' element={<Preloader />} />
           </Routes>
           <Footer />
         </Router>
