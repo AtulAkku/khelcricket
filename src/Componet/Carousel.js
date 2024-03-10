@@ -19,7 +19,7 @@ const Carousel = ({ images, interval = 2000}) => {
   }, [currentImageIndex]);
 
   return (
-    <div className="carousel mx-3 my-2 rounded">
+    <div className="carousel m x- 3 m y-2 r ounded">
       <button className="arrow prev px-2 shadow" onClick={goToPrevSlide}>&#10094;</button>
       <div className="slide slide-container">
         <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex}`} />

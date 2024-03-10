@@ -6,15 +6,14 @@ import ProfilePicModal from './ProfilePicModal';
 
 
 const Dashboard = () => {
+    const { user, logOut, isAuth} = useAuth();
     const [showModal, setShowModal] = useState(false);
     const [selectedAvatar, setSelectedAvatar] = useState(null);
-    const { user, logOut } = useAuth();
     const navigate = useNavigate();
     const handleLogOut = () => {
         logOut();
         navigate('/')
     }
-
     const handleOpenModal = () => {
         setShowModal(true);
         console.log("open modal run")
@@ -22,14 +21,16 @@ const Dashboard = () => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
-
     useEffect(() => {
-        // Fetch the stored avatar URL from localStorage
-        const storedAvatar = localStorage.getItem('selectedAvatar');
-        if (storedAvatar) {
-            setSelectedAvatar(storedAvatar);
+        if(!isAuth){
+            console.log(isAuth);
+            navigate('/')
         }
-    }, []);
+        // const storedAvatar = localStorage.getItem('selectedAvatar');
+        // if (storedAvatar) {
+        //     setSelectedAvatar(storedAvatar);
+        // }
+    }, [navigate, isAuth]);
     return (
         <>
             <div className="container w-100 bg-light rounded m-3 mx-auto">
@@ -85,7 +86,7 @@ const Dashboard = () => {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Booked Events</h5>
-                                <table class="table">
+                                <table className="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">Venue</th>

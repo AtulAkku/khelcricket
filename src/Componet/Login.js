@@ -63,17 +63,17 @@ function Login() {
   return (
     <>
       <ToastContainer />
-      <div className="container p-4 g-0 shadow mx-auto my-4 bg-light rounded row ">
-        <div className='col' ><img className='img-fluid rounded' src='./img/cricketLogin.png' alt='' /></div>
+      <div className="container shadow mx-auto bg-light rounded-top row mt-2">
+        <div className='col'><img className='img-fluid' src='./img/cricketLogin.png' alt='' /></div>
         <div className='col d-flex align-item-center flex-column justify-content-center p-2'>
-          <div className='text-center h1 m-0 p-3 rounded' >Login</div>
+          <div className='text-center h1 p-3 rounded' >Login</div>
           <form className='p-3'>
             <div className="form-group my-3">
-              <label for="email" className='ms-1 mb-2'>Email address</label>
+              <label htmlFor="email" className='ms-1 mb-2'>Email address</label>
               <input type="email" className="form-control py-2" id="email" aria-describedby="emailHelp" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
             </div>
             <div className="form-group my-3">
-              <label for="password" className='ms-1 mb-2'>Password</label>
+              <label htmlFor="password" className='ms-1 mb-2'>Password</label>
               <div className="input-group">
                <input type="password" className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> 
               <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility}>

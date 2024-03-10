@@ -5,14 +5,12 @@ const LowerNav = () => {
     const { user, isAuth } = useAuth();
     return (
         <>
-            <div className="container py-3">
-                <div className="row">
-
-                    <div className="col">
-                        <div className="card w-75 shadow border border-5">
-                            <img className="card-img-top" src="./img/cricketpng.png" alt="Card cap" />
+            <div className="container">
+                <div className="row mx-auto">
+                    <div className="col p-5 text-center">
+                        <div className="card shadow border border-5 ">
+                            <img className="card-img-top mx-auto" src="./img/cricketpng.png" alt="Card cap" />
                             <div className="card-body">
-                                {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
                                 <div className="d-flex justify-content-around p-3">
                                     {
                                         isAuth ?

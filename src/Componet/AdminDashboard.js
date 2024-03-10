@@ -131,12 +131,12 @@ const AdminDashboard = () => {
       />)}
       <ToastContainer />
       <div className="container-fluid row">
-        <div className="bg-mgreen bg-success col-md-3 p-3 d-flex justify-content-center align-items-center vh-100">
+        <div className="bg-mgreen bg-success col-md-3 p-3 d-flex justify-content-center align -items-center vh-100">
           <div className="flex-column container-fluid">
             <div className="card hover shadow mb-3">
               <div className="card-body text-dark">
                 <div className="row" role='button'>
-                  <div className="col-md-4 text-center"><img src="/img/upcoming.png" className='img-fluid w-75' alt='View Complaint' /></div>
+                  <div className="col-md-4 text-center"><FaEdit/></div>
                   <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Upcoming ({getUpcomingTasks()})</p></div>
                 </div>
               </div>

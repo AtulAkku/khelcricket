@@ -13,15 +13,10 @@ const NavBar = () => {
   };
   return (
     <>
-      <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-info bg-opacity-25 px-5 shadow">
+      <nav id="nav" className="navbar navbar-expand-lg navbar-light bg-nav bg -opacity-25 px-5 sh adow sticky-top">
         <div className="container-fluid">
           <div className="collapse navbar-collapse d-flex justify-conte nt-end" id="navbarSupportedContent">
             <ul className="navbar-nav">
-              {/* <li className="nav-item drop down" role="button">
-                <a className="nav-link btn btn-p rimary d-flex justi fy-content-center" href="#login" id="navbarDropdown" role="button">
-                  <div className='pe-2'><BiLogInCircle /></div> Login <div className="icon"><FaChevronDown /></div>
-                </a>
-              </li> */}
               <li className= "nav-item" onClick={() => handleTabClick('home')}>
                 <a className={`nav-link btn d-flex ${activeTab === 'home' ? 'link-light' : ''}`} href="/"><div className="pe-2 fs-4"><FaStore /></div> <span className="text-nowrap pt-1 fs-4">Home</span></a>
               </li>

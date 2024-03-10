@@ -55,11 +55,9 @@ const SignUp = () => {
 
     const matchingEntry = jsonData.find(entry => entry.pincode === parseInt(newPincode));
     if (matchingEntry) {
-      console.log(matchingEntry.Taluk);
       setCity(matchingEntry.Taluk)
       setState(matchingEntry.statename);
     } else {
-      console.log('not foound');
       setCity('');
       setState('');
     }
@@ -73,13 +71,14 @@ const SignUp = () => {
   const Register = async (e) => {
     e.preventDefault();
     const isValid = validateForm();
-    if (storedUsers.find((user) => user.email === email)) {
-      toast.error('Account already exists! Please Login', {
-        position: 'top-right',
-      });
-      return;
-    }
+    
     if (isValid) {
+      if (storedUsers.find((user) => user.email === email)) {
+        toast.error('Account already exists! Please Login', {
+          position: 'top-right',
+        });
+        return;
+      }
       const newUser = { email, name, phoneNo, pinCode, city, state, password, };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
@@ -105,7 +104,7 @@ const SignUp = () => {
   return (
     <>
       <ToastContainer />
-      <div className="container p-4 g-0 shadow mx-auto my-4 bg-light rounded row w-75 d-flex justify-content-center align-items-center just">
+      <div className="container mx-auto shadow bg-light rounded-top row">
         <div className='col-5'><img className='w-100 rounded' src='./img/cricket.png' alt='' /></div>
         <div className='col-7 d- flex align-item-center flex-column justify-content-center p-2'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>

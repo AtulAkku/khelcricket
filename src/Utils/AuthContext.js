@@ -6,7 +6,6 @@ export const AuthProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(false);
     const [isGUser, setIsGUser] = useState(false);
     const [user, setUser] = useState('');
-    // const gLogOut = googleLogout();
     const logIn = (userData, isGUser) => {
         setIsAuth(true);
         setUser(userData);
