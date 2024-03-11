@@ -13,7 +13,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [showPassword, setShowPassword] = useState();
+  const [showPassword, setShowPassword] = useState(false);
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const validateForm = () => {
     const requiredFields = ['email', 'password'];
@@ -43,10 +43,10 @@ function Login() {
       }
 
       if (user) {
-        toast.success('Logged In Successfully!', { position: 'top-right' });
-        sessionStorage.setItem('isAuth', true);
-        sessionStorage.setItem('isGUser', true);
-        sessionStorage.setItem('userData', JSON.stringify(user));
+        logIn(user, false)
+        // sessionStorage.setItem('isAuth', true);
+        // sessionStorage.setItem('isGUser', true);
+        // sessionStorage.setItem('userData', JSON.stringify(user));
         navigate('/');
       } else {
         toast.error('Invalid email or password', { position: 'top-right' });
