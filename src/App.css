@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@100..900&display=swap');
 @import url('https://db.onlinewebfonts.com/c/345c037c81b29b91048e08ac4f5f3364?family=Gazpacho+Black');
 @import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
     font-family: "Roboto Mono", sans-serif;
@@ -9,11 +10,12 @@ body {
     background-size: 200% 200%;
     animation: gradient 15s ease infinite;
 }
-.colo{
+
+.colo {
     background: #91c8e4;
 }
 
-.avat{
+.avat {
     width: 70px;
 }
 
@@ -258,9 +260,42 @@ textarea {
     animation: fadeInOut 3s ease-in-out forwards;
 }
 
+/* .venueCard :hover{
+    transform: scale(1.02);
+    animation: 3s ease-in-out;
+} */
 
-.card>img {
-    width: auto;
-    height: 300px;
-    /* height: auto; */
+.popins {
+    font-family: "Poppins", sans-serif;
 }
+
+.venue-card {
+    position: relative;
+    overflow: hidden;
+  }  
+  .venue-card .additional-info {
+    position: absolute;
+    bottom: 0px; /* Initially keep the additional info at the bottom */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: white;
+    transform: translateY(65%); /* Move the info below the card */
+    transition: transform 0.5s ease-in-out; /* Apply ease-in-out transition */
+  }
+  
+  .venue-card:hover .additional-info {
+    transform: translateY(0); /* Slide the additional info up on hover */
+  }
+  
+  .venue-card:hover .card-img-top {
+    /* filter: brightness(70%); */
+    transform: scale(1.05);
+  }
+    
+  
+/* .venueCard img {
+    width: 100%;
+    margin: auto;
+} */
