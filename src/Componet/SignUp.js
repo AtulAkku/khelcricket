@@ -22,6 +22,11 @@ const SignUp = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
+  const handlePasswordinput = (inputPassword) =>{
+    setPassword(inputPassword);
+    const passwordInput = document.getElementById('password');
+    validatePassword(passwordInput, inputPassword);
+  }
   const validateForm = () => {
     const requiredFields = ['email', 'name', 'phoneNo', 'pinCode', 'password', 'conPassword'];
     const phoneInput = document.getElementById('phoneNo');
@@ -31,9 +36,9 @@ const SignUp = () => {
     const conPasswordInput = document.getElementById('conPassword');
     validateRequired(requiredFields);
     validatePhone(phoneInput, phoneInput.value);
-    validatePinCode(pinCodeInput, parseInt(pinCodeInput.value));
+    validatePinCode(pinCodeInput, parseInt(pinCodeInput.value));  
     validateEmail(emailInput, emailInput.value);
-    validatePassword(passwordInput, passwordInput.value);
+    // validatePassword(passwordInput, passwordInput.value);
     confirmPassword(passwordInput.value, conPasswordInput.value, conPasswordInput);
     return document.querySelector('.is-invalid') === null;
   }
@@ -79,7 +84,7 @@ const SignUp = () => {
         });
         return;
       }
-      const newUser = { email, name, phoneNo, pinCode, city, state, password, };
+      const newUser = { email, name, phoneNo, pinCode, city, state, password };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
       setEmail('');
@@ -93,7 +98,7 @@ const SignUp = () => {
       toast.success('Registration Successful', {
         position: 'top-right',
       });
-      navigate('/login')
+      navigate('/thankYouPage')
     } else {
       toast.error('Form Fields are invalid', {
         position: 'top-right',
@@ -144,7 +149,7 @@ const SignUp = () => {
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="password">Password</label>
                 <div className="input-group">
-                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { handlePasswordinput(e.target.value) }} />
                   <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility1}>
                     {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>

@@ -28,9 +28,6 @@ function Login() {
     const user = storedUsers.find((user) => user.email === cred.email)
     if (user) {
       await logIn(user, true)
-      // sessionStorage.setItem('isAuth', true);
-      // sessionStorage.setItem('isGUser', true);
-      // sessionStorage.setItem('userData', JSON.stringify(user));
       navigate('/');
     } else {
       navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: 'You are not registered yet???' } })

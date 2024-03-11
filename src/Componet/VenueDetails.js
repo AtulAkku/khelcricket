@@ -13,7 +13,7 @@ const VenueDetails = () => {
           <form className='p-3'>
             <div className="form-group">
             <label htmlFor="title">Select Date</label>
-            <input type="date" className="form-control" id="dueDate" /*min={today}*/ onChange={(e) => { /*setDueDate(e.target.value)*/ }} />
+            <input type="date" className="form-control" id="dueDate" onChange={(e) => { /*setDueDate(e.target.value)*/ }} />
           </div>
             <div className="d-flex justify-content-center mt-2">
               <button type="button" className="btn bg-nav px-5 fs-6">Check availability!</button>

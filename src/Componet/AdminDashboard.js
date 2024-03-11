@@ -113,11 +113,11 @@ const AdminDashboard = () => {
   }
 
 
-  useEffect(() => {
-    const storedTasks = (JSON.parse(localStorage.tasks)) ?? []
-    setInitialTasks(storedTasks);
-    setTasks(storedTasks);
-  }, []);
+    // useEffect(() => {
+    //   const storedTasks = (JSON.parse(localStorage.tasks)) ?? []
+    //   setInitialTasks(storedTasks);
+    //   setTasks(storedTasks);
+    // }, []);
 
   return (
     <>

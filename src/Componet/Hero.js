@@ -1,7 +1,5 @@
 import React from 'react'
-import { BiCurrentLocation, BiLocationPlus, BiSolidEditLocation } from 'react-icons/bi'
-import { FaLocationArrow } from 'react-icons/fa'
-import { FaLocationDot, FaLocationPin, FaLocationPinLock } from 'react-icons/fa6'
+import { FaLocationDot } from 'react-icons/fa6'
 
 const Hero = ({data}) => {
     return (

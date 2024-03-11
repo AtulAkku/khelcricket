@@ -32,17 +32,45 @@ export const validateEmail = (emailInput, emailValue) => {
         emailError.textContent = null;
     }
 }
+// export const validatePassword = (passwordInput, passwordValue) => {
+//     const passwordError = document.getElementById('passwordError');
+//     if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}\[\]:;<>,.?/~]).{6,}$/
+//     .test(passwordValue)) {
+//         passwordInput.classList.add('is-invalid');
+//         passwordError.textContent = 'Password must be at least 6 characters long and contain at least one digit, one special character, one lowercase letter, and one uppercase letter';
+//     } else {
+//         passwordInput.classList.remove('is-invalid');
+//         passwordError.textContent = null;
+//     }
+// }
+
 export const validatePassword = (passwordInput, passwordValue) => {
     const passwordError = document.getElementById('passwordError');
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}\[\]:;<>,.?/~]).{6,}$/
-    .test(passwordValue)) {
+    let errorMessage = '';
+    if (passwordValue.length < 8) {
+        errorMessage = 'Password must be at least 8 characters long';
+    }
+    if (!/\d/.test(passwordValue)) {
+        errorMessage += ', must contain at least one digit';
+    }
+    if (!/[!@#$%^&*()_+={}\[\]:;<>,.?/~]/.test(passwordValue)) {
+        errorMessage += ', one special character';
+    }
+    if (!/[a-z]/.test(passwordValue)) {
+        errorMessage += ', one lowercase letter';
+    }
+    if (!/[A-Z]/.test(passwordValue)) {
+        errorMessage += ', one uppercase letter';
+    }
+    if (errorMessage) {
         passwordInput.classList.add('is-invalid');
-        passwordError.textContent = 'Password must be at least 6 characters long and contain at least one digit, one special character, one lowercase letter, and one uppercase letter';
+        passwordError.textContent = errorMessage;
     } else {
         passwordInput.classList.remove('is-invalid');
         passwordError.textContent = null;
     }
 }
+
 export const validatePinCode = (pinCodeInput, pinCodeValue) => {
     const pinCodeError = document.getElementById('pinCodeError');
     if (!((pinCodeValue>= 110001)&&(pinCodeValue<= 855117))) {

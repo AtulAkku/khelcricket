@@ -44,8 +44,8 @@ function App() {
             <Route path='/redirecting' element={<Redirecting />} />
             <Route path='/avatarSelect' element={<AvatarSelect />} />
             <Route path='/preloader' element={<Preloader />} />
-            <Route path='/*' element={<Error404 />} />
             <Route path='/thankYouPage' element={<ThankYouPage />} />
+            <Route path='/*' element={<Error404 />} />
           </Routes>
           <Footer />
         </Router>

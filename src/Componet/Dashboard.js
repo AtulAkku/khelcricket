@@ -17,7 +17,6 @@ const Dashboard = () => {
   }
   const handleOpenModal = () => {
     setShowModal(true);
-    console.log("open modal run")
   };
   const handleCloseModal = () => {
     setShowModal(false);
@@ -40,11 +39,11 @@ const Dashboard = () => {
           <div className="col col-12 col-lg-4">
                 <div className='row'>
                   <div className="col col-lg-6 text-center">
-                    {selectedAvatar && <img src={selectedAvatar} className="img-fluid w-50 rounded-circle" alt="Selected Avatar" onClick={handleOpenModal} />}
+                    <img src={selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-50 rounded-circle" alt="Selected Avatar" onClick={handleOpenModal} />
                   </div>
                   <div className="col col-lg-6 my-auto">
                     <h5 className="card-title">{user.name}</h5>
-                    <div className="text-muted" role="button" onClick={handleOpenModal}>Edit Profile <FaEdit /></div>
+                    <div className="text-muted" role="button" onClick={handleOpenModal}>Change Avatar <FaEdit /></div>
                   </div>
 
                 </div>
