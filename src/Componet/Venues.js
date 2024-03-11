@@ -56,7 +56,7 @@ const Venues = () => {
     <>
       {showModal && <VenueModal handleCloseModal={handleCloseModal} showModal={showModal} venue = {venue} />}
       <div className="bg-white">
-        <div className="row p-5">
+        <div className="row p -5">
           {venueObject.map((item, index) => (
             <div key={index} className="col-lg-3 col-12">
               <div className="card hover m-2" onClick={() => { handleVenueModal(item) }}>

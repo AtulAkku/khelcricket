@@ -8,10 +8,9 @@ const Contact = () => {
       <section className="g-0 bg-black text-light " id="contact">
         <div className="row w-100">
           <div className="col d-flex justify-content-center align-items-center pb-5">
-            <div className="p-5  mt-5 d-flex justify-content-center align-items-center">
+            <div className="p-5 mt-5 d-flex justify-content-center align-items-center">
               <div>
-                <h2>Find Us </h2>
-                <small className='mb-3'>Your hustle for parties ends here !</small>
+                <p className='fs-3'>Your hustle ends here !</p>
                 <p><FaSearchLocation />
                   <span className="p-3">H-65 Sector-63 Near Noida Electronic City Metro Station</span>
                 </p>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ProfilePicModal = (props) => {
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const selectedAvatar = props.selectedAvatar;
+  const setSelectedAvatar = props.setSelectedAvatar;
   const [customAvatar, setCustomAvatar] = useState(null);
-
 
   const handleAvatarSelect = (avatar) => {
     setSelectedAvatar(avatar);
@@ -56,27 +57,29 @@ const ProfilePicModal = (props) => {
     if (selectedAvatar || customAvatar) {
       const avatarToSave = selectedAvatar || customAvatar;
       localStorage.setItem('selectedAvatar', avatarToSave);
-      alert('Avatar saved successfully!');
-      props.onClose();
+      toast.success('Avatar changed successfully!', { position: 'top-right' });
+      // props.onClose();
     } else {
       alert('Please select or upload an avatar before saving.');
     }
   };
 
   return (
+    <>
+    <ToastContainer/>
     <div className={`modal ${selectedAvatar || customAvatar ? 'show' : ''}`} style={{ display: props.showModal ? 'block' : 'none' }}>
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div class="modal-header d-flex justify-content-between">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content border-0 shadow">
+          <div class="modal-header d-flex justify-content-between bg-nav">
             <h5 class="modal-title">Change Profile Picture/Avatar</h5>
-            <button type="button" class="close btn fw-bold" onClick={props.onClose} data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close btn btn-outline-light fw-bold" onClick={props.onClose} data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div className="modal-body p-3">
             <div >
-              <div className='fs-5 text-center'>Select an Avatar</div>
-              <div className='text-center'>
+              <div className='fs-5 text-center'>Select an Avatar or upload a Picture</div>
+              <div className='text-center p-1 rounded shadow bg-white'>
                 {avatars.map((items, index) => (
                   <img
                     className="img-fluid avat"
@@ -88,31 +91,34 @@ const ProfilePicModal = (props) => {
                 ))}
               </div>
             </div>
-            <div className='fs-2'>
+            <div className='fs-6'>
               {selectedAvatar &&
                 <div className="d-flex flex-column align-items-center">
-                  <img src={selectedAvatar} className="avat" alt="Selected Avatar" />
-                  <span className="fs-4">Selected Avatar</span>
+                  <img src={selectedAvatar} className="avat m-1 shadow rounded" alt="Selected Avatar" />
+                  <span className="fs -4">Selected Avatar</span>
                 </div>
               }
             </div>
-            <div className='d-flex flex-column align-items-center mx-5'>
-              <div className='fs-5'>Or Upload Custom Picture</div>
-              <input className="form-control m-2" type="file" accept="image/*" onChange={handleCustomAvatarUpload} />
-              {customAvatar &&
+            {/* <div className='d-flex flex-column align-items-center mx-5'>
+              <input className="form-control m-2" type="file" accept="image/*" onChange={handleCustomAvatarUpload} /> */}
+              {/* {customAvatar &&
                 <div className="d-flex flex-column align-items-center">
-                  <img src={customAvatar} className="avat" alt="Selected Avatar" />
-                  <span className="fs-4">Selected Avatar</span>
+                  <img src={customAvatar} className="avat shadow rounded" alt="Selected Avatar" />
+                  <span className="fs-6">Selected Avatar</span>
                 </div>
-              }
-            </div>
-            <div className="text-center"><button className='btn bg-nav text-light mt-2' onClick={handleSaveAvatar}>
-              Save Profile Picture
-            </button></div>
+              } */}
+            {/* </div> */}
+            
           </div>
+          <div className="modal-footer bg-nav">
+              <button className='btn btn-outline-light' onClick={handleSaveAvatar}>
+                Save Profile Picture
+              </button>
+            </div>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

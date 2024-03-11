@@ -41,12 +41,8 @@ function Login() {
       if (storedUsers != null) {
         user = storedUsers.find((user) => user.email === email && user.password === password);
       }
-
       if (user) {
         logIn(user, false)
-        // sessionStorage.setItem('isAuth', true);
-        // sessionStorage.setItem('isGUser', true);
-        // sessionStorage.setItem('userData', JSON.stringify(user));
         navigate('/');
       } else {
         toast.error('Invalid email or password', { position: 'top-right' });
@@ -72,7 +68,7 @@ function Login() {
             <div className="form-group my-3">
               <label htmlFor="password" className='ms-1 mb-2'>Password</label>
               <div className="input-group">
-               <input type="password" className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> 
+               <input type={showPassword ? "text" : "password"} className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} /> 
               <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility}>
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>

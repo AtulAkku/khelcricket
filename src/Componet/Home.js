@@ -28,18 +28,18 @@ const data = [
     "description": "Backyard Sports Club, Sector 59, Gurugram",
     "image-url": "../../img/location/Backyard.png"
   },
-  {
-    "description": "DLC Cricket Ground, Bandhwari, Gurugram",
-    "image-url": "../../img/location/dlc.png"
-  },
-  {
-    "description": "Gameshub Ground, Baliyawas, Gurugram",
-    "image-url": "../../img/location/Gameshub.png"
-  },
-  {
-    "description": "Lord's of Cricket Ground, Baliyawas, Gurugram",
-    "image-url": "../../img/location/Lords.png"
-  }
+  // {
+  //   "description": "DLC Cricket Ground, Bandhwari, Gurugram",
+  //   "image-url": "../../img/location/dlc.png"
+  // },
+  // {
+  //   "description": "Gameshub Ground, Baliyawas, Gurugram",
+  //   "image-url": "../../img/location/Gameshub.png"
+  // },
+  // {
+  //   "description": "Lord's of Cricket Ground, Baliyawas, Gurugram",
+  //   "image-url": "../../img/location/Lords.png"
+  // }
 
 ]
 
