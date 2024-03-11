@@ -35,7 +35,6 @@ const GSignAdd = () => {
             setCity(matchingEntry.Taluk)
             setState(matchingEntry.statename);
         } else {
-            console.log('not foound');
             setCity('');
             setState('');
         }
@@ -54,10 +53,7 @@ const GSignAdd = () => {
             const newUser = { email, name, phoneNo, pinCode, city, state };
             const updatedUsers = [...storedUsers, newUser];
             localStorage.setItem('users', JSON.stringify(updatedUsers));
-            logIn(newUser, true)
-            // sessionStorage.setItem('isAuth', true);
-            // sessionStorage.setItem('isGUser', true);
-            // sessionStorage.setItem('userData', JSON.stringify(newUser));
+            logIn(newUser, true);
             navigate('/', {state:{newUser}})
         } else {
             toast.error('Form Fields are invalid', {
