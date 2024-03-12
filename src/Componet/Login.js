@@ -35,6 +35,7 @@ function Login() {
       closeOffcanvas();
       navigate('/');
     } else {
+      closeOffcanvas();
       navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: 'You are not registered yet???' } })
     }
   }

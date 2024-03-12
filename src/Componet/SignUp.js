@@ -9,7 +9,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useAuth } from '../Utils/AuthContext';
 import Login from './Login';
 const SignUp = () => {
-  const {logIn} = useAuth();
+  const { logIn } = useAuth();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ const SignUp = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
 
-  const handlePasswordinput = (inputPassword) =>{
+  const handlePasswordinput = (inputPassword) => {
     setPassword(inputPassword);
     const passwordInput = document.getElementById('password');
     validatePassword(passwordInput, inputPassword);
@@ -37,7 +37,7 @@ const SignUp = () => {
     const conPasswordInput = document.getElementById('conPassword');
     validateRequired(requiredFields);
     validatePhone(phoneInput, phoneInput.value);
-    validatePinCode(pinCodeInput, parseInt(pinCodeInput.value));  
+    validatePinCode(pinCodeInput, parseInt(pinCodeInput.value));
     validateEmail(emailInput, emailInput.value);
     // validatePassword(passwordInput, passwordInput.value);
     confirmPassword(passwordInput.value, conPasswordInput.value, conPasswordInput);
@@ -77,7 +77,7 @@ const SignUp = () => {
   const Register = async (e) => {
     e.preventDefault();
     const isValid = validateForm();
-    
+
     if (isValid) {
       if (storedUsers.find((user) => user.email === email)) {
         toast.error('Account already exists! Please Login', {
@@ -109,7 +109,7 @@ const SignUp = () => {
 
   return (
     <>
-    <Login/>
+      <Login />
       <ToastContainer />
       <div className="container mx-auto text-light rounded-top row">
         <div className='col-5'><img className='img-fluid' src='./img/cricketer2.png' alt='' /></div>
@@ -121,7 +121,6 @@ const SignUp = () => {
                 <label className="ms-1 mb-1" htmlFor="email">Email Address</label>
                 <input type="email" className="form-control" id="email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
               </div>
-
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="name">Name</label>
                 <input type="text" className="form-control" id="name" value={name} onChange={(e) => { setName(e.target.value) }} /> <div id="nameError" className="invalid-feedback"></div>
@@ -161,7 +160,7 @@ const SignUp = () => {
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="conPassword">Confirm Password</label>
                 <div className="input-group">
-                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> 
+                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} />
                   <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility2}>
                     {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                   </button>

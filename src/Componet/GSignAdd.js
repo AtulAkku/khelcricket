@@ -64,10 +64,10 @@ const GSignAdd = () => {
     return (
         <>
             <ToastContainer />
-            <div className="container p-4 g-0 shadow mx-auto my-4 bg-light rounded row w-75 ">
-                <div className='col-5' ><img className='img-fluid rounded' src='./img/cricket.png' alt='' /></div>
+            <div className="container text-light">
+                <div className='col-5'><img className='img-fluid' src='./img/cricketer2.png' alt='' /></div>
                 <div className='col-7 d-flex align-item-center flex-column justify-content-center p-2'>
-                    <div className='text-center m-0 p-3 rounded' >
+                    <div className='text-center' >
                         <p className="h3">Welcome {name}!</p>
                         <p className='h5'>{message}</p>
                     </div>
@@ -93,7 +93,7 @@ const GSignAdd = () => {
                             </div>
                         </div>
                         <div className="d-flex justify-content-end mt-4">
-                            <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Sign Up</button>
+                            <button type="button" className="btn btn-outline-light px-5" onClick={Register}>Sign Up</button>
                         </div>
                     </form>
                 </div>
