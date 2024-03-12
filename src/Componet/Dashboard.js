@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { FaMapLocationDot } from "react-icons/fa6";
+import { FaBook, FaMapLocationDot } from "react-icons/fa6";
 import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
 import { useAuth } from '../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import ProfilePicModal from './ProfilePicModal';
-
+import ProfileOffCanvas from './partials/ProfileOffCanvas';
 
 const Dashboard = () => {
   const { user, logOut, isAuth } = useAuth();
@@ -39,7 +38,55 @@ const Dashboard = () => {
   }, [navigate, isAuth]);
   return (
     <>
-      {showModal && <ProfilePicModal onClose={handleCloseModal} showModal={showModal} selectedAvatar={selectedAvatar} setSelectedAvatar={setSelectedAvatar} />}
+      <ProfileOffCanvas 
+        setDashAvatar = {setSelectedAvatar}
+      // selectedAvatar = {selectedAvatar}
+      />
+      <div className="container-fluid g-0 row">
+        <div className="col-md-3 bg-light py-3 d-flex justify-content-center align- items-center vh-100">
+          <div className="flex-column container-fluid">
+            <div className="row py-4">
+              <div className="col col-lg-5 text-center">
+                <img src={selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-75 rounded-circle" alt="Selected Avatar"  />
+              </div>
+              <div className="col col-lg-7 d-flex align-items-start flex-column justify-content-center my-auto">
+                <h5 className="card-title">{user.name}</h5>
+                <a class="text-muted" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                  Change Avatar <FaEdit />
+                </a>
+              </div>
+            </div>
+            <div className="card hover shadow mb-3">
+              <div className="card-body text-dark">
+                <div className="row" role='button'>
+                  <div className="col-md-4 text-center"><span><FaBook/></span></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>My Bookings</p></div>
+                </div>
+              </div>
+            </div>
+            <div className="card hover shadow mb-3">
+              <div className="card-body text-dark">
+                <div className="row" role='button'>
+                  <div className="col-md-4 text-center"><img src="/img/overdue.png" className='img-fluid w-75' alt='View Complaint' /></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Wishlist</p></div>
+                </div>
+              </div>
+            </div>
+            <div className="card hover shadow mb-3">
+              <div className="card-body text-dark">
+                <div className="row" role='button'>
+                  <div className="col-md-4 text-center"><img src="/img/completed.png" className='img-fluid w-75' alt='View Complaint' /></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Help & Support</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-9 p-5 mt-4">
+
+        </div>
+      </div>
+      {/* {showModal && <ProfilePicModal onClose={handleCloseModal} showModal={showModal} selectedAvatar={selectedAvatar} setSelectedAvatar={setSelectedAvatar} />}
       <div className="bg-white p-4">
         <div className="row mx-auto">
           <div className="col col-12 col-lg-4">
@@ -122,32 +169,15 @@ const Dashboard = () => {
                         </td>
                       </tr>
                     ))
-
                   }
-
-                  {/* <tr>
-                      <td>Mohan Cricket Ground, Kadarpur, Gurugram</td>
-                      <td>15-jun-2001</td>
-                      <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
-                    </tr>
-                    <tr>
-                      <td>Mohan Cricket Ground, Kadarpur, Gurugram</td>
-                      <td>15-jun-2001</td>
-                      <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
-                    </tr>
-                    <tr>
-                      <td>Mohan Cricket Ground, Kadarpur, Gurugram</td>
-                      <td>15-jun-2001</td>
-                      <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
-                    </tr> */}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
-  )
-}
+  );
+};
 
 export default Dashboard

@@ -6,8 +6,6 @@ import { jwtDecode } from 'jwt-decode'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Utils/AuthContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
-
-
 function Login() {
   const { logIn } = useAuth();
   const navigate = useNavigate();
@@ -63,12 +61,12 @@ function Login() {
   }
   return (
     <>
-      <div class="offcanvas offcanvas-end bg-nav text-white" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasWithBothOptionsLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title ps-3" id="offcanvasLabel">LOGIN</h5>
-          <button type="button" id="offCanvasClose" class="btn-close text-light btn btn -outline-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div className="offcanvas offcanvas-end bg-nav text-white" data-bs-scroll="true" tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title ps-3" id="offcanvasLabel">LOGIN</h5>
+          <button type="button" id="offCanvasClose" className="btn-close text-light btn btn -outline-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div className="offcanvas-body">
           <form className='p-3'>
             <div className="form-group my-3">
               <label htmlFor="email" className='ms-1 mb-2'>Email address</label>
