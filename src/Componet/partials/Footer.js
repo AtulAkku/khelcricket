@@ -4,6 +4,9 @@ import { useAuth } from '../../Utils/AuthContext'
 
 const Footer = () => {
   const { logOut, isAuth } = useAuth();
+  const handleFooterLogout= () => {
+     logOut();
+  }
   return (
     <footer className='bg-black text-light text-center'>
       <div>
@@ -32,10 +35,10 @@ const Footer = () => {
               </li>
               {
                 isAuth ? <li className="nav-item">
-                  <a className="nav-link" href="/" onClick={logOut}>Logout</a>
+                  <a className="nav-link" href="#nav" onClick={handleFooterLogout}>Logout</a>
                 </li> :
                   <li className="nav-item">
-                    <a className="nav-link" href="/login">Login</a>
+                    <a className="nav-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">Login</a>
                   </li>
               }
               <li>Cart</li>

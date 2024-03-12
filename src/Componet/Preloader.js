@@ -11,7 +11,7 @@ const Preloader = () => {
     }, 1000);
     setTimeout(() => {
       clearInterval(timer);
-      navigate('/login');
+      navigate('/');
     }, 5000);
     return () => clearInterval(timer);
   }, [navigate]);
@@ -26,7 +26,7 @@ const Preloader = () => {
           <div className="col col-12 col-lg-6 my-auto">
             <div className="text-center p-2">
               <h1>Something went Wrong!</h1>
-              <p className="text-muted">Redirecting you to Login page in {5 - count} seconds</p>
+              <p className="text-muted">Redirecting you to Home page in {5 - count} seconds</p>
             </div>
           </div>
           
