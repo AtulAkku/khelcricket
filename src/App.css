@@ -67,6 +67,7 @@ body {
 .fading {
     animation: fade 1.5s;
 }
+
 /* .slide{
     box-shadow: 5px 10px 20px 5px Green inset;
 } */
@@ -108,16 +109,12 @@ body {
     border-radius: 5px 0 0 5px;
 }
 
-
-
 /* footer styling */
 
 footer li {
     list-style: none;
     font-weight: 300;
 }
-
-
 
 .contact-info {
     position: relative;
@@ -263,11 +260,6 @@ textarea {
     animation: fadeInOut 3s ease-in-out forwards;
 }
 
-/* .venueCard :hover{
-    transform: scale(1.02);
-    animation: 3s ease-in-out;
-} */
-
 .popins {
     font-family: "Poppins", sans-serif;
 }
@@ -275,32 +267,31 @@ textarea {
 .venue-card {
     position: relative;
     overflow: hidden;
-  }  
-  .venue-card .additional-info {
+}
+
+.venue-card .additional-info {
     position: absolute;
-    bottom: 0px; /* Initially keep the additional info at the bottom */
+    bottom: 0px;
+    /* Initially keep the additional info at the bottom */
     left: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     color: white;
-    transform: translateY(78%); /* Move the info below the card */
-    transition: transform 0.5s ease-in-out; /* Apply ease-in-out transition */
-  }
-  
-  .venue-card:hover .additional-info {
-    transform: translateY(0); /* Slide the additional info up on hover */
-  }
-  
-  .venue-card:hover{
+    transform: translateY(78%);
+    /* Move the info below the card */
+    transition: transform 0.5s ease-in-out;
+    /* Apply ease-in-out transition */
+}
+
+.venue-card:hover .additional-info {
+    transform: translateY(0);
+    /* Slide the additional info up on hover */
+}
+
+.venue-card:hover {
     /* filter: brightness(70%); */
     transform: scale(1.1);
     animation: ease-in-out 5s;
-  }
-    
-  
-/* .venueCard img {
-    width: 100%;
-    margin: auto;
-} */
+}

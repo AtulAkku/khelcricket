@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useAuth } from '../Utils/AuthContext';
 import Login from './Login';
+import Lottie from 'react-lottie';
+import animationData from './animations/formSign.json';
+
 const SignUp = () => {
   const { logIn } = useAuth();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
@@ -22,6 +25,16 @@ const SignUp = () => {
   const [conPassword, setConPassword] = useState('');
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+
+    }
+  };
 
   const handlePasswordinput = (inputPassword) => {
     setPassword(inputPassword);
@@ -110,8 +123,15 @@ const SignUp = () => {
   return (
     <>
       <ToastContainer />
-      <div className="container mx-auto text-light rounded-top row">
-        <div className='col-5'><img className='img-fluid' src='./img/cricketer2.png' alt='' /></div>
+      <div className="container mx-auto text-light rounded-top row popins">
+        <div className='col-5'>
+          {/* <img className='img-fluid' src='./img/cricketer2.png' alt='' /> */}
+          <Lottie
+            options={defaultOptions}
+            height={450}
+            width={450}
+          />
+        </div>
         <div className='col-7'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>
           <form className="g-0 p-3">

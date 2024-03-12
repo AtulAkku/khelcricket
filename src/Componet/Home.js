@@ -52,9 +52,9 @@ const Home = () => {
     <>
       <LowerNav />
 
+      <Features />
       <Carousel images={images} />
       {/* <HorizontalNav /> */}
-      <Features />
       <Hero data={data} />
       <Contact />
     </>
