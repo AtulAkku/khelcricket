@@ -280,11 +280,12 @@ textarea {
     position: absolute;
     bottom: 0px; /* Initially keep the additional info at the bottom */
     left: 0;
+    height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     color: white;
-    transform: translateY(65%); /* Move the info below the card */
+    transform: translateY(72%); /* Move the info below the card */
     transition: transform 0.5s ease-in-out; /* Apply ease-in-out transition */
   }
   

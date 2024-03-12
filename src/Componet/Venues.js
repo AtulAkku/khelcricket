@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import VenueModal from './partials/VenueModal';
 import { FaLocationArrow } from "react-icons/fa6";
+import Login from './Login';
 
 const venueObject = [
   {
@@ -209,15 +210,16 @@ const Venues = () => {
   return (
     <>
       <div className="container">
+        <Login/>
         {showModal && <VenueModal handleCloseModal={handleCloseModal} showModal={showModal} venue={venue} />}
-        <div className="row p -5">
+        <div className="row">
           {venueObject.map((item, index) => (
             <div key={index} className="col-lg-3 col-12 p-3">
-            <div className="venue-card hover" onClick={() => handleVenueModal(item)}>
+            <div className="venue-card hover rounded shadow popins" onClick={() => handleVenueModal(item)}>
               <img src={item['image-url']} className="img-fluid" alt={item['object-title']} />
               <br />
               <div className="additional-info">
-                <div className="card-title h6 text-center popins py-2">{item['object-title']}</div>
+                <div className="card-title h6 text-center py-2">{item['object-title']}</div>
                 <p className="card-text text-center">
                   <FaLocationArrow /> {item.location}
                 </p>

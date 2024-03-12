@@ -7,6 +7,7 @@ import jsonData from '../Utils/pincode.json';
 import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useAuth } from '../Utils/AuthContext';
+import Login from './Login';
 const SignUp = () => {
   const {logIn} = useAuth();
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
@@ -108,10 +109,11 @@ const SignUp = () => {
 
   return (
     <>
+    <Login/>
       <ToastContainer />
-      <div className="container mx-auto shadow bg-light rounded-top row">
-        <div className='col-5'><img className='w-100 rounded' src='./img/cricket.png' alt='' /></div>
-        <div className='col-7 d- flex align-item-center flex-column justify-content-center p-2'>
+      <div className="container mx-auto text-light rounded-top row">
+        <div className='col-5'><img className='img-fluid' src='./img/cricketer2.png' alt='' /></div>
+        <div className='col-7'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>
           <form className="g-0 p-3">
             <div className="row">
@@ -150,7 +152,7 @@ const SignUp = () => {
                 <label className="ms-1 mb-1" htmlFor="password">Password</label>
                 <div className="input-group">
                   <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { handlePasswordinput(e.target.value) }} />
-                  <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility1}>
+                  <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility1}>
                     {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>
                   <div id="passwordError" className="invalid-feedback"></div>
@@ -160,7 +162,7 @@ const SignUp = () => {
                 <label className="ms-1 mb-1" htmlFor="conPassword">Confirm Password</label>
                 <div className="input-group">
                   <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} /> 
-                  <button className="btn bg-nav rounded-end" type="button" onClick={togglePasswordVisibility2}>
+                  <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility2}>
                     {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                   </button>
                   <div id="conPasswordError" className="invalid-feedback"></div>
@@ -181,7 +183,7 @@ const SignUp = () => {
                   });
                 }}
               />
-              <button type="button" className="btn bg-nav px-5 fs-6" onClick={Register}>Sign Up</button>
+              <button type="button" className="btn btn-outline-light px-5 fs-6" onClick={Register}>Sign Up</button>
             </div>
           </form>
         </div>
