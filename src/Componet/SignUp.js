@@ -109,7 +109,6 @@ const SignUp = () => {
 
   return (
     <>
-      <Login />
       <ToastContainer />
       <div className="container mx-auto text-light rounded-top row">
         <div className='col-5'><img className='img-fluid' src='./img/cricketer2.png' alt='' /></div>
@@ -119,11 +118,13 @@ const SignUp = () => {
             <div className="row">
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="email">Email Address</label>
-                <input type="email" className="form-control" id="email" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
+                <input type="email" className="form-control" id="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                <div id="emailError" className="invalid-feedback"></div>
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="name">Name</label>
-                <input type="text" className="form-control" id="name" value={name} onChange={(e) => { setName(e.target.value) }} /> <div id="nameError" className="invalid-feedback"></div>
+                <input type="text" className="form-control" id="name" value={name} onChange={(e) => { setName(e.target.value) }} />
+                <div id="nameError" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="row">
@@ -169,7 +170,7 @@ const SignUp = () => {
               </div>
             </div>
             <div className="mt-2">
-              <a href="/login" className='text-decoration-none'>Already Registered? Login!</a>
+              <a href="/login" className='text-decoration-none link-light'>Already Registered? Login!</a>
             </div>
             <div className="d-flex justify-content-between mt-2">
               <GoogleLogin

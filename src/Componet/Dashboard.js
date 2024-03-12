@@ -83,7 +83,7 @@ const Dashboard = () => {
               </tbody>
             </table>
             <div className="d-flex justify-content-center mt-2">
-              <button type="button" className="btn bg-nav px-5 fs-6" onClick={handleLogOut}>Log Out</button>
+              <button type="button" className="btn bg-nav px-5 fs-6 text-white" onClick={handleLogOut}>Log Out</button>
             </div>
           </div>
           <div className="col-12 col-lg-8">

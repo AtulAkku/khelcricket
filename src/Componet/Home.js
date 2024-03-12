@@ -4,6 +4,7 @@ import Hero from './Hero'
 import Contact from './Contact'
 import LowerNav from './partials/LowerNav'
 import { useLocation } from 'react-router-dom'
+import Features from './partials/Features'
 
 
 const images = [
@@ -50,8 +51,10 @@ const Home = () => {
   return (
     <>
       <LowerNav />
+
       <Carousel images={images} />
       {/* <HorizontalNav /> */}
+      <Features />
       <Hero data={data} />
       <Contact />
     </>

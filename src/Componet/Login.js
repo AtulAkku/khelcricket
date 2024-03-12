@@ -19,7 +19,7 @@ function Login() {
     document.getElementById('offCanvasClose').click();
   };
   const validateForm = () => {
-    const requiredFields = ['email', 'password'];
+    const requiredFields = ['emailLogin', 'passwordLogin'];
     validateRequired(requiredFields);
     return document.querySelector('.is-invalid') === null;
   }
@@ -65,23 +65,23 @@ function Login() {
     <>
       <div class="offcanvas offcanvas-end bg-nav text-white" data-bs-scroll="true" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasLabel">Login</h5>
+          <h5 class="offcanvas-title ps-3" id="offcanvasLabel">LOGIN</h5>
           <button type="button" id="offCanvasClose" class="btn-close text-light btn btn -outline-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <form className='p-3'>
             <div className="form-group my-3">
               <label htmlFor="email" className='ms-1 mb-2'>Email address</label>
-              <input type="email" className="form-control py-2" id="email" aria-describedby="emailHelp" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailError" className="invalid-feedback"></div>
+              <input type="email" className="form-control py-2" id="emailLogin" aria-describedby="emailHelp" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailLoginError" className="invalid-feedback"></div>
             </div>
             <div className="form-group my-3">
               <label htmlFor="password" className='ms-1 mb-2'>Password</label>
               <div className="input-group">
-                <input type={showPassword ? "text" : "password"} className="form-control py-2" id="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                <input type={showPassword ? "text" : "password"} className="form-control py-2" id="passwordLogin" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                 <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility}>
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
-                <div id="passwordError" className="invalid-feedback"></div>
+                <div id="passwordLoginError" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="mt-2">

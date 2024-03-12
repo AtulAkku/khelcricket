@@ -20,6 +20,15 @@ const Carousel = ({ images, interval = 2000}) => {
 
   return (
     <div className="carousel mx-5 m y-2 rounded shadow">
+      <div class="carousel-indicators">
+              {
+                images.map((image, index) => (
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={index} class={(currentImageIndex === index) ? "active" : ''} aria-current="true" aria-label="Slide 1"></button>
+                ))
+              }
+              {/* <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> */}
+            </div>
       {/* <button className="arrow prev px-2 shadow" onClick={goToPrevSlide}>&#10094;</button> */}
       <div className="slide slide-container">
         <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex}`} />

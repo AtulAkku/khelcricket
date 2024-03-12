@@ -285,7 +285,7 @@ textarea {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     color: white;
-    transform: translateY(72%); /* Move the info below the card */
+    transform: translateY(78%); /* Move the info below the card */
     transition: transform 0.5s ease-in-out; /* Apply ease-in-out transition */
   }
   
@@ -293,9 +293,10 @@ textarea {
     transform: translateY(0); /* Slide the additional info up on hover */
   }
   
-  .venue-card:hover .card-img-top {
+  .venue-card:hover{
     /* filter: brightness(70%); */
-    transform: scale(1.05);
+    transform: scale(1.1);
+    animation: ease-in-out 5s;
   }
     
   

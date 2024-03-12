@@ -46,9 +46,13 @@ export const validateEmail = (emailInput, emailValue) => {
 
 export const validatePassword = (passwordInput, passwordValue) => {
     const passwordError = document.getElementById('passwordError');
+    console.log(passwordError);
     let errorMessage = '';
     if (passwordValue.length < 8) {
-        errorMessage = 'Password must be at least 8 characters long';
+        errorMessage += 'Password must be at least 8 characters long';
+        console.log(passwordValue);
+        console.log(errorMessage);
+        
     }
     if (!/\d/.test(passwordValue)) {
         errorMessage += ', must contain at least one digit';
@@ -63,6 +67,7 @@ export const validatePassword = (passwordInput, passwordValue) => {
         errorMessage += ', one uppercase letter';
     }
     if (errorMessage) {
+        console.log(errorMessage);
         passwordInput.classList.add('is-invalid');
         passwordError.textContent = errorMessage;
     } else {

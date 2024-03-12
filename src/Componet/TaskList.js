@@ -2,7 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { FaEdit, FaEye, FaPlus, FaRegCheckCircle, FaTrash } from 'react-icons/fa'
 import Modal from './Modal';
 import { ToastContainer, toast } from 'react-toastify';
+
+import Lottie from 'react-lottie';
+import animationData from './animations/checkanimation.json';
+
 const TaskList = () => {
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+
+    }
+  };
 
   const [initialTasks, setInitialTasks] = useState([]);
   const [tasks, setTasks] = useState([]);
@@ -113,11 +127,11 @@ const TaskList = () => {
   }
 
 
-  useEffect(() => {
-    const storedTasks = (JSON.parse(localStorage.tasks)) ?? []
-    setInitialTasks(storedTasks);
-    setTasks(storedTasks);
-  }, []);
+  // useEffect(() => {
+  //   const storedTasks = (JSON.parse(localStorage.tasks)) ?? []
+  //   setInitialTasks(storedTasks);
+  //   setTasks(storedTasks);
+  // }, []);
 
   return (
     <>
@@ -268,6 +282,13 @@ const TaskList = () => {
             </ul>
           </nav>
         </div>
+      </div>
+      <div>
+      <Lottie 
+	    options={defaultOptions}
+        height={400}
+        width={400}
+      />
       </div>
     </>
   );
