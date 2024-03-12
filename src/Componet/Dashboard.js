@@ -13,12 +13,9 @@ const Dashboard = () => {
   const [userBookings, setUserBookings] = useState([]);
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const navigate = useNavigate();
-
-
-  console.log(userBookings);
   const handleLogOut = () => {
     logOut();
-    navigate('/')
+    navigate('/');
   }
   const handleOpenModal = () => {
     setShowModal(true);
@@ -29,7 +26,7 @@ const Dashboard = () => {
   useEffect(() => {
     const auth = sessionStorage.getItem('isAuth')
     if (!auth) {
-      navigate('/preloader')
+      navigate('/preloader');
     }
     const storedAvatar = localStorage.getItem('selectedAvatar');
     if (storedAvatar) {
@@ -90,8 +87,8 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="col-12 col-lg-8">
-            <div className="container p-5">
-              <h5 className="h3">Booked Events</h5>
+            <div className="container flex-column p-5">
+              <div className="h3">Booked Events</div>
               <hr />
               <table className="table">
                 <thead>

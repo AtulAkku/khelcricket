@@ -7,24 +7,27 @@ import { useLocation } from 'react-router-dom'
 
 
 const images = [
-  '../../img/carousel/sports.jpg',
-  '../../img/carousel/Screenshot_20240306-012635~2.png',
-  '../../img/carousel/Screenshot_20240306-012901~2.png',
-  '../../img/carousel/Screenshot_20240306-013223~2.png',
-  '../../img/carousel/Screenshot_20240306-013653~2.png',
-  '../../img/carousel/Screenshot_20240306-013909~2.png',
-  '../../img/carousel/Screenshot_20240306-014223~2.png'
+  // '../../img/carousel/sports.jpg',
+  '../../img/carousel/img1.png',
+  '../../img/carousel/img2.png',
+  '../../img/carousel/img3.png',
+  '../../img/carousel/img4.png',
+  '../../img/carousel/img5.png'
+  // '../../img/carousel/Screenshot_20240306-014223~2.png'
 ]
 const data = [
   {
+    "name" : "MCC Cricket Ground",
     "description": "MCC Cricket Ground, Sector - 99, Gurugram",
     "image-url": "../../img/location/mcc.png"
   },
   {
+    "name" : "Mohan Cricket Ground",
     "description": "Mohan Cricket Ground, Kadarpur, Gurugram",
     "image-url": "../../img/location/mohan.png"
   },
   {
+    "name" : "Backyard Sports Club",
     "description": "Backyard Sports Club, Sector 59, Gurugram",
     "image-url": "../../img/location/Backyard.png"
   },
