@@ -21,7 +21,6 @@ const VenueModal = (props) => {
         const storedDate = new Date(booking.date);
         return ((storedDate.toISOString().split('T')[0] === selectedDate.toISOString().split('T')[0]) && (venueDetails['object_id'] === booking.venueId));
       })
-      console.log(existingBooking);
       if (existingBooking) {
         toast.error('Venue not available for the specific date!', {
           position: 'top-right',
@@ -50,8 +49,8 @@ const VenueModal = (props) => {
       <>
         <ToastContainer />
         <div className={`modal bg-dark bg-opacity-50 fade ${props.showModal ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: props.showModal ? 'block' : 'none' }} >
-          <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div className="modal-content shadow border-0">
+          <div className="modal-dialog modal-dialog-centered modal-lg text-light" role="document">
+            <div className="modal-content shadow border-0 bg-nav">
               <div className="modal-header d-flex justify-content-between bg-nav">
                 <h5 className="modal-title">{props.venue['object-title']}</h5>
                 <button type="button" className="close btn btn-outline-light fw-bold" onClick={props.handleCloseModal} data-dismiss="modal" aria-label="Close">

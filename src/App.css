@@ -67,6 +67,9 @@ body {
 .fading {
     animation: fade 1.5s;
 }
+/* .slide{
+    box-shadow: 5px 10px 20px 5px Green inset;
+} */
 
 .slide img {
     width: 100%;

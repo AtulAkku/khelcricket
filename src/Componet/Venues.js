@@ -8,7 +8,7 @@ const venueObject = [
     "object-title": "MCC Cricket Ground",
     "location": "Sector - 99, Gurugram, Haryana",
     "description": "Welcome to MCC Cricket Ground, where cricketing dreams come alive. Nestled in the heart of Gurugram, this ground offers top-notch facilities and a vibrant atmosphere for players and spectators alike. With its well-maintained pitches and welcoming ambiance, every match here is a memorable experience. Restrooms available.",
-    "link":"https://maps.app.goo.gl/yxaB8cxuEqeBXZar7",
+    "link": "https://maps.app.goo.gl/yxaB8cxuEqeBXZar7",
     "image-url": "../../img/location/mcc.png",
     "pricing": "3000"
   },
@@ -17,7 +17,7 @@ const venueObject = [
     "object-title": "Mohan Cricket Ground",
     "location": "Kadarpur, Gurugram, Haryana",
     "description": "Step onto the fields of Mohan Cricket Ground and immerse yourself in the joy of cricket. Located amidst the serene surroundings of Gurugram, this ground offers excellent playing conditions and modern amenities. Whether you're a seasoned player or a cricket enthusiast, Mohan Cricket Ground promises an unforgettable experience. Restrooms available.",
-    "link":"https://maps.app.goo.gl/KBC471Q33dpY9v6w9",
+    "link": "https://maps.app.goo.gl/KBC471Q33dpY9v6w9",
     "image-url": "../../img/location/mohan.png",
     "pricing": "2500"
   },
@@ -26,7 +26,7 @@ const venueObject = [
     "object-title": "Backyard Sports Club",
     "location": "Sector 59, Gurugram, Haryana",
     "description": "Welcome to Backyard Sports Club, your ultimate destination for cricketing fun and excitement. Situated in the heart of Gurugram, this club offers a warm and welcoming atmosphere for players of all levels. With its well-equipped facilities and friendly environment, every visit to Backyard Sports Club is a delight. Restrooms available.",
-    "link":"https://maps.app.goo.gl/GaGF3BnAQWneEATY8",
+    "link": "https://maps.app.goo.gl/GaGF3BnAQWneEATY8",
     "image-url": "../../img/location/Backyard.png",
     "pricing": "2500"
   },
@@ -35,7 +35,7 @@ const venueObject = [
     "object-title": "DLC Cricket Ground",
     "location": "Bandhwari, Gurugram, Haryana",
     "description": "Experience the thrill of cricket at DLC Cricket Ground, where every match is a celebration of sportsmanship and teamwork. Located in Bandhwari, Gurugram, this ground offers spacious fields and modern amenities for players and spectators. Whether you're playing or cheering from the sidelines, DLC Cricket Ground promises an unforgettable experience. Restrooms available.",
-    "link":"https://maps.app.goo.gl/iDwukVintLdPhJzf7",
+    "link": "https://maps.app.goo.gl/iDwukVintLdPhJzf7",
     "image-url": "../../img/location/dlc.png",
     "pricing": "2000"
   },
@@ -44,7 +44,7 @@ const venueObject = [
     "object-title": "Gameforest Ground",
     "location": "Baliyawas, Gurugram, Haryana",
     "description": "Join us at Gameforest Ground for a day filled with cricketing excitement and joy. Situated amidst the scenic beauty of Gurugram, this ground offers excellent facilities and a vibrant atmosphere for players and fans. Whether you're honing your skills or cheering for your favorite team, Gameshub Ground is the place to be. Restrooms available.",
-    "link":"https://maps.app.goo.gl/7CPn73Sb82CHppUf6",
+    "link": "https://maps.app.goo.gl/7CPn73Sb82CHppUf6",
     "image-url": "../../img/location/Gameshub.png",
     "pricing": "2500"
   },
@@ -53,7 +53,7 @@ const venueObject = [
     "object-title": "Lord's Cricket Ground",
     "location": "Baliyawas, Gurugram, Haryana",
     "description": "Welcome to Lord's Cricket Ground, where cricketing passion meets unparalleled beauty. Nestled amidst the picturesque surroundings of Gurugram, this ground offers world-class facilities and a charming ambiance for players and spectators alike. Whether you're playing a match or simply enjoying the game, Lord's Cricket Ground promises an unforgettable experience. Restrooms available.",
-    "link":"https://maps.app.goo.gl/jx5tTCURGs4sbLQX6",
+    "link": "https://maps.app.goo.gl/jx5tTCURGs4sbLQX6",
     "image-url": "../../img/location/Lords.png",
     "pricing": "2700"
   },
@@ -191,7 +191,7 @@ const venueObject = [
     "link": "https://www.google.com/maps/dir/28.6325464,77.4357733/M5RH%2B385+Picnic+Hut+Cricket+Ground,+Ashok+Vihar+III,+Ashok+Vihar,+Delhi,+110052",
     "object_id": "21",
     "pricing": "2000"
-  } 
+  }
 
 ]
 
@@ -208,31 +208,43 @@ const Venues = () => {
   }
   return (
     <>
-    <div className="container">
+      <div className="container">
         {showModal && <VenueModal handleCloseModal={handleCloseModal} showModal={showModal} venue={venue} />}
-          <div className="row p -5">
-            {venueObject.map((item, index) => (
-              <div key={index} className="col-lg-3 col-12 venue-card p-3">
-                <div className="card hover bg-transparent" onClick={() => handleVenueModal(item)}>
-                  <img src={item['image-url']} className="card-img-top img-fluid" alt={item['object-title']} />
-                  <br/>
-                  <div className="card-body">
-                    {/* Initially show only the title */}
-                    <div className="additional-info">
-                    <h5 className="card-title text-center popins py-2">{item['object-title']}</h5>
-                      {/* <hr /> */}
-                    {/* Additional information shown on hover */}
-                      <p className="card-text text-center">
-                        <FaLocationArrow /> {item.location}
-                      </p>
-                      {/* <hr /> */}
-                      <p className="card-text text-center">Pricing: {item.pricing} ₹ Onwards</p>
-                    </div>
-                  </div>
-                </div>
+        <div className="row p -5">
+          {venueObject.map((item, index) => (
+            <div key={index} className="col-lg-3 col-12 p-3">
+            <div className="venue-card hover" onClick={() => handleVenueModal(item)}>
+              <img src={item['image-url']} className="img-fluid" alt={item['object-title']} />
+              <br />
+              <div className="additional-info">
+                <div className="card-title h6 text-center popins py-2">{item['object-title']}</div>
+                <p className="card-text text-center">
+                  <FaLocationArrow /> {item.location}
+                </p>
+                <p className="card-text text-center">Pricing: {item.pricing} ₹ Onwards</p>
               </div>
-            ))}
+            </div>
           </div>
+        //   <div key={index} className="col-lg-3 col-12 venue-card p-3">
+        //   <div className="c ard hover bg-transparent" onClick={() => handleVenueModal(item)}>
+        //     <img src={item['image-url']} className="card-img-top img-fluid" alt={item['object-title']} />
+        //     <br />
+        //     {/* Initially show only the title */}
+        //     <div className="additional-info">
+        //       <h5 className="card-title text-center popins py-2">{item['object-title']}</h5>
+        //       {/* <hr /> */}
+        //       {/* Additional information shown on hover */}
+        //       <p className="card-text text-center">
+        //         <FaLocationArrow /> {item.location}
+        //       </p>
+        //       {/* <hr /> */}
+        //       <p className="card-text text-center">Pricing: {item.pricing} ₹ Onwards</p>
+        //     </div>
+
+        //   </div>
+        // </div>
+          ))}
+        </div>
       </div>
     </>
   )
