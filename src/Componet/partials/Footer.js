@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
-import { useAuth } from '../../Utils/AuthContext'
+import { useAuth } from '../../Utils/AuthContext';
+import PaymentConfirm from './PaymentConfirm';
 
 const Footer = () => {
   const { logOut, isAuth } = useAuth();
@@ -10,6 +11,7 @@ const Footer = () => {
   return (
     <footer className='bg-black text-light text-center'>
       <div>
+        <PaymentConfirm />
         <div className="row g-0 pt-5">
           <div className="col-md-2">
             <ul>
@@ -22,7 +24,9 @@ const Footer = () => {
           <div className="col-md-2">
             <ul>
               <li className="h5 text-muted">Help</li>
-              <li>Payments</li>
+              <li><a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Link with href
+</a></li>
               <li>Cancelation & Returns</li>
               <li>FAQ</li>
             </ul>
