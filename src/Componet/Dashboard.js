@@ -27,11 +27,12 @@ const Dashboard = () => {
     if (!auth) {
       navigate('/preloader');
     }
-    const storedAvatar = localStorage.getItem('selectedAvatar');
+    const storedAvatar = localStorage.getItem('selectedAvatar') ?? "../../img/avatars/defaultAvtar.png";
+    console.log(storedAvatar);
     if (storedAvatar) {
       setSelectedAvatar(storedAvatar);
     }
-    const bookings = (JSON.parse(localStorage.bookings)) ?? []
+    const bookings = (JSON.parse(localStorage.getItem('bookings'))) ?? [];
     setStoredBookings(bookings);
     const filteredBookings = storedBookings.filter((booking) => user.email === booking.userEmail);
     setUserBookings(filteredBookings);

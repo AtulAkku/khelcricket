@@ -63,7 +63,6 @@ const ProfileOffCanvas = (props) => {
       setDashAvatar(avatarToSave);
       closeOffcanvas();
       toast.success('Avatar changed successfully!', { position: 'top-right' });
-      // props.onClose();
     } else {
       alert('Please select or upload an avatar before saving.');
     }
