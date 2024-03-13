@@ -3,15 +3,21 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { useAuth } from '../../Utils/AuthContext';
 import PaymentConfirm from './PaymentConfirm';
 import PaymentSuccessfull from '../PaymentSuccessfull';
+import VenueModal from './VenueModal';
 
 const Footer = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
   const { logOut, isAuth } = useAuth();
   const handleFooterLogout= () => {
      logOut();
   }
   const handleCloseModal = () => {
     setShowModal(false);
+  }
+  const handleCloseModal2 = () => {
+    setShowModal2(false);
   }
   return (
     <footer className='bg-black text-light text-center'>
@@ -20,6 +26,10 @@ const Footer = () => {
         {showModal && (<PaymentSuccessfull
         showModal={showModal}
         handleCloseModal={handleCloseModal}
+      />)}
+      {showModal2 && (<VenueModal
+        showModal2={showModal2}
+        handleCloseModal2={handleCloseModal2}
       />)}
         <div className="row g-0 pt-5">
           <div className="col-md-2">
@@ -37,7 +47,7 @@ const Footer = () => {
   Link with href
 </a></li>
               <li onClick={()=>{setShowModal(true)}}>Cancelation & Returns</li>
-              <li>FAQ</li>
+              <li onClick={()=>{setShowModal2(true)}}>FAQ</li>
             </ul>
           </div>
           <div className="col-md-2">

@@ -5,73 +5,77 @@ import { useAuth } from '../../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const VenueModal = (props) => {
-  const today = new Date().toISOString().split('T')[0];
-  const { user, isAuth } = useAuth();
-  const [bookingDate, setBookingDate] = useState(today);
-  const navigate = useNavigate();
+  // const today = new Date().toISOString().split('T')[0];
+  // const { user, isAuth } = useAuth();
+  // const [bookingDate, setBookingDate] = useState(today);
+  // const navigate = useNavigate();
 
-  const handleCheckAvail = (venueDetails) => {
-    console.log(isAuth);
-    if (isAuth) {
-      const storedBookings = JSON.parse(localStorage.getItem('bookings')) || [];
-      console.log(Array.isArray(storedBookings));
-      const selectedDate = new Date(bookingDate);
-      console.log(bookingDate);
-      const existingBooking = storedBookings.find((booking) => {
-        const storedDate = new Date(booking.date);
-        return ((storedDate.toISOString().split('T')[0] === selectedDate.toISOString().split('T')[0]) && (venueDetails['object_id'] === booking.venueId));
-      })
-      if (existingBooking) {
-        toast.error('Venue not available for the specific date!', {
-          position: 'top-right',
-        });
-        return;
-      }
-      else {
-        const newBooking = {
-          userName: user.name,
-          userEmail: user.email,
-          venueId: props.venue['object_id'],
-          venueName: props.venue['object-title'],
-          location: props.venue.location,
-          date: bookingDate
-        }
-        const updatedBookings = [...storedBookings, newBooking];
-        localStorage.setItem("bookings", JSON.stringify(updatedBookings));
-        toast.success('You booking request has been sent to Admin!', {
-          position: 'top-right',
-        })}
-    }else {
-        navigate('/preloader')
-      }
-    }
+  // const handleCheckAvail = (venueDetails) => {
+  //   console.log(isAuth);
+  //   if (isAuth) {
+  //     const storedBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+  //     console.log(Array.isArray(storedBookings));
+  //     const selectedDate = new Date(bookingDate);
+  //     console.log(bookingDate);
+  //     const existingBooking = storedBookings.find((booking) => {
+  //       const storedDate = new Date(booking.date);
+  //       return ((storedDate.toISOString().split('T')[0] === selectedDate.toISOString().split('T')[0]) && (venueDetails['object_id'] === booking.venueId));
+  //     })
+  //     if (existingBooking) {
+  //       toast.error('Venue not available for the specific date!', {
+  //         position: 'top-right',
+  //       });
+  //       return;
+  //     }
+  //     else {
+  //       const newBooking = {
+  //         userName: user.name,
+  //         userEmail: user.email,
+  //         venueId: props.venue['object_id'],
+  //         venueName: props.venue['object-title'],
+  //         location: props.venue.location,
+  //         date: bookingDate
+  //       }
+  //       const updatedBookings = [...storedBookings, newBooking];
+  //       localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+  //       toast.success('You booking request has been sent to Admin!', {
+  //         position: 'top-right',
+  //       })}
+  //   }else {
+  //       navigate('/preloader')
+  //     }
+  //   }
     return (
       <>
         <ToastContainer />
-        <div className={`modal bg-dark bg-opacity-50 fade ${props.showModal ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: props.showModal ? 'block' : 'none' }} >
+        <div className={`modal bg-dark bg-opacity-50 fade ${props.showModal2 ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: props.showModal2 ? 'block' : 'none' }} >
           <div className="modal-dialog modal-dialog-centered modal-lg text-light" role="document">
             <div className="modal-content shadow border-0 bg-nav">
               <div className="modal-header d-flex justify-content-between bg-nav">
-                <h5 className="modal-title">{props.venue['object-title']}</h5>
-                <button type="button" className="close btn btn-outline-light fw-bold" onClick={props.handleCloseModal} data-dismiss="modal" aria-label="Close">
+                <h5 className="modal-title">Booking Details</h5>
+                <button type="button" className="close btn btn-outline-light fw-bold" onClick={props.handleCloseModal2} data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div className="modal-body">
                 <div className="row d-flex align-items-center ">
                   <div className="col col-lg-6 col-12">
-                    <img className="img-fluid" src={props.venue['image-url']} alt="" />
+                    <img className="img-fluid" src='../../../img/location/mcc.png' alt="" />
                   </div>
                   <div className="col col-lg-6 col-12">
+                  <p className="fs-2">Venue Name</p>
                     <div className="fs-4 text-center"><FaLocationDot />
-                      <p className="fs-4"> {props.venue.location}</p>
+                      <p className="fs-4 btn">Location</p>
                     </div>
-                    <input type="date" className="form-control" id="dueDate" min={today} value={bookingDate} onChange={(e) => { setBookingDate(e.target.value) }} />
+                    <div className="fs-4 text-center">
+                      <p className="fs-4">Booking Date</p>
+                      <p className="fs-4">12-95-2014</p>
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="modal-footer bg-nav">
-                <button type="button" className="btn btn-outline-light" onClick={() => { handleCheckAvail(props.venue) }}>Check Availibility!</button>
+                <button type="button" className="btn btn-outline-light" onClick={props.handleCloseModal2}>OK</button>
               </div>
             </div>
           </div>
