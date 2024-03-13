@@ -5,7 +5,7 @@ import Booking from '../animations/booking.json';
 import Calender from '../animations/calenderlook2.json';
 import Check from '../animations/checkanimation.json';
 import Database from '../animations/database.json';
-import Search from '../animations/search.json';
+import Search from '../animations/searchLocation.json';
 import Secure from '../animations/secure-payment.json';
 import UserFriendly from '../animations/userfriendly1.json';
 import Website from '../animations/website.json';
@@ -96,9 +96,9 @@ const Features = () => {
     };
     return (
         <>
-            <div className="bg-white my-3 py-5 popins ">
+            <div className="bg-white my-3 py-5 popins g-0">
                 <div className='text-center h1 pb-4'>Features</div>
-                <div className='contain er m-auto' style={{maxWidth:"1400px"}}>
+                <div className='contain er g-0 m-auto' style={{maxWidth:"1400px"}}>
                     <div className="row">
                         <div className="col-12 col-lg-6 border-end border-5">
                             <Lottie
@@ -161,7 +161,7 @@ const Features = () => {
                             />
                         </div>
                         <div className='col-12 col-lg-6 d-flex align-items-center fs-2'>
-                            <div className='ps-5 m-5'>Secure Payment Option </div>
+                            <div className='ps-5 m-5'>Secure Payment Option</div>
                             
                         </div>
                     </div>
@@ -188,7 +188,7 @@ const Features = () => {
                             />
                         </div>
                         <div className='col-12 col-lg-6 d-flex align-items-center fs-2'>
-                            <div className='ps-5 m-5'>Comprehensive Venue Database</div>
+                            <div className='ps-5 m-5'>Comprehensive Venue Database of different cricket venues</div>
                             
                         </div>
                     </div>
