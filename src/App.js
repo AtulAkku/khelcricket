@@ -22,6 +22,7 @@ import AvatarSelect from './Componet/AvatarSelect';
 import Preloader from './Componet/Preloader';
 import Error404 from './Componet/Error404';
 import ThankYouPage from './Componet/ThankYouPage';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Router>
           <NavBar />
           <Login/>
+          <ToastContainer/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

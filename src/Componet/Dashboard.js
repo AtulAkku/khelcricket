@@ -52,7 +52,7 @@ const Dashboard = () => {
               </div>
               <div className="col col-lg-7 d-flex align-items-start flex-column justify-content-center my-auto">
                 <h5 className="card-title">{user.name}</h5>
-                <a class="text-muted" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                <a className="text-muted" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                   Change Avatar <FaEdit />
                 </a>
               </div>
