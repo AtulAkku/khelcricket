@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Carousel = ({ images, interval = 4000 }) => {
+const Carousel = ({ images, interval = 5000 }) => {
   const texts = [
     "Cricket began as a children's game in England in the 16th century",
     "Ravi Shastri is the first cricketer to hit 6 sixes in an over",

@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect, createContext } from 'react';
 import { googleLogout } from '@react-oauth/google';
+import { toast } from 'react-toastify';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -21,6 +22,9 @@ export const AuthProvider = ({ children }) => {
         setIsAuth(false);
         setIsGUser(false);
         sessionStorage.clear();
+        toast.warning('You have been Logged out', {
+            position: 'top-center',
+          });
     }
     useEffect(() => {
         const storedIsAuth = sessionStorage.getItem('isAuth');

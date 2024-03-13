@@ -31,7 +31,6 @@ function Login() {
       logIn(user, true)
       toast.success('Logged in Successfully!', { position: 'top-right' });
       closeOffcanvas();
-      navigate('/');
     } else {
       closeOffcanvas();
       navigate('/gSignAdd', { state: { email: cred.email, name: cred.name, message: 'You are not registered yet???' } })
@@ -49,7 +48,6 @@ function Login() {
         logIn(user, false);
         toast.success('Logged in Successfully!', { position: 'top-right' });
         closeOffcanvas();
-        navigate('/');
       } else {
         toast.error('Invalid email or password', { position: 'bottom-right' });
       }

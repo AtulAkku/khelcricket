@@ -4,6 +4,7 @@ import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
 import { useAuth } from '../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import ProfileOffCanvas from './partials/ProfileOffCanvas';
+import { BiSupport } from 'react-icons/bi';
 
 const Dashboard = () => {
   const { user, logOut, isAuth } = useAuth();
@@ -39,16 +40,16 @@ const Dashboard = () => {
   }, [navigate, isAuth]);
   return (
     <>
-      <ProfileOffCanvas 
-        setDashAvatar = {setSelectedAvatar}
+      <ProfileOffCanvas
+        setDashAvatar={setSelectedAvatar}
       // selectedAvatar = {selectedAvatar}
       />
       <div className="container-fluid g-0 row">
-        <div className="col-md-3 bg-light py-3 d-flex justify-content-center align- items-center vh-100">
-          <div className="flex-column container-fluid">
-            <div className="row py-4">
+        <div className="col-md-3 bg-lightd-flex justify-content-center align- items-center bg-light">
+          <div className="flex-column container">
+            <div className="row">
               <div className="col col-lg-5 text-center">
-                <img src={selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-75 rounded-circle" alt="Selected Avatar"  />
+                <img src={selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
               </div>
               <div className="col col-lg-7 d-flex align-items-start flex-column justify-content-center my-auto">
                 <h5 className="card-title">{user.name}</h5>
@@ -57,36 +58,78 @@ const Dashboard = () => {
                 </a>
               </div>
             </div>
-            <div className="card hover shadow mb-3">
+            <div className="card hover shadow my-3 w-100">
               <div className="card-body text-dark">
                 <div className="row" role='button'>
-                  <div className="col-md-4 text-center"><span><FaBook/></span></div>
+                  <div className="col-md-4 text-center"><span><FaBook /></span></div>
                   <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>My Bookings</p></div>
                 </div>
               </div>
             </div>
-            <div className="card hover shadow mb-3">
+            {/* <div className="card hover shadow mb-3">
               <div className="card-body text-dark">
                 <div className="row" role='button'>
                   <div className="col-md-4 text-center"><img src="/img/overdue.png" className='img-fluid w-75' alt='View Complaint' /></div>
-                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Wishlist</p></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Favourites</p></div>
                 </div>
               </div>
-            </div>
-            <div className="card hover shadow mb-3">
+            </div> */}
+            <div className="card hover shadow my-3 w-100">
               <div className="card-body text-dark">
                 <div className="row" role='button'>
-                  <div className="col-md-4 text-center"><img src="/img/completed.png" className='img-fluid w-75' alt='View Complaint' /></div>
+                  <div className="col-md-4 text-center"><BiSupport /></div>
                   <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Help & Support</p></div>
                 </div>
               </div>
             </div>
+            <div className="shadow my-3 w-100 bg-nav text-light btn" onClick={handleLogOut}>
+              <span className='h5 text-center'>Logout</span>
+            </div>
           </div>
         </div>
         <div className="col-md-9 p-5 mt-4">
-
+        <div className="container flex-column p-5">
+              <div className="h3">Booked Events</div>
+              <hr />
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Venue</th>
+                    <th scope="col">Booking Date</th>
+                    <th scope="col" className="text-center">Location</th>
+                    <th scope="col" className="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(userBookings.length === 0) ?
+                    <tr>
+                      <td colSpan='3' className="text-center py-4">
+                        <p>No bookings yet</p>
+                        <p>Don't worry just navigate to <a href="/venues" className="text-decoration-none">Venues</a></p>
+                      </td>
+                    </tr>
+                    :
+                    userBookings.map((item, index) => (
+                      <tr key={index}>
+                        <td>{item.venueName}</td>
+                        <td>{item.date}</td>
+                        <td className='text-center'><a href='/' className='fs-4'><FaMapLocationDot /></a></td>
+                        <td className='text-center'>
+                          <div className="d-flex justify-content-around">
+                            <a href='/' className='fs-4 text-success' title='Edit'><FaEdit /></a>
+                            <a href='/' className='fs-4 text-info' title='View'><FaEye /></a>
+                            <a href='/' className='fs-4 text-danger' title='Delete'><FaTrash /></a>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
+      
       {/* {showModal && <ProfilePicModal onClose={handleCloseModal} showModal={showModal} selectedAvatar={selectedAvatar} setSelectedAvatar={setSelectedAvatar} />}
       <div className="bg-white p-4">
         <div className="row mx-auto">

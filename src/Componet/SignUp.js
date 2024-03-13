@@ -7,7 +7,6 @@ import jsonData from '../Utils/pincode.json';
 import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useAuth } from '../Utils/AuthContext';
-import Login from './Login';
 import Lottie from 'react-lottie';
 import animationData from './animations/formSign.json';
 
@@ -35,7 +34,13 @@ const SignUp = () => {
 
     }
   };
-
+  const checkEmail = ()=>{
+    if (storedUsers.find((user) => user.email === email)) {
+      toast.error('Account already exists! Please Login', {
+        position: 'top-right',
+      });
+    }
+  }
   const handlePasswordinput = (inputPassword) => {
     setPassword(inputPassword);
     const passwordInput = document.getElementById('password');
@@ -124,7 +129,7 @@ const SignUp = () => {
     <>
       <ToastContainer />
       <div className="container mx-auto text-light rounded-top row popins">
-        <div className='col-5'>
+        <div className='col-lg-5 col-12'>
           {/* <img className='img-fluid' src='./img/cricketer2.png' alt='' /> */}
           <Lottie
             options={defaultOptions}
@@ -132,13 +137,13 @@ const SignUp = () => {
             width={450}
           />
         </div>
-        <div className='col-7'>
+        <div className='col-12 col-lg-7'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>
           <form className="g-0 p-3">
             <div className="row">
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="email">Email Address</label>
-                <input type="email" className="form-control" id="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                <input type="email" className="form-control" id="email" value={email} onBlur={checkEmail} onChange={(e) => { setEmail(e.target.value) }} />
                 <div id="emailError" className="invalid-feedback"></div>
               </div>
               <div className="form-group col-md-6">
@@ -154,7 +159,8 @@ const SignUp = () => {
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="pinCode">Pin Code</label>
-                <input type="text" className="form-control" id="pinCode" value={pinCode} onChange={searchCity} /> <div id="pinCodeError" className="invalid-feedback"></div>
+                <input type="text" className="form-control" id="pinCode" value={pinCode} onChange={searchCity} />
+                <div id="pinCodeError" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="row">
@@ -176,6 +182,7 @@ const SignUp = () => {
                     {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>
                   <div id="passwordError" className="invalid-feedback"></div>
+                  <div id="validPassword" className="valid-feedback">Valid</div>
                 </div>
               </div>
               <div className="form-group col-md-6">

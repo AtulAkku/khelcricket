@@ -54,12 +54,17 @@ const VenueDetails = ({ interval = 2000 }) => {
         // })
       }
     } else {
-      navigate('/preloader')
+      document.getElementById("logInBtn").click();
+      toast.warning('Please Login to continue!', {
+        position: 'top-center',
+      });
     }
   }
 
   const handleBooking = ()=>{
-    alert("Booked")
+    toast.success('Thank you!', {
+      position: 'top-center',
+    });
   }
 
   const handleDateChange = (date)=>{

@@ -35,7 +35,7 @@ const NavBar = () => {
               </li>
               {(!isAuth) ?
                 <li className="nav-item fs-5">
-                  <a className="nav-link btn d-flex link-light" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
+                  <a className="nav-link btn d-flex link-light" id="logInBtn" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
                     {/* <div className="pe-2"><BiLogInCircle /></div> */}
                     <span className="text-nowrap pt-1">LOGIN</span>
                   </a>

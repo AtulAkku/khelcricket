@@ -46,13 +46,9 @@ export const validateEmail = (emailInput, emailValue) => {
 
 export const validatePassword = (passwordInput, passwordValue) => {
     const passwordError = document.getElementById('passwordError');
-    console.log(passwordError);
     let errorMessage = '';
     if (passwordValue.length < 8) {
-        errorMessage += 'Password must be at least 8 characters long';
-        console.log(passwordValue);
-        console.log(errorMessage);
-        
+        errorMessage += 'Password must be at least 8 characters long';        
     }
     if (!/\d/.test(passwordValue)) {
         errorMessage += ', must contain at least one digit';
@@ -72,7 +68,8 @@ export const validatePassword = (passwordInput, passwordValue) => {
         passwordError.textContent = errorMessage;
     } else {
         passwordInput.classList.remove('is-invalid');
-        passwordError.textContent = null;
+        console.log("WE are in");
+        passwordError.textContent = 'Perfect password';
     }
 }
 

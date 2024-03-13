@@ -100,7 +100,7 @@ const ProfileOffCanvas = (props) => {
             </div>
             <div className="text-center m-3">
               <button className='btn btn-outline-light' onClick={handleSaveAvatar}>
-                Save Profile Picture
+                Save Avatar
               </button>
             </div>
           </div>
