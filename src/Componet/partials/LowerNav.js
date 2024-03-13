@@ -11,11 +11,11 @@ const LowerNav = () => {
     <ToastContainer/>
       <div className="container">
         <div className="row mx-auto">
-          <div className="col text-white text-shadow d-flex align-items-center">
+          <div className="col text-white text-shadow d-flex align-items-center popins">
             <div>
               {
                 isAuth ?
-                  <span className="h5">Welcome {user.name} !</span> :
+                  <span className="h2">Welcome {user.name} !</span> :
                   <>
                     <div className="d-flex justify-content-between mb-2">
                       <a className="btn btn-outline-light px-5" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">Log In</a>

@@ -5,7 +5,7 @@ import { MdStadium } from 'react-icons/md'
 import { useAuth } from '../../Utils/AuthContext'
 import { FaUser } from 'react-icons/fa6'
 const NavBar = () => {
-  const { isAuth } = useAuth();
+  const { isAuth, logOut } = useAuth();
   const [activeTab, setActiveTab] = useState('home');
 
   useEffect(() => {
@@ -34,19 +34,25 @@ const NavBar = () => {
                 </a>
               </li>
               {(!isAuth) ?
-                <li className= "nav-item fs-5">
+                <li className="nav-item fs-5">
                   <a className="nav-link btn d-flex link-light" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
                     {/* <div className="pe-2"><BiLogInCircle /></div> */}
                     <span className="text-nowrap pt-1">LOGIN</span>
                   </a>
                 </li>
                 :
-                <li className={`nav-item fs-5 ${activeTab === 'dashboard' ? 'text-decoration-underline' : ''}`} onClick={() => handleTabClick('dashboard')}>
-                  <a className="nav-link btn d-flex link-light" href="/dashboard">
-                    {/* <div className="pe-2"><FaUser /></div> */}
-                    <span className="text-nowrap pt-1">DASHBOARD</span>
-                  </a>
-                </li>}
+                <>
+                  <li className={`nav-item fs-5 ${activeTab === 'dashboard' ? 'text-decoration-underline' : ''}`} onClick={() => handleTabClick('dashboard')}>
+                    <a className="nav-link btn d-flex link-light" href="/dashboard">
+                      {/* <div className="pe-2"><FaUser /></div> */}
+                      <span className="text-nowrap pt-1">DASHBOARD</span>
+                    </a>
+                  </li>
+                  <li className="nav-item fs-5 ps-2 d-flex align-items-center">
+                    <button type="button" className="btn btn-outline-light fs-6 text -white" onClick={logOut}>LOGOUT</button>
+                  </li>
+                </>
+                }
             </ul>
           </div>
         </div>

@@ -35,7 +35,7 @@ const Footer = () => {
               </li>
               {
                 isAuth ? <li className="nav-item">
-                  <a className="nav-link" href="#nav" onClick={handleFooterLogout}>Logout</a>
+                  <span className="nav-link" onClick={handleFooterLogout}>Logout</span>
                 </li> :
                   <li className="nav-item">
                     <a className="nav-link" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">Login</a>

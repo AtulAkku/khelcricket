@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import VenueModal from './partials/VenueModal';
 import { FaLocationArrow } from "react-icons/fa6";
 import Login from './Login';
+import { useNavigate } from 'react-router';
 
 const venueObject = [
   {
@@ -179,19 +180,19 @@ const venueObject = [
 
 const Venues = () => {
   const [showModal, setShowModal] = useState(false);
-  const [venue, setVenue] = useState(false);
+  const [venue, setVenue] = useState([]);
+  const navigate = useNavigate();
   const handleCloseModal = () => {
     setShowModal(false);
     setVenue()
   };
   const handleVenueModal = (item) => {
-    setShowModal(true);
-    setVenue(item);
+    navigate('/venueDetails', {state : {item}})
   }
   return (
     <>
       <div className="container">
-        <Login/>
+        {/* <Login/> */}
         {showModal && <VenueModal handleCloseModal={handleCloseModal} showModal={showModal} venue={venue} />}
         <div className="row">
           {venueObject.map((item, index) => (
