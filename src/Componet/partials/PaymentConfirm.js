@@ -14,7 +14,7 @@ const PaymentConfirm = () => {
   }
   return (
     <>
-      <div class="offcanvas offcanvas-start bg-nav text-white popins w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas offcanvas-start bg-nav text-white popins w-50" tabindex="-1" id="offcanvasPaymentConfirmation" aria-labelledby="offcanvasPayment">
         <div class="offcanvas-header py-3">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Confirm Your Booking Payment</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

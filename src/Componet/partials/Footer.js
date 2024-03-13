@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="col-md-2">
             <ul>
               <li className="h5 text-muted">Help</li>
-              <li><a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+              <li><a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasPaymentConfirmation" role="button" aria-controls="offcanvasPayment">
   Link with href
 </a></li>
               <li onClick={()=>{setShowModal(true)}}>Cancelation & Returns</li>
