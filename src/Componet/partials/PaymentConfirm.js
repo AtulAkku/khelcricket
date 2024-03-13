@@ -15,7 +15,7 @@ const PaymentConfirm = () => {
   return (
     <>
       <div class="offcanvas offcanvas-start bg-nav text-white popins w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
+        <div class="offcanvas-header py-3">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Confirm Your Booking Payment</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -26,13 +26,13 @@ const PaymentConfirm = () => {
             width={200}
           />
         </div>
-        <div class="offcanvas-body">
-          <div className='my-4'>
+        <div class="offcanvas-body py-0">
+          <div className=''>
             <div className='bg-white text-dark'>
               Booking Details
             </div>
           </div>
-          <div className='row'>
+          <div className='row py-1'>
             <div className="col">
               <table className='text-start m-auto'>
                 <tbody>
@@ -50,61 +50,61 @@ const PaymentConfirm = () => {
               </table>
             </div>
             <div className="col">
-              <table className='m-auto text-start'>
+              <table className='m-auto text-start w-100'>
                 <tbody>
                   <tr>
                     <td>Booking Charges</td>
                     <td>-</td>
-                    <td>₹ 2000.00</td>
+                    <td className='text-end'>2000.00 ₹</td>
                   </tr>
                   <tr>
                     <td>GST</td>
                     <td>-</td>
-                    <td>₹ 360.00</td>
+                    <td className='text-end'>360.00 ₹</td>
                   </tr>
-                  <tr>
+                  <tr className='border-top'>
                     <td>Total</td>
                     <td>-</td>
-                    <td>₹ 2360.00</td>
+                    <td className='text-end'>2360.00 ₹</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div className='my-4'>
+          <div className=''>
             <div className='bg-white text-dark'>
               Enter Card Details
             </div>
-            <div className='m-auto w-100'>
-              <form>
-                {/* <div class="form-group row">
-                  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                  <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"/>
-                  </div>
-                </div> */}
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Card Number:</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword" placeholder='XXXX XXXX XXXX XXXX'  />
-                  </div>
+            <div className='m-auto w-75'>
+              <form className='text-start my-3'>
+                <div class="mb-1">
+                  <label for="exampleInputEmail1" class="form-label">Card Number</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1"
+                    placeholder='1234 5678 9012 3456'
+                    aria-describedby="emailHelp" />
                 </div>
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Name on Card</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword" placeholder="XXX"/>
-                  </div>
+                <div class="mb-1">
+                  <label for="exampleInputPassword1" class="form-label">Name on Card</label>
+                  <input type="text" class="form-control"
+                    placeholder='Ex. Gol D Roger'
+                    id="exampleInputPassword1" />
                 </div>
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">CVV:</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword" placeholder="XXX"/>
+                <div className='row'>
+                  <div className="col">
+                    <div class="mb-1">
+                      <label for="exampleInputPassword1" class="form-label">Expiry Date</label>
+                      <input type="text" class="form-control"
+                        placeholder='01/24'
+                        id="exampleInputPassword1" />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">exp:</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword" placeholder="XXX"/>
+                  <div className="col">
+                    <div class="mb-1">
+                      <label for="exampleInputPassword1" class="form-label">Security Code</label>
+                      <input type="text" class="form-control"
+                        placeholder='XXX'
+                        id="exampleInputPassword1" />
+                    </div>
                   </div>
                 </div>
               </form>
