@@ -4,7 +4,7 @@ import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
 import { useAuth } from '../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import ProfileOffCanvas from './partials/ProfileOffCanvas';
-import { BiSupport } from 'react-icons/bi';
+import { BiSupport, BiUser } from 'react-icons/bi';
 import VenueModal from './partials/VenueModal';
 
 const Dashboard = () => {
@@ -63,7 +63,7 @@ const Dashboard = () => {
       />)}
       <div className="container-fluid g-0 row popins">
         <div className="col-md-3 bg-light p-3">
-          <div className="flex -column con tainer">
+          <div className="menu">
             <div className="row">
               <div className="col col-lg-5 text-center">
                 <img src={selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
@@ -75,20 +75,22 @@ const Dashboard = () => {
                 </a>
               </div>
             </div>
-            <div className="card hover shadow my-3 w-100">
-              <div className="card-body text-dark">
+            <div className="hover shadow my-3 p-3">
                 <div className="row" role='button'>
-                  <div className="col-md-4 text-center"><span><FaBook /></span></div>
-                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>My Bookings</p></div>
-                </div>
+                  <div className="col-md-4 fs-2 text-center"><span><FaBook /></span></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 pt-3'>My Bookings</p></div>
               </div>
             </div>
-            <div className="card hover shadow my-3 w-100">
-              <div className="card-body text-dark">
+            <div className="hover shadow my-3 p-3">
                 <div className="row" role='button'>
-                  <div className="col-md-4 text-center"><BiSupport /></div>
-                  <div className="col-md-8 d-flex align-items-center"><p className='h5 w-100 text-center'>Help & Support</p></div>
-                </div>
+                  <div className="col-md-4 fs-2 text-center"><BiUser /></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 pt-3'>My Profile</p></div>
+              </div>
+            </div>
+            <div className="hover shadow my-3 p-3">
+                <div className="row" role='button'>
+                  <div className="col-md-4 fs-2 text-center"><BiSupport /></div>
+                  <div className="col-md-8 d-flex align-items-center"><p className='h5 pt-3'>Help & Support</p></div>
               </div>
             </div>
             <div className="shadow my-3 w-100 bg-nav text-light btn py-3" onClick={handleLogOut}>
@@ -98,11 +100,11 @@ const Dashboard = () => {
         </div>
         <div className="col-md-9 px-5 m t-4">
           <div className=" text-light">
-            <div className="h3">Booked Events</div>
+            <div className="h3">Booked Venues</div>
             <hr />
-            <div className="container">
-            <table className="table">
-              <thead>
+            <div className="container bg-white">
+            <table className="table table-sm table-hover">
+              <thead className="thead-dark">
                 <tr>
                   <th scope="col">Venue</th>
                   <th scope="col">Booking Date</th>

@@ -116,7 +116,7 @@ const Features = () => {
     return (
         <>
             <div className="bg-white my-3 py-5 popins g-0">
-                <div className='text-center h1 pb-4'>What We ‘Deliver’</div>
+                <div className='text-center h1 pb-4'>Spotlights</div>
                 <div className='contain er g-0 m-auto' style={{ maxWidth: "1400px" }}>
                     <div className="check">
                         <div class="my-element">

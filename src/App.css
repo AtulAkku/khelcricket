@@ -342,3 +342,7 @@ input:focus{
         transform: translateX(0%);
     }
 }
+
+.menu{
+    min-height: 70vh;
+}
