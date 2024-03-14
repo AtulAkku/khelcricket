@@ -191,7 +191,8 @@ const Venues = () => {
   }
   return (
     <>
-      <div className="container">
+      <div className="container d-flex flex-column">
+        <div className="w-100 text-center popins h1 mb-4 bg-white p-3 rounded">Venues</div>
         {/* <Login/> */}
         {showModal && <VenueModal handleCloseModal={handleCloseModal} showModal={showModal} venue={venue} />}
         <div className="row">
