@@ -117,7 +117,7 @@ const SignUp = () => {
       toast.success('Registration Successful', {
         position: 'top-right',
       });
-      navigate('/thankYouPage')
+      navigate('/thankYouPage', {state:{message:"Thank you for Signing up", btnText :"Click here for Login", link : "/login"}})
     } else {
       toast.error('Form Fields are invalid', {
         position: 'top-right',
@@ -129,7 +129,7 @@ const SignUp = () => {
     <>
       <ToastContainer />
       <div className="container mx-auto text-light rounded-top row popins">
-        <div className='col-lg-5 col-12'>
+        <div className='col-lg-5 col-12 left'>
           {/* <img className='img-fluid' src='./img/cricketer2.png' alt='' /> */}
           <Lottie
             options={defaultOptions}
@@ -137,7 +137,7 @@ const SignUp = () => {
             width={450}
           />
         </div>
-        <div className='col-12 col-lg-7'>
+        <div className='col-12 col-lg-7 right'>
           <div className='text-center h1 m-0 p-3 rounded' >Signup</div>
           <form className="g-0 p-3">
             <div className="row">
@@ -197,7 +197,7 @@ const SignUp = () => {
               </div>
             </div>
             <div className="mt-2">
-              <a href="/login" className='text-decoration-none link-light'>Already Registered? Login!</a>
+              <a className='text-decoration-none link-light' data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">Already Registered? Login!</a>
             </div>
             <div className="d-flex justify-content-between mt-2">
               <GoogleLogin

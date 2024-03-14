@@ -94,7 +94,7 @@ const ProfileOffCanvas = (props) => {
               {selectedAvatar &&
                 <div className="d-flex flex-column align-items-center">
                   <span className="fs -4">Selected Avatar</span>
-                  <img src={selectedAvatar} className="avat m-1 shadow rounded-circle" alt="Selected Avatar" />
+                  <img src={selectedAvatar ||avatars[0]['avatar-url']} className="avat m-1 shadow rounded-circle" alt="Selected Avatar" />
                 </div>
               }
             </div>

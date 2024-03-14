@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { useAuth } from '../../Utils/AuthContext';
-import PaymentConfirm from './PaymentConfirm';
-import PaymentSuccessfull from '../PaymentSuccessfull';
+import PaymentSuccessfull from './PaymentSuccessfull';
 import VenueModal from './VenueModal';
 
 const Footer = () => {
@@ -22,7 +21,6 @@ const Footer = () => {
   return (
     <footer className='bg-black text-light text-center'>
       <div>
-        <PaymentConfirm />
         {showModal && (<PaymentSuccessfull
         showModal={showModal}
         handleCloseModal={handleCloseModal}

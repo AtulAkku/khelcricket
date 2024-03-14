@@ -29,7 +29,7 @@ function Login() {
     const user = storedUsers.find((user) => user.email === cred.email)
     if (user) {
       logIn(user, true)
-      toast.success('Logged in Successfully!', { position: 'top-right' });
+      toast.success('Logged in Successfully!', { position: 'top-center' });
       closeOffcanvas();
     } else {
       closeOffcanvas();
@@ -46,20 +46,20 @@ function Login() {
       }
       if (user) {
         logIn(user, false);
-        toast.success('Logged in Successfully!', { position: 'top-right' });
+        toast.success('Logged in Successfully!', { position: 'top-center' });
         closeOffcanvas();
       } else {
-        toast.error('Invalid email or password', { position: 'bottom-right' });
+        toast.error('Invalid email or password', { position: 'bottom-center' });
       }
     } else {
       toast.error('Form Fields are invalid', {
-        position: 'top-left',
+        position: 'top-center',
       });
     }
   }
   return (
     <>
-      <div className="offcanvas offcanvas-end bg-nav text-white" data-bs-scroll="true" tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div className="offcanvas offcanvas-end bg-nav text-white popins" data-bs-scroll="true" tabIndex="-1" id="offcanvas" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title ps-3" id="offcanvasLabel">LOGIN</h5>
           <button type="button" id="offCanvasClose" className="btn-close text-light btn btn -outline-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -94,7 +94,7 @@ function Login() {
                     }}
                     onError={() => {
                       toast.error('Login Failed', {
-                        position: 'top-right',
+                        position: 'top-center',
                       });
                     }}
                   />

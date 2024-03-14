@@ -8,6 +8,7 @@ import { FaRunning } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Utils/AuthContext';
 import { toast } from 'react-toastify';
+import PaymentConfirm from './partials/PaymentConfirm';
 
 
 const VenueDetails = ({ interval = 2000 }) => {
@@ -19,10 +20,11 @@ const VenueDetails = ({ interval = 2000 }) => {
   const [bookingDate, setBookingDate] = useState(today);
   const [isAvail, setIsAvail] = useState(false);
   const navigate = useNavigate();
-
+  const storedBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+  
   const handleCheckAvail = () => {
     if (isAuth) {
-      const storedBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+      
       const selectedDate = new Date(bookingDate);
       const existingBooking = storedBookings.find((booking) => {
         const storedDate = new Date(booking.date);
@@ -39,19 +41,6 @@ const VenueDetails = ({ interval = 2000 }) => {
           position: 'top-center',
         });
         setIsAvail(true);
-        // const newBooking = {
-        //   userName: user.name,
-        //   userEmail: user.email,
-        //   venueId: props.venue['object_id'],
-        //   venueName: props.venue['object-title'],
-        //   location: props.venue.location,
-        //   date: bookingDate
-        // }
-        // const updatedBookings = [...storedBookings, newBooking];
-        // localStorage.setItem("bookings", JSON.stringify(updatedBookings));
-        // toast.success('You booking request has been sent to Admin!', {
-        //   position: 'top-right',
-        // })
       }
     } else {
       document.getElementById("logInBtn").click();
@@ -59,12 +48,6 @@ const VenueDetails = ({ interval = 2000 }) => {
         position: 'top-center',
       });
     }
-  }
-
-  const handleBooking = ()=>{
-    toast.success('Thank you!', {
-      position: 'top-center',
-    });
   }
 
   const handleDateChange = (date)=>{
@@ -82,13 +65,19 @@ const VenueDetails = ({ interval = 2000 }) => {
   }, [currentImageIndex]);
   return (
     <>
+      <PaymentConfirm 
+        storedBookings = {storedBookings}
+        userBooking = {locationState.state.item}
+        bookingDate = {bookingDate}
+        setIsAvail = {setIsAvail}
+      />
       <div className=" p-4 g-0 my-4 rounded row container m-auto">
-        <div className='col' >
+        <div className='col-12 col-lg-6' >
           <div className="carousel mx-5 m y-2 rounded shadow" style={{ maxWidth: "650px" }}>
-            <div class="carousel-indicators">
+            <div className="carousel-indicators">
               {
                 images.map((image, index) => (
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={index} class={(currentImageIndex === index) ? "active" : ''} aria-current="true" aria-label="Slide 1"></button>
+                  <button key={index} type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={index} className={(currentImageIndex === index) ? "active" : ''} aria-current="true" aria-label="Slide 1"></button>
                 ))
               }
             </div>
@@ -97,7 +86,7 @@ const VenueDetails = ({ interval = 2000 }) => {
             </div>
           </div>
         </div>
-        <div className='col d-flex align-item-center flex-column justify-content-center p-2 text-white popins'>
+        <div className='col-12 col-lg-6 d-flex align-item-center flex-column justify-content-center p-2 text-white popins'>
           <div className='text-center h2 m-0 p-3'>{title}</div>
           <div className='text-center m-0 p-3 rounded'>
             <a href={link} className='text-white my' style={{ textDecoration: "none" }}><FaLocationDot /> {location}</a>
@@ -111,7 +100,7 @@ const VenueDetails = ({ interval = 2000 }) => {
             <div className="d-flex justify-content-center mt-4">
               {
                 (isAvail)?
-                <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" onClick={handleBooking}>Book Now!</button> :
+                <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" data-bs-toggle="offcanvas" href="#paymentOffCanvas" role="button" aria-controls="offcanvasExample">Book Now!</button> :
                 <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" onClick={handleCheckAvail}>Check availability!</button>
               }
             </div>
@@ -125,19 +114,19 @@ const VenueDetails = ({ interval = 2000 }) => {
             <p className='p-3'>{description}</p>
             <hr />
             <h4 className=''><BsHighlights /> HIGHLIGHTS</h4>
-            <p className='p-3 d-flex flex-row flex-wrap p-2 m-2 fs-5 '>
+            <div className='p-3 d-flex flex-row flex-wrap p-2 m-2 fs-5 '>
               <div className='p-2 m-2'><FaGlassWater /> Drinking Water</div>
               <div className='p-2 m-2'><PiToilet /> Washroom</div>
               <div className='p-2 m-2'><LuParkingCircle /> Parking</div>
               <div className='p-2 m-2'><MdOutlineEventSeat /> Seating Area</div>
               <div className='p-2 m-2'><BsShopWindow /> Rental Equipment</div>
               <div className='p-2 m-2'><FaRunning /> Warmup Area</div>
-            </p>
+            </div>
             <hr />
             <h4 className=''><MdFreeCancellation /> CANCELLATION POLICY</h4>
             <div className='p-3'>
               <h6 className='mt-3'>Online Payment</h6>
-              <p>
+              <div>
                 100% refund if the slot is cancelled more than 24 hours before the start time.<br />
                 50% refund if the slot is cancelled more than 12 hours before the start time.<br />
                 <br />
@@ -146,7 +135,7 @@ const VenueDetails = ({ interval = 2000 }) => {
                   <li>Incase of split payment bookings the refund charges will be calculated on the basis of the entire slot price and not the paid amount.</li>
                   <li>Hudle reserves the right to change the cancellation policy without any prior notice.</li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>

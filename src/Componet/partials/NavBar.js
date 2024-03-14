@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { FaStore } from 'react-icons/fa'
-import { BiLogInCircle } from 'react-icons/bi'
-import { MdStadium } from 'react-icons/md'
 import { useAuth } from '../../Utils/AuthContext'
-import { FaUser } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom';
 const NavBar = () => {
   const { isAuth, logOut } = useAuth();
   const [activeTab, setActiveTab] = useState('home');
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    navigate('/');
+    logOut();
+  }
 
   useEffect(() => {
     setActiveTab(window.location.pathname.substring(1) || 'home');
@@ -24,19 +26,16 @@ const NavBar = () => {
             <ul className="navbar-nav">
               <li className={`nav-item fs-5 ${activeTab === 'home' ? 'text-decoration-underline' : ''}`} onClick={() => handleTabClick('home')}>
                 <a className="nav-link btn d-flex link-light" href="/">
-                  {/* <div className="pe-2"><FaStore /></div> */}
                   <span className="text-nowrap pt-1">HOME</span></a>
               </li>
               <li className={`nav-item fs-5 ${activeTab === 'venues' ? 'text-decoration-underline' : ''}`} onClick={() => handleTabClick('venues')}>
                 <a className="nav-link btn d-flex link-light" href="/venues">
-                  {/* <div className="pe-2"><MdStadium /></div> */}
                   <span className="text-nowrap pt-1">VENUES</span>
                 </a>
               </li>
               {(!isAuth) ?
                 <li className="nav-item fs-5">
                   <a className="nav-link btn d-flex link-light" id="logInBtn" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvas">
-                    {/* <div className="pe-2"><BiLogInCircle /></div> */}
                     <span className="text-nowrap pt-1">LOGIN</span>
                   </a>
                 </li>
@@ -44,12 +43,11 @@ const NavBar = () => {
                 <>
                   <li className={`nav-item fs-5 ${activeTab === 'dashboard' ? 'text-decoration-underline' : ''}`} onClick={() => handleTabClick('dashboard')}>
                     <a className="nav-link btn d-flex link-light" href="/dashboard">
-                      {/* <div className="pe-2"><FaUser /></div> */}
                       <span className="text-nowrap pt-1">DASHBOARD</span>
                     </a>
                   </li>
                   <li className="nav-item fs-5 ps-2 d-flex align-items-center">
-                    <button type="button" className="btn btn-outline-light fs-6 text -white" onClick={logOut}>LOGOUT</button>
+                    <button type="button" className="btn btn-outline-light fs-6 text -white" onClick={handleLogOut}>LOGOUT</button>
                   </li>
                 </>
                 }
