@@ -272,7 +272,6 @@ textarea {
 .venue-card .additional-info {
     position: absolute;
     bottom: 0px;
-    /* Initially keep the additional info at the bottom */
     left: 0;
     height: 100%;
     width: 100%;
@@ -280,34 +279,19 @@ textarea {
     padding: 10px;
     color: white;
     transform: translateY(78%);
-    /* Move the info below the card */
     transition: transform 0.5s ease-in-out;
-    /* Apply ease-in-out transition */
 }
 
 .venue-card:hover .additional-info {
     transform: translateY(0);
-    /* Slide the additional info up on hover */
 }
 
 .venue-card:hover {
-    /* filter: brightness(70%); */
     transform: scale(1.1);
     animation: ease-in-out 5s;
 }
 
-/* @keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-} */
-
 .my-element {
-    /* animation: slideInFromLeft 1s ease-out; */
     opacity: 0;
     filter: blur(1px);
     transform: translateX(-50%);
@@ -315,19 +299,7 @@ textarea {
 }
 
 .my-element.show {
-    /* animation: slideInFromLeft 1s ease-out; */
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
 }
-
-/* .my-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.my-element.show {
-    opacity: 1;
-    transform: translateY(0);
-} */
