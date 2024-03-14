@@ -3,6 +3,8 @@ import { useAuth } from '../../Utils/AuthContext'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6';
 import Login from '../Login';
 import { ToastContainer } from 'react-toastify';
+import HelpNSupport from './HelpNSupport';
+import MyProfile from './MyProfile';
 
 const LowerNav = () => {
   const { user, isAuth } = useAuth();
@@ -50,6 +52,8 @@ const LowerNav = () => {
       </div>
 
       <Login/>
+      <HelpNSupport/>
+      <MyProfile/>
     </>
   )
 }

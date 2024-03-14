@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="row g-0 pt-5">
           <div className="col-md-2">
             <ul>
-              <li className="h5 text-muted">About</li>
+              <li className="h5 text-light">About</li>
               <li>Contact Us</li>
               <li>About Us</li>
               <li>Careers</li>
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
           <div className="col-md-2">
             <ul>
-              <li className="h5 text-muted">Help</li>
+              <li className="h5 text-light">Help</li>
               <li><a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasPaymentConfirmation" role="button" aria-controls="offcanvasPayment">
   Link with href
 </a></li>
@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
           <div className="col-md-2">
             <ul>
-              <li className="h5 text-muted">Quick Links</li>
+              <li className="h5 text-light">Quick Links</li>
               <li className="nav-item">
                 <a className="nav-link" href="/">Home</a>
               </li>
@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
           <div className="col-md-3">
             <ul>
-              <li className="h5 text-muted">Consumer Policy</li>
+              <li className="h5 text-light">Consumer Policy</li>
               <li>Terms of Use</li>
               <li>Security</li>
               <li>Policy</li>
@@ -75,14 +75,14 @@ const Footer = () => {
           </div>
           <div className="col-md-2">
             <ul>
-              <li className="h5 text-muted">Social</li>
+              <li className="h5 text-light">Social</li>
               <li><FaFacebook /> Facebook</li>
               <li><FaTwitter /> Twitter</li>
               <li><FaInstagram /> Instagram</li>
             </ul>
           </div>
         </div>
-        <div className='text-center text-muted py-3'> &#169; Copyright 2024</div>
+        <div className='text-center text-light py-3'> &#169; Copyright 2024</div>
       </div>
     </footer >
   )

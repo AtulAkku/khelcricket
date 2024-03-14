@@ -3,7 +3,11 @@ import React from 'react'
 const MyProfile = (props) => {
   return (
     <>
-    <div>My Profile</div>
+      <div className='d-flex'>
+        <div className="div">
+          
+        </div>
+     </div>
     </>
   )
 }

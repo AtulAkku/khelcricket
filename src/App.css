@@ -343,6 +343,6 @@ input:focus{
     }
 }
 
-.menu{
+.menu, .thank{
     min-height: 70vh;
 }
