@@ -296,3 +296,38 @@ textarea {
     animation: ease-in-out 5s;
 }
 
+/* @keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+} */
+
+.my-element {
+    /* animation: slideInFromLeft 1s ease-out; */
+    opacity: 0;
+    filter: blur(1px);
+    transform: translateX(-50%);
+    transition: all 0.5s;
+}
+
+.my-element.show {
+    /* animation: slideInFromLeft 1s ease-out; */
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+/* .my-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.my-element.show {
+    opacity: 1;
+    transform: translateY(0);
+} */
