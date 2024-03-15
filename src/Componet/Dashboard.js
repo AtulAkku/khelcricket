@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaBook, FaMapLocationDot } from "react-icons/fa6";
-import { FaEdit, FaEye, FaTrash } from 'react-icons/fa'
+import { FaEdit, FaEye } from 'react-icons/fa'
 import { useAuth } from '../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import ProfileOffCanvas from './partials/ProfileOffCanvas';
@@ -29,12 +29,6 @@ const Dashboard = () => {
     logOut();
     navigate('/thankYouPage', {state:{message:"You have been Logged Out!", btnText :"Click here for Home", link : "/"}})
   }
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
   useEffect(() => {
     const auth = sessionStorage.getItem('isAuth')
     if (!auth) {

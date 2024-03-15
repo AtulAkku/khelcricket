@@ -8,13 +8,13 @@ const Hero = ({ data }) => {
             <div className="p-5">
                 <p className="text-center p-2 text-white fs-1"><div className="text -success text-opacity-75"><FaLocationDot /></div><span className='pt-3'>Prime Locations</span></p>
                 <div className="hero-container">
-                    <div class="container">
+                    <div className="container">
                         {data.map((item, index) => (
-                            <div class="card1" key={index}>
-                                <div class="image">
+                            <div className="card1" key={index}>
+                                <div className="image">
                                     <img src={item['image-url']} alt={item.name} />
                                 </div>
-                                <div class="content">
+                                <div className="content">
                                     <h3>{item.name}</h3>
                                     <FaLocationDot />
                                     <p>{item.description}</p>

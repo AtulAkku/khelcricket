@@ -1,51 +1,67 @@
-export const validateRequired = (requiredFields) => {
-    requiredFields.forEach((field) => {
+export const validateRequired = (field) => {
         const inputField = document.getElementById(field);
-        const errorElement = document.getElementById(`${field}Error`);
+        const errorElement = document.getElementById(`${field}Verify`);
         if (inputField.value === '') {
+            inputField.classList.remove('is-valid');
             inputField.classList.add('is-invalid');
+            errorElement.classList.remove('valid-feedback');
+            errorElement.classList.add('invalid-feedback');
             errorElement.textContent = 'This field is required';
         } else {
             inputField.classList.remove('is-invalid');
-            errorElement.textContent = null;
+            inputField.classList.add('is-valid');
+            errorElement.classList.remove('invalid-feedback');
+            errorElement.classList.add('valid-feedback');
+            errorElement.textContent = 'Looks Great!';
         }
-    });
 }
 
 export const validatePhone = (phoneInput, phoneValue) => {
-    const phoneError = document.getElementById('phoneNoError');
+    const phoneVerify = document.getElementById('phoneNoVerify');
     if (!/^[6-9]\d{9}$/.test(phoneValue)) {
+        phoneInput.classList.remove('is-valid');
         phoneInput.classList.add('is-invalid');
-        phoneError.textContent = 'Phone Number Is Invalid';
+        phoneVerify.classList.remove('valid-feedback');
+        phoneVerify.classList.add('invalid-feedback');
+        phoneVerify.textContent = 'Phone Number Is Invalid';
     } else {
         phoneInput.classList.remove('is-invalid');
-        phoneError.textContent = null;
+        phoneInput.classList.add('is-valid');
+        phoneVerify.classList.remove('invalid-feedback');
+        phoneVerify.classList.add('valid-feedback');
+        phoneVerify.textContent = "That's Okay";
     }
 }
 export const validateEmail = (emailInput, emailValue) => {
-    const emailError = document.getElementById('emailError');
+    const emailVerify = document.getElementById('emailVerify');
     if (!/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/.test(emailValue)) {
+        emailInput.classList.remove('is-valid');
         emailInput.classList.add('is-invalid');
-        emailError.textContent = 'Enter a valid email address';
+        emailVerify.classList.remove('valid-feedback');
+        emailVerify.classList.add('invalid-feedback');
+        emailVerify.textContent = 'Enter a valid email address';
     } else {
         emailInput.classList.remove('is-invalid');
-        emailError.textContent = null;
+        emailInput.classList.add('is-valid');
+        emailVerify.classList.remove('invalid-feedback');
+        emailVerify.classList.add('valid-feedback');
+        emailVerify.textContent = "Good to Go!";
     }
 }
 // export const validatePassword = (passwordInput, passwordValue) => {
-//     const passwordError = document.getElementById('passwordError');
+//     const passwordVerify = document.getElementById('passwordVerify');
 //     if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}\[\]:;<>,.?/~]).{6,}$/
 //     .test(passwordValue)) {
 //         passwordInput.classList.add('is-invalid');
-//         passwordError.textContent = 'Password must be at least 6 characters long and contain at least one digit, one special character, one lowercase letter, and one uppercase letter';
+//         passwordVerify.textContent = 'Password must be at least 6 characters long and contain at least one digit, one special character, one lowercase letter, and one uppercase letter';
 //     } else {
 //         passwordInput.classList.remove('is-invalid');
-//         passwordError.textContent = null;
+//         passwordVerify.textContent = null;
 //     }
 // }
 
 export const validatePassword = (passwordInput, passwordValue) => {
-    const passwordError = document.getElementById('passwordError');
+    const passwordVerify = document.getElementById('passwordVerify');
     let errorMessage = '';
     if (passwordValue.length < 8) {
         errorMessage += 'Password must be at least 8 characters long';        
@@ -63,36 +79,51 @@ export const validatePassword = (passwordInput, passwordValue) => {
         errorMessage += ', one uppercase letter';
     }
     if (errorMessage) {
-        console.log(errorMessage);
+        passwordInput.classList.remove('is-valid');
         passwordInput.classList.add('is-invalid');
-        passwordError.textContent = errorMessage;
+        passwordVerify.classList.remove('valid-feedback');
+        passwordVerify.classList.add('invalid-feedback');
+        passwordVerify.textContent = errorMessage;
     } else {
         passwordInput.classList.remove('is-invalid');
-        console.log("WE are in");
-        passwordError.textContent = 'Perfect password';
+        passwordInput.classList.add('is-valid');
+        passwordVerify.classList.remove('invalid-feedback');
+        passwordVerify.classList.add('valid-feedback');
+        passwordVerify.textContent = 'That looks kind of strong password';
     }
 }
 
 export const validatePinCode = (pinCodeInput, pinCodeValue) => {
-    const pinCodeError = document.getElementById('pinCodeError');
+    const pinCodeVerify = document.getElementById('pinCodeVerify');
     if (!((pinCodeValue>= 110001)&&(pinCodeValue<= 855117))) {
+        pinCodeInput.classList.remove('is-valid');
         pinCodeInput.classList.add('is-invalid');
-        pinCodeError.textContent = 'Please Enter a valid Pincode';
+        pinCodeVerify.classList.remove('valid-feedback');
+        pinCodeVerify.classList.add('invalid-feedback');
+        pinCodeVerify.textContent = 'Please Enter a valid Pincode';
     } else {
         pinCodeInput.classList.remove('is-invalid');
-        pinCodeError.textContent = null;
+        pinCodeInput.classList.add('is-valid');
+        pinCodeVerify.classList.remove('invalid-feedback');
+        pinCodeVerify.classList.add('valid-feedback');
+        pinCodeVerify.textContent = 'Hope this finds well!';
     }
 }
 export const confirmPassword = (passwordValue, confirmPasswordValue, confirmPasswordInput) => {
-    const conPasswordError = document.getElementById('conPasswordError');
-    console.log(confirmPasswordValue);
+    const conPasswordVerify = document.getElementById('conPasswordVerify');
     if(confirmPasswordValue !== ''){
         if (!(confirmPasswordValue === passwordValue)) {
+            confirmPasswordInput.classList.remove('is-valid');
             confirmPasswordInput.classList.add('is-invalid');
-            conPasswordError.textContent = 'Password and Confirm Passwords do not match';
+            conPasswordVerify.classList.remove('valid-feedback');
+            conPasswordVerify.classList.add('invalid-feedback');
+            conPasswordVerify.textContent = 'Password and Confirm Passwords do not match';
         } else {
             confirmPasswordInput.classList.remove('is-invalid');
-            conPasswordError.textContent = null;
+            confirmPasswordInput.classList.add('is-valid');
+            conPasswordVerify.classList.remove('invalid-feedback');
+            conPasswordVerify.classList.add('valid-feedback');
+            conPasswordVerify.textContent = 'Very Good! Password Matched';
         }
     }
 }

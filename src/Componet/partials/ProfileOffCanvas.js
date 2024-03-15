@@ -71,12 +71,12 @@ const ProfileOffCanvas = (props) => {
   return (
     <>
       <ToastContainer />
-      <div class="offcanvas offcanvas-end bg-nav text-light w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-          <h3 class="offcanvas-title ps-4" id="offcanvasExampleLabel">Select an Avatar</h3>
-          <button type="button" class="btn-close text-reset" id="closeProfileOffCanvas" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div className= "offcanvas offcanvas-end bg-nav text-light w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div className= "offcanvas-header">
+          <h3 className= "offcanvas-title ps-4" id="offcanvasExampleLabel">Select an Avatar</h3>
+          <button type="button" className= "btn-close text-reset" id="closeProfileOffCanvas" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body d-flex justify-content-center flex-column">
+        <div className= "offcanvas-body d-flex justify-content-center flex-column">
           {/* <div className='fs-5 text-center'>Select an Avatar or upload a Picture</div> */}
           <div>
             <div className='text-center mx-5 px-5'>
