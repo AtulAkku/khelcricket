@@ -87,10 +87,10 @@ const Dashboard = () => {
           <div className="menu">
             <div className="row">
               <div className="col col-lg-5 p-3 text-center">
-                <img src={selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
+                <img src={`/img/avatars/${user.avatarUrl}`} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
               </div>
               <div className="col col-lg-7 d-flex align-items-start flex-column justify-content-center my-auto">
-                <div className="h5">{user.name}</div>
+                <div className="h5">{user.name}({user.nickName})</div>
                 <div className="h6">{user.email}</div>
               </div>
             </div>

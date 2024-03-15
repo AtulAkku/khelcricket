@@ -73,7 +73,6 @@ const SignUp = () => {
   const searchCity = (e) => {
     const newPincode = e.target.value;
     setPinCode(newPincode);
-
     const matchingEntry = jsonData.find(entry => entry.pincode === parseInt(newPincode));
     if (matchingEntry) {
       setCity(matchingEntry.Taluk)
@@ -100,7 +99,7 @@ const SignUp = () => {
         });
         return;
       }
-      const newUser = { email, name, phoneNo, pinCode, city, state, password };
+      const newUser = { email, name, phoneNo, pinCode, city, state, password, nickName : "Sam", avatarUrl : 'defaultAvtar.png' };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
       toast.success('Registration Successful', {

@@ -76,7 +76,7 @@ const MyProfile = (props) => {
               </div>
               </div>
               <div className="col-12 col-lg-6 d-">
-                <img src={props.selectedAvatar || '/img/avatars/defaultAvtar.png'} className="img-fluid w-50 rounded-circle" alt="Selected Avatar" />
+                <img src={`/img/avatars/${user.avatarUrl}`} className="img-fluid w-50 rounded-circle" alt="Selected Avatar" />
                 <a className="text-muted" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                   Change Avatar <FaEdit />
                 </a>
