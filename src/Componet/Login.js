@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { validateRequired } from '../Utils/FormValidation';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode'
@@ -9,8 +9,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 function Login() {
   const { logIn } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const closeOffcanvas = () => {
@@ -18,7 +18,9 @@ function Login() {
   };
   const validateForm = () => {
     const requiredFields = ['emailLogin', 'passwordLogin'];
-    validateRequired(requiredFields);
+    requiredFields.forEach((field)=>{
+      validateRequired(field);
+    })
     return document.querySelector('.is-invalid') === null;
   }
   const togglePasswordVisibility = () => {
@@ -49,7 +51,7 @@ function Login() {
         toast.success('Logged in Successfully!', { position: 'top-center' });
         closeOffcanvas();
       } else {
-        toast.error('Invalid email or password', { position: 'bottom-center' });
+        toast.error('Invalid email or password', { position: 'top-center' });
       }
     } else {
       toast.error('Form Fields are invalid', {
@@ -68,16 +70,16 @@ function Login() {
           <form className='p-3'>
             <div className="form-group my-3">
               <label htmlFor="email" className='ms-1 mb-2'>Email address</label>
-              <input type="email" className="form-control py-2" id="emailLogin" aria-describedby="emailHelp" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailLoginError" className="invalid-feedback"></div>
+              <input type="email" className="form-control py-2" id="emailLogin" aria-describedby="emailHelp" value={email} onChange={(e) => { setEmail(e.target.value) }} /> <div id="emailLoginVerify" className="invalid-feedback"></div>
             </div>
             <div className="form-group my-3">
-              <label htmlFor="password" className='ms-1 mb-2'>Password</label>
+              <label htmlFor="passwordLogin" className='ms-1 mb-2'>Password</label>
               <div className="input-group">
                 <input type={showPassword ? "text" : "password"} className="form-control py-2" id="passwordLogin" value={password} onChange={(e) => { setPassword(e.target.value) }} />
                 <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility}>
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
-                <div id="passwordLoginError" className="invalid-feedback"></div>
+                <div id="passwordLoginVerify" className="invalid-feedback"></div>
               </div>
             </div>
             <div className="mt-2">

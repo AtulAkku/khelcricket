@@ -34,11 +34,16 @@ const SignUp = () => {
 
     }
   };
-  const checkEmail = ()=>{
+  const checkEmail = () => {
+    const emailInput = document.getElementById('email');
+    const emailVerify = document.getElementById('emailVerify');
+    validateEmail(emailInput, emailInput.value)
     if (storedUsers.find((user) => user.email === email)) {
-      toast.error('Account already exists! Please Login', {
-        position: 'top-right',
-      });
+      emailInput.classList.remove('is-valid');
+      emailInput.classList.add('is-invalid');
+      emailVerify.classList.remove('valid-feedback');
+      emailVerify.classList.add('invalid-feedback');
+      emailVerify.textContent = 'Account already Exist!';
     }
   }
   const handlePasswordinput = (inputPassword) => {
@@ -48,17 +53,9 @@ const SignUp = () => {
   }
   const validateForm = () => {
     const requiredFields = ['email', 'name', 'phoneNo', 'pinCode', 'password', 'conPassword'];
-    const phoneInput = document.getElementById('phoneNo');
-    const pinCodeInput = document.getElementById('pinCode');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const conPasswordInput = document.getElementById('conPassword');
-    validateRequired(requiredFields);
-    validatePhone(phoneInput, phoneInput.value);
-    validatePinCode(pinCodeInput, parseInt(pinCodeInput.value));
-    validateEmail(emailInput, emailInput.value);
-    // validatePassword(passwordInput, passwordInput.value);
-    confirmPassword(passwordInput.value, conPasswordInput.value, conPasswordInput);
+    requiredFields.forEach((field) => {
+      validateRequired(field);
+    })
     return document.querySelector('.is-invalid') === null;
   }
 
@@ -106,21 +103,13 @@ const SignUp = () => {
       const newUser = { email, name, phoneNo, pinCode, city, state, password };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
-      setEmail('');
-      setName('');
-      setPhoneNo('');
-      setPinCode('');
-      setCity('');
-      setState('');
-      setPassword('');
-      setConPassword('');
       toast.success('Registration Successful', {
         position: 'top-right',
       });
-      navigate('/thankYouPage', {state:{message:"Thank you for Signing up", btnText :"Click here for Login", link : "/login"}})
+      navigate('/thankYouPage', { state: { message: "Thank you for Signing up", btnText: "Click here for Home", link: "/" } })
     } else {
       toast.error('Form Fields are invalid', {
-        position: 'top-right',
+        position: 'top-center',
       });
     }
   }
@@ -144,23 +133,23 @@ const SignUp = () => {
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="email">Email Address</label>
                 <input type="email" className="form-control" id="email" value={email} onBlur={checkEmail} onChange={(e) => { setEmail(e.target.value) }} />
-                <div id="emailError" className="invalid-feedback"></div>
+                <div id="emailVerify"></div>
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="name">Name</label>
-                <input type="text" className="form-control" id="name" value={name} onChange={(e) => { setName(e.target.value) }} />
-                <div id="nameError" className="invalid-feedback"></div>
+                <input type="text" className="form-control" id="name" value={name} onBlur={() => { validateRequired('name') }} onChange={(e) => { setName(e.target.value) }} />
+                <div id="nameVerify"></div>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="phoneNo">Phone Number</label>
-                <input type="text" className="form-control" id="phoneNo" value={phoneNo} onChange={(e) => { setPhoneNo(e.target.value) }} /> <div id="phoneNoError" className="invalid-feedback"></div>
+                <input type="text" className="form-control" id="phoneNo" value={phoneNo} onBlur={(e) => { validatePhone(e.target, e.target.value) }} onChange={(e) => { setPhoneNo(e.target.value) }} /> <div id="phoneNoVerify" className="invalid-feedback"></div>
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="pinCode">Pin Code</label>
-                <input type="text" className="form-control" id="pinCode" value={pinCode} onChange={searchCity} />
-                <div id="pinCodeError" className="invalid-feedback"></div>
+                <input type="text" className="form-control" id="pinCode" onBlur={(e) => { validatePinCode(e.target, e.target.value) }} value={pinCode} onChange={searchCity} />
+                <div id="pinCodeVerify"></div>
               </div>
             </div>
             <div className="row">
@@ -177,22 +166,21 @@ const SignUp = () => {
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="password">Password</label>
                 <div className="input-group">
-                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onChange={(e) => { handlePasswordinput(e.target.value) }} />
+                  <input type={showPassword1 ? "text" : "password"} className="form-control" id="password" value={password} onBlur={(e) => { validatePassword(e.target, e.target.value) }} onChange={(e) => { handlePasswordinput(e.target.value) }} />
                   <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility1}>
                     {showPassword1 ? <FaEyeSlash /> : <FaEye />}
                   </button>
-                  <div id="passwordError" className="invalid-feedback"></div>
-                  <div id="validPassword" className="valid-feedback">Valid</div>
+                  <div id="passwordVerify"></div>
                 </div>
               </div>
               <div className="form-group col-md-6">
                 <label className="ms-1 mb-1" htmlFor="conPassword">Confirm Password</label>
                 <div className="input-group">
-                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onChange={(e) => { setConPassword(e.target.value) }} />
+                  <input type={showPassword2 ? "text" : "password"} className="form-control" id="conPassword" value={conPassword} onBlur={(e) => { confirmPassword(password, e.target.value, e.target) }} onChange={(e) => { setConPassword(e.target.value) }} />
                   <button className="btn btn-outline-light rounded-end" type="button" onClick={togglePasswordVisibility2}>
                     {showPassword2 ? <FaEyeSlash /> : <FaEye />}
                   </button>
-                  <div id="conPasswordError" className="invalid-feedback"></div>
+                  <div id="conPasswordVerify"></div>
                 </div>
               </div>
             </div>

@@ -9,6 +9,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Utils/AuthContext';
 import { toast } from 'react-toastify';
 import PaymentConfirm from './partials/PaymentConfirm';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 const VenueDetails = ({ interval = 2000 }) => {
@@ -21,10 +23,9 @@ const VenueDetails = ({ interval = 2000 }) => {
   const [isAvail, setIsAvail] = useState(false);
   const navigate = useNavigate();
   const storedBookings = JSON.parse(localStorage.getItem('bookings')) || [];
-  
   const handleCheckAvail = () => {
     if (isAuth) {
-      
+
       const selectedDate = new Date(bookingDate);
       const existingBooking = storedBookings.find((booking) => {
         const storedDate = new Date(booking.date);
@@ -50,7 +51,8 @@ const VenueDetails = ({ interval = 2000 }) => {
     }
   }
 
-  const handleDateChange = (date)=>{
+  const handleDateChange = (date) => {
+    console.log(date);
     setBookingDate(date);
     setIsAvail(false);
   }
@@ -58,6 +60,21 @@ const VenueDetails = ({ interval = 2000 }) => {
     const newIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
     setCurrentImageIndex(newIndex);
   };
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  // Function to check if a date is booked
+  const isDateBooked = () => {
+    return (storedBookings.map((booking) => {
+      console.log(new Date(booking.date));
+      return{
+        date :new Date(booking.date).toISOString().split('T')[0],
+        message :'Venue is booked for the day!'
+        
+      }
+    }))
+    // { date: !isDateBooked(date), message: "Today is excluded" }
+  };
+  console.log(isDateBooked());
 
   useEffect(() => {
     const intervalId = setInterval(goToNextSlide, interval);
@@ -65,12 +82,27 @@ const VenueDetails = ({ interval = 2000 }) => {
   }, [currentImageIndex]);
   return (
     <>
-      <PaymentConfirm 
-        storedBookings = {storedBookings}
-        userBooking = {locationState.state.item}
-        bookingDate = {bookingDate}
-        setIsAvail = {setIsAvail}
+      <PaymentConfirm
+        storedBookings={storedBookings}
+        userBooking={locationState.state.item}
+        bookingDate={bookingDate}
+        setIsAvail={setIsAvail}
       />
+      <div>
+        <label htmlFor="bookingDate">Select Date</label>
+        <DatePicker
+          id="bookingDate"
+          selected={selectedDate}
+          onChange={date => setSelectedDate(date)}
+          dateFormat="yyyy-MM-dd"
+          minDate={today}
+          excludeDates={isDateBooked()}
+          // highlightDates={}
+          highlightDates={storedBookings.map((booking) => new Date(booking.date))}
+          placeholderText="Select a date"
+          className='form-control'
+        />
+      </div>
       <div className=" p-4 g-0 my-4 rounded row container m-auto">
         <div className='col-12 col-lg-6' >
           <div className="carousel mx-5 m y-2 rounded shadow" style={{ maxWidth: "650px" }}>
@@ -95,13 +127,13 @@ const VenueDetails = ({ interval = 2000 }) => {
           <form className='p-2 px-4'>
             <div className="form-group px-5">
               <label htmlFor="title" className="ps-2">Select Date</label>
-              <input type="date" className="form-control" id="bookingDate" min={today} value={bookingDate} onChange={(e) => { handleDateChange(e.target.value) }} />
+              <input type="date" className="form-control" disabled-dates="2024-04-26" id="bookingDate" min={today} value={bookingDate} onChange={(e) => { handleDateChange(e.target.value) }} />
             </div>
             <div className="d-flex justify-content-center mt-4">
               {
-                (isAvail)?
-                <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" data-bs-toggle="offcanvas" href="#paymentOffCanvas" role="button" aria-controls="offcanvasExample">Book Now!</button> :
-                <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" onClick={handleCheckAvail}>Check availability!</button>
+                (isAvail) ?
+                  <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" data-bs-toggle="offcanvas" href="#paymentOffCanvas" role="button" aria-controls="offcanvasExample">Book Now!</button> :
+                  <button type="button" className="btn mx-2 px-5 fs-6 btn-outline-light" onClick={handleCheckAvail}>Check availability!</button>
               }
             </div>
           </form>
