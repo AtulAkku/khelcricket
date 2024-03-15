@@ -346,3 +346,24 @@ input:focus{
 .menu, .thank{
     min-height: 70vh;
 }
+
+.laptopbg{
+    background-image: url('/public/img/laptop-black-realistic.png');
+  }
+  .learnworlds-laptop.realistic.black {
+    background-image: url('/public/img/laptop-black-realistic.png');
+  }
+  .learnworlds-laptop.realistic {
+    padding: 2% 2.5% 2.5%;
+  }
+  
+  .learnworlds-laptop {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+  }
+  .lw-screen-content{
+    /* background-color: #fff; */
+    position: relative;
+  }

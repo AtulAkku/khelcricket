@@ -24,9 +24,19 @@ const Hero = ({ data }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-100 bg-light d-flex justify-content-center p-3">
-                    <video src='video/KHEL.mp4' className='rounded shadow' width="60%" controls ></video>
+            <div className="row popins">
+                <div className="col-12 col-lg-6 bg-white justify-content-center d-flex align-items-center text-end fs-1">
+                    <div className="ps-5">Experience the future of cricket venue bookings at KHEl!</div>
+                </div>
+                <div className="col-12 col-lg-6 bg-light d-flex justify-content-center p-3">
+                    <div className='learnworlds-laptop black realistic'>
+                        <div className='lw-screen-content d-flex justify-content-center'>
+                            <video src='video/KHEL.mp4' className='rounded shadow align-items-center' width="65%" controls autoPlay ></video>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </>
     )
 }
