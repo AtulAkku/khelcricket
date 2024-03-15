@@ -51,7 +51,7 @@ function Login() {
         toast.success('Logged in Successfully!', { position: 'top-center' });
         closeOffcanvas();
       } else {
-        toast.error('Invalid email or password', { position: 'top-center' });
+        toast.error('Invalid email or password', { position: 'top-center' }); 
       }
     } else {
       toast.error('Form Fields are invalid', {

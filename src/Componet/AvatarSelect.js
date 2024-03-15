@@ -27,28 +27,34 @@ const AvatarSelector = () => {
 
   const avatars = [
     {
-      "avatar-number": "1",
-      "avatar-url": "../../img/avatars/avatar1.png",
+      "avatarNo": "1",
+      "avatarUrl": "avatar1.png",
+      "avatarName": "Max"
     },
     {
-      "avatar-number": "2",
-      "avatar-url": "../../img/avatars/avatar2.png",
+      "avatarNo": "2",
+      "avatarUrl": "avatar2.png",
+      "avatarName": "Tanjiro"
     },
     {
-      "avatar-number":"3",
-      "avatar-url":"../../img/avatars/avatar3.png"
+      "avatarNo": "3",
+      "avatarUrl": "avatar3.png",
+      "avatarName": "Snake"
     },
     {
-      "avatar-number":"4",
-      "avatar-url":"../../img/avatars/avatar4.png"
+      "avatarNo": "4",
+      "avatarUrl": "avatar4.png",
+      "avatarName": "Doraemon"
     },
     {
-      "avatar-number":"5",
-      "avatar-url":"../../img/avatars/avatar5.png"
+      "avatarNo": "5",
+      "avatarUrl": "avatar5.png",
+      "avatarName": "Nancy"
     },
     {
-      "avatar-number":"6",
-      "avatar-url":"../../img/avatars/avatar6.png"
+      "avatarNo": "6",
+      "avatarUrl": "avatar6.png",
+      "avatarName": "Aqua"
     }
     // ... other avatars
   ];
@@ -69,15 +75,20 @@ const AvatarSelector = () => {
       <h1 className='gazpacho'>Profile Picture</h1>
       <div>
         <h2 className='my-4 gazpacho'>Select an Avatar:</h2>
-        <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '20px' }} className='my-4'>
+        <div className='d -flex justify-content-around text-light my-4'>
           {avatars.map((items, index) => (
-            <img
-              key={index}
-              src={items['avatar-url']}
-              alt={items['avatar-number']}
-              style={{ width: '150px', height: '150px', cursor: 'pointer' }}
-              onClick={() => handleAvatarSelect(items['avatar-url'])}
-            />
+            <div key={index}>
+              {console.log(items.avatarName)}
+              <img
+                // key={index}
+                src={`img/avatars/${items.avatarUrl}`}
+                alt={items.avatarNo}
+                style={{ width: '150px', height: '150px', cursor: 'pointer' }}
+                onClick={() => handleAvatarSelect(items.avatarUrl)}
+              />
+              {console.log(items.avatarName)}
+              <span>{items.avatarName}gsdgfdsg</span>
+            </div>
           ))}
         </div>
       </div>

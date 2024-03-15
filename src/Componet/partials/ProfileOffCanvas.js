@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const ProfileOffCanvas = (props) => {
   // const selectedAvatar = props.selectedAvatar;
   const setDashAvatar = props.setDashAvatar;
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedAvatar, setSelectedAvatar] = useState(props.selectedAvatar);
   const [customAvatar, setCustomAvatar] = useState(null);
   const closeOffcanvas = () => {
     document.getElementById('closeProfileOffCanvas').click();
@@ -30,28 +30,34 @@ const ProfileOffCanvas = (props) => {
 
   const avatars = [
     {
-      "avatar-number": "1",
-      "avatar-url": "../../img/avatars/avatar1.png",
+      "avatarNo": "1",
+      "avatarUrl": "avatar1.png",
+      "avatarName": "Max"
     },
     {
-      "avatar-number": "2",
-      "avatar-url": "../../img/avatars/avatar2.png",
+      "avatarNo": "2",
+      "avatarUrl": "avatar2.png",
+      "avatarName": "Tanjiro"
     },
     {
-      "avatar-number": "3",
-      "avatar-url": "../../img/avatars/avatar3.png"
+      "avatarNo": "3",
+      "avatarUrl": "avatar3.png",
+      "avatarName": "Snake"
     },
     {
-      "avatar-number": "4",
-      "avatar-url": "../../img/avatars/avatar4.png"
+      "avatarNo": "4",
+      "avatarUrl": "avatar4.png",
+      "avatarName": "Doraemon"
     },
     {
-      "avatar-number": "5",
-      "avatar-url": "../../img/avatars/avatar5.png"
+      "avatarNo": "5",
+      "avatarUrl": "avatar5.png",
+      "avatarName": "Nancy"
     },
     {
-      "avatar-number": "6",
-      "avatar-url": "../../img/avatars/avatar6.png"
+      "avatarNo": "6",
+      "avatarUrl": "avatar6.png",
+      "avatarName": "Aqua"
     }
     // ... other avatars
   ];
@@ -79,22 +85,25 @@ const ProfileOffCanvas = (props) => {
         <div className= "offcanvas-body d-flex justify-content-center flex-column">
           {/* <div className='fs-5 text-center'>Select an Avatar or upload a Picture</div> */}
           <div>
-            <div className='text-center mx-5 px-5'>
+            <div className='text-center mx-5 px-5 d-flex'>
               {avatars.map((items, index) => (
+                <div className=''>
                 <img
                   className="img-fluid avat m-3 rounded"
                   key={index}
-                  src={items['avatar-url']}
-                  alt={items['avatar-number']}
-                  onClick={() => handleAvatarSelect(items['avatar-url'])}
+                  src={`img/avatars/${items.avatarUrl}`}
+                  alt={items.avatarName}
+                  onClick={() => handleAvatarSelect(items.avatarUrl)}
                 />
+                <p>{items.avatarName}</p>
+                </div>
               ))}
             </div>
             <div className='fs-6 bg-light w-25 mx-auto p-2 text-dark popins rounded'>
               {selectedAvatar &&
                 <div className="d-flex flex-column align-items-center">
                   <span className="fs -4">Selected Avatar</span>
-                  <img src={selectedAvatar ||avatars[0]['avatar-url']} className="avat m-1 shadow rounded-circle" alt="Selected Avatar" />
+                  <img src={`${selectedAvatar ||avatars[0].items.avatarUrl}`} className="avat m-1 shadow rounded-circle" alt="Selected Avatar" />
                 </div>
               }
             </div>

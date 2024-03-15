@@ -52,8 +52,7 @@ const VenueDetails = ({ interval = 2000 }) => {
   }
 
   const handleDateChange = (date) => {
-    console.log(date);
-    setBookingDate(date);
+    setBookingDate(date.toISOString().split('T')[0]);
     setIsAvail(false);
   }
   const goToNextSlide = () => {
@@ -64,15 +63,14 @@ const VenueDetails = ({ interval = 2000 }) => {
 
   // Function to check if a date is booked
   const isDateBooked = () => {
-    return (storedBookings.map((booking) => {
-      console.log(new Date(booking.date));
-      return{
-        date :new Date(booking.date).toISOString().split('T')[0],
-        message :'Venue is booked for the day!'
-        
+    return (storedBookings.filter(booking => booking.venueId === venueId).map((booking) => {
+
+      return {
+        date: new Date(booking.date).toISOString().split('T')[0],
+        message: 'Venue is booked for the day!'
+
       }
     }))
-    // { date: !isDateBooked(date), message: "Today is excluded" }
   };
   console.log(isDateBooked());
 
@@ -90,18 +88,6 @@ const VenueDetails = ({ interval = 2000 }) => {
       />
       <div>
         <label htmlFor="bookingDate">Select Date</label>
-        <DatePicker
-          id="bookingDate"
-          selected={selectedDate}
-          onChange={date => setSelectedDate(date)}
-          dateFormat="yyyy-MM-dd"
-          minDate={today}
-          excludeDates={isDateBooked()}
-          // highlightDates={}
-          highlightDates={storedBookings.map((booking) => new Date(booking.date))}
-          placeholderText="Select a date"
-          className='form-control'
-        />
       </div>
       <div className=" p-4 g-0 my-4 rounded row container m-auto">
         <div className='col-12 col-lg-6' >
@@ -125,9 +111,19 @@ const VenueDetails = ({ interval = 2000 }) => {
             <p className='my-2'>Pricing: ₹ {pricing} Onwards</p>
           </div>
           <form className='p-2 px-4'>
-            <div className="form-group px-5">
-              <label htmlFor="title" className="ps-2">Select Date</label>
-              <input type="date" className="form-control" disabled-dates="2024-04-26" id="bookingDate" min={today} value={bookingDate} onChange={(e) => { handleDateChange(e.target.value) }} />
+            <div className="form-group px-5 text-center">
+              <DatePicker
+                id="bookingDate"
+                selected={bookingDate}
+                onChange={date => handleDateChange(date)}
+                dateFormat="yyyy-MM-dd"
+                minDate={today}
+                excludeDates={isDateBooked()}
+                highlightDates={storedBookings.filter(booking => booking.venueId === venueId).map((booking) => new Date(booking.date))}
+                placeholderText="Select a date"
+                className='form-control'
+              />
+              {/* <input type="date" className="form-control" disabled-dates="2024-04-26" id="bookingDate" min={today} value={bookingDate} onChange={(e) => { handleDateChange(e.target.value) }} /> */}
             </div>
             <div className="d-flex justify-content-center mt-4">
               {

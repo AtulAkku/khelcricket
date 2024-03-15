@@ -303,67 +303,76 @@ textarea {
     filter: blur(0);
     transform: translateX(0);
 }
-input:focus{
+
+input:focus {
     transform: scale(1.07);
     animation: zoomInput ease-in-out 0.2s;
     border: #1a395e;
 }
 
 @keyframes zoomInput {
-    0%{
-     transform: scale(1);   
+    0% {
+        transform: scale(1);
     }
-    100%{
-     transform: scale(1.05);   
+
+    100% {
+        transform: scale(1.05);
     }
 }
 
-.right{
+.right {
     animation: animateRight ease-in 1.5s;
 }
 
-.left{
+.left {
     animation: animateLeft ease-in 1.5s;
 }
 
 @keyframes animateRight {
-    0%{
+    0% {
         transform: translateX(125%);
     }
-    100%{
-        transform: translateX(0%);
-    }
-}
-@keyframes animateLeft {
-    0%{
-        transform: translateX(-50%);
-    }
-    100%{
+
+    100% {
         transform: translateX(0%);
     }
 }
 
-.menu, .thank{
+@keyframes animateLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.menu,
+.thank {
     min-height: 70vh;
 }
 
-.laptopbg{
+.laptopbg {
     background-image: url('/public/img/laptop-black-realistic.png');
-  }
-  .learnworlds-laptop.realistic.black {
+}
+
+.learnworlds-laptop.realistic.black {
     background-image: url('/public/img/laptop-black-realistic.png');
-  }
-  .learnworlds-laptop.realistic {
+}
+
+.learnworlds-laptop.realistic {
     padding: 2% 2.5% 2.5%;
-  }
-  
-  .learnworlds-laptop {
+}
+
+.learnworlds-laptop {
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
-  }
-  .lw-screen-content{
+}
+
+.lw-screen-content {
     /* background-color: #fff; */
     position: relative;
-  }
+}
