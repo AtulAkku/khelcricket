@@ -99,7 +99,7 @@ const SignUp = () => {
         });
         return;
       }
-      const newUser = { email, name, phoneNo, pinCode, city, state, password, nickName : "Sam", avatarUrl : 'defaultAvtar.png' };
+      const newUser = { email, name, phoneNo, pinCode, city, state, password, avatarUrl : 'defaultAvtar.png' };
       const updatedUsers = [...storedUsers, newUser];
       localStorage.setItem('users', JSON.stringify(updatedUsers));
       toast.success('Registration Successful', {

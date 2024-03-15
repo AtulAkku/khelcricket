@@ -12,12 +12,12 @@ const Carousel = ({ images, interval = 5000 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-  const goToPrevSlide = () => {
-    const newIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
-    setCurrentImageIndex(newIndex);
-    const newTextIndex = currentTextIndex === 0 ? texts.length - 1 : currentTextIndex - 1;
-    setCurrentTextIndex(newTextIndex);
-  };
+  // const goToPrevSlide = () => {
+  //   const newIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+  //   setCurrentImageIndex(newIndex);
+  //   const newTextIndex = currentTextIndex === 0 ? texts.length - 1 : currentTextIndex - 1;
+  //   setCurrentTextIndex(newTextIndex);
+  // };
 
   const goToNextSlide = () => {
     const newIndex = currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
@@ -32,7 +32,7 @@ const Carousel = ({ images, interval = 5000 }) => {
   }, [currentImageIndex, interval]);
 
   return (
-    <div className="row align-items-center popins g-0" style={{minHeight:'330px'}}>
+    <div className="row align-items-center popins g-0 py-5 my-5" style={{minHeight:'330px'}}>
       <div className="col-12 col-lg-6">
         <div className="text-carousel text-end text-white fs-1 fw-bold px-5 my-5 ms-5">
           <div className="fs-4 text-decoration-underline">Cricket Facts</div>

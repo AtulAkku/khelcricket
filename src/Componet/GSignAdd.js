@@ -50,7 +50,7 @@ const GSignAdd = () => {
         }
         if (isValid) {
             const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const newUser = { email, name, phoneNo, pinCode, city, state };
+            const newUser = { email, name, phoneNo, pinCode, city, state, avatarUrl : 'defaultAvtar.png' };
             const updatedUsers = [...storedUsers, newUser];
             localStorage.setItem('users', JSON.stringify(updatedUsers));
             logIn(newUser, true);

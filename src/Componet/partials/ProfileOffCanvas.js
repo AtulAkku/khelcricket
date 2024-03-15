@@ -1,33 +1,15 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+// import { useAuth } from '../../Utils/AuthContext';
 
 const ProfileOffCanvas = (props) => {
-  // const selectedAvatar = props.selectedAvatar;
-  const setDashAvatar = props.setDashAvatar;
   const [selectedAvatar, setSelectedAvatar] = useState(props.selectedAvatar);
-  const [customAvatar, setCustomAvatar] = useState(null);
   const closeOffcanvas = () => {
     document.getElementById('closeProfileOffCanvas').click();
   };
   const handleAvatarSelect = (avatar) => {
     setSelectedAvatar(avatar);
-    setCustomAvatar(null);
   };
-
-  const handleCustomAvatarUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setCustomAvatar(reader.result);
-      setSelectedAvatar(null);
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
   const avatars = [
     {
       "avatarNo": "1",
@@ -59,25 +41,16 @@ const ProfileOffCanvas = (props) => {
       "avatarUrl": "avatar6.png",
       "avatarName": "Aqua"
     }
-    // ... other avatars
   ];
 
   const handleSaveAvatar = () => {
-    if (selectedAvatar || customAvatar) {
-      const avatarToSave = selectedAvatar || customAvatar;
-      localStorage.setItem('selectedAvatar', avatarToSave);
-      setDashAvatar(avatarToSave);
-      closeOffcanvas();
-      toast.success('Avatar changed successfully!', { position: 'top-right' });
-    } else {
-      alert('Please select or upload an avatar before saving.');
-    }
+    props.setSelectedAvatar(selectedAvatar);
+    closeOffcanvas();
   };
 
   return (
     <>
-      <ToastContainer />
-      <div className= "offcanvas offcanvas-end bg-nav text-light w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div className= "offcanvas offcanvas-start bg-nav text-light w-50" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div className= "offcanvas-header">
           <h3 className= "offcanvas-title ps-4" id="offcanvasExampleLabel">Select an Avatar</h3>
           <button type="button" className= "btn-close text-reset" id="closeProfileOffCanvas" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -103,7 +76,7 @@ const ProfileOffCanvas = (props) => {
               {selectedAvatar &&
                 <div className="d-flex flex-column align-items-center">
                   <span className="fs -4">Selected Avatar</span>
-                  <img src={`${selectedAvatar ||avatars[0].items.avatarUrl}`} className="avat m-1 shadow rounded-circle" alt="Selected Avatar" />
+                  <img src={`/img/avatars/${selectedAvatar}`} className="avat m-1 shadow rounded-circle" alt="Selected Avatar" />
                 </div>
               }
             </div>

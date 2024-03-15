@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FaBook, FaMapLocationDot } from "react-icons/fa6";
-import { FaEdit, FaEye } from 'react-icons/fa'
+import { FaBook} from "react-icons/fa6";
 import { useAuth } from '../Utils/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import ProfileOffCanvas from './partials/ProfileOffCanvas';
@@ -13,12 +12,10 @@ import MyProfile from './partials/MyProfile';
 const Dashboard = () => {
   const { user, logOut, isAuth } = useAuth();
   const [showVenueModal, setShowVenueModal] = useState(false);
-
-  const [showModal, setShowModal] = useState(false);
   const [viewBooking, setViewBooking] = useState([]);
   const [storedBookings, setStoredBookings] = useState([]);
   const [userBookings, setUserBookings] = useState([]);
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedAvatar, setSelectedAvatar] = useState(user.avatarUrl);
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('myBookings');
 
@@ -35,7 +32,8 @@ const Dashboard = () => {
         />;
       case 'myProfile':
         return <MyProfile 
-        selectedAvatar = {selectedAvatar}
+          selectedAvatar = {selectedAvatar}
+          setSelectedAvatar = {setSelectedAvatar}
         />;
       case 'helpAndSupport':
         return <HelpNSupport />;
@@ -60,11 +58,7 @@ const Dashboard = () => {
     if (!auth) {
       navigate('/preloader');
     }
-    const storedAvatar = localStorage.getItem('selectedAvatar') ?? "../../img/avatars/defaultAvtar.png";
-    console.log(storedAvatar);
-    if (storedAvatar) {
-      setSelectedAvatar(storedAvatar);
-    }
+
     const bookings = (JSON.parse(localStorage.getItem('bookings'))) ?? [];
     setStoredBookings(bookings);
     const filteredBookings = storedBookings.filter((booking) => user.email === booking.userEmail);
@@ -73,8 +67,8 @@ const Dashboard = () => {
   return (
     <>
       <ProfileOffCanvas
-        setDashAvatar={setSelectedAvatar}
         selectedAvatar = {selectedAvatar}
+        setSelectedAvatar = {setSelectedAvatar}
       />
       {showVenueModal && (<VenueModal
         showVenueModal={showVenueModal}
@@ -87,10 +81,10 @@ const Dashboard = () => {
           <div className="menu">
             <div className="row">
               <div className="col col-lg-5 p-3 text-center">
-                <img src={`/img/avatars/${user.avatarUrl}`} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
+                <img src={`/img/avatars/${selectedAvatar}`} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
               </div>
               <div className="col col-lg-7 d-flex align-items-start flex-column justify-content-center my-auto">
-                <div className="h5">{user.name}({user.nickName})</div>
+                <div className="h5">{user.name}</div>
                 <div className="h6">{user.email}</div>
               </div>
             </div>

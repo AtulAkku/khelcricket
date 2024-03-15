@@ -6,8 +6,8 @@ const NavBar = () => {
   const [activeTab, setActiveTab] = useState('home');
   const navigate = useNavigate();
   const handleLogOut = () => {
-    navigate('/');
     logOut();
+    navigate('/');
   }
 
   useEffect(() => {

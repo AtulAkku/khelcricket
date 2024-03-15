@@ -376,3 +376,8 @@ input:focus {
     /* background-color: #fff; */
     position: relative;
 }
+
+.profileAvatarEdit{
+    vertical-align: bottom;
+    transform: translateX(-35px);
+}

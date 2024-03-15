@@ -51,11 +51,23 @@ const Home = () => {
   return (
     <>
       <LowerNav />
-
-      <Features />
+      <div className="row popins my-5 bg-white py-5">
+                
+                <div className="col-12 col-lg-6 bg-white d-flex justify-content-center p-3">
+                    <div className='learnworlds-laptop black realistic'>
+                        <div className='lw-screen-content d-flex justify-content-center'>
+                            <video src='video/KHEL.mp4' className='rounded shadow align-items-center' width="65%" controls ></video>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-12 col-lg-6 bg-white justify-content-center d-flex align-items-center text-start fs-1">
+                    <div className="ps-5">Experience the future of cricket venue bookings at KHEl!</div>
+                </div>
+            </div>
       <Carousel images={images} />
-      {/* <HorizontalNav /> */}
+      <Features />
       <Hero data={data} />
+      {/* <HorizontalNav /> */}
       <Contact />
     </>
   )
