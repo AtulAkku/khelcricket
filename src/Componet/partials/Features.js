@@ -119,115 +119,101 @@ const Features = () => {
                 <div className='text-center h1 pb-4'>Spotlights</div>
                 <div className='contain er g-0 m-auto' style={{ maxWidth: "1400px" }}>
                     <div className="check">
-                        <div className="my-element">
-                            <div className="row">
-                                <div className="col-12 col-lg-6 border-end border-5">
-                                    <Lottie
-                                        options={defaultOptions.confuse}
-                                        height={400}
-                                        width={400}
-                                    />
+                        <div class="">
+                            <div className="row my-element">
+                                <div className="col-12 col-lg-6 border-end border-5 d-flex align-items-center">
+                                    <div className='fs-4'>
+                                        <div className='pe-5  text-end'>Are you tired of the hassle involved in booking cricket venues?</div>
+                                    </div>
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.confuse}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
                                 </div>
-                                <div className='col-12 col-lg-6 d-flex align-items-center fs-2 py-5'>
-                                    <div className='ps-5 m-5'>Are you tired of the hassle involved in booking cricket venues?</div>
-
+                                <div className="col-12 col-lg-6 d-flex align-items-center">
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.website}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
+                                    <div className='d-flex align-items-center fs-4'>
+                                        <div className='ps-5  text-start'>Let our website do all the work for you</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <hr />
-                    <div className="my-element">
-                        <div className="row">
-                            <div className='col-12 col-lg-6 d-flex border-end border-5 border-info align-items-center justif y-content-end text-end fs-2 p-5'>
-                                <div className="ps-5 m-5">Let our website do all the work for you with</div>
+                            <hr />
+                            <div className="row my-element">
+                                <div className="col-12 col-lg-6 border-end border-5 border-info d-flex align-items-center">
+                                    <div className='fs-4'>
+                                        <div className='pe-5  text-end'>Search filters to allow users to refine their search based on criteria like location</div>
+                                    </div>
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.search}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col-12 col-lg-6 d-flex align-items-center">
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.booking}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
+                                    <div className='d-flex align-items-center fs-4'>
+                                        <div className='ps-5  text-start'>Check availability and almost instant booking confirmation</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col-12 col-lg-6 border-5 text-start">
-                                <Lottie
-                                    options={defaultOptions.website}
-                                    height={400}
-                                    width={400}
-                                />
+                            <hr />
+                            <div className="row my-element">
+                                <div className="col-12 col-lg-6 border-end border-5 d-flex align-items-center">
+                                    <div className='fs-4'>
+                                        <div className='pe-5  text-end'>Secure Payment Options</div>
+                                    </div>
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.secure}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col-12 col-lg-6 d-flex align-items-center">
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.userFriendly}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
+                                    <div className='d-flex align-items-center fs-4'>
+                                        <div className='ps-5  text-start'>Intuitive and easy-to-use User Friendly interface with navigation menus</div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="my-element">
-                        <div className="row">
-                            <div className="col-12 col-lg-6 border-end border-5">
-                                <Lottie
-                                    options={defaultOptions.search}
-                                    height={400}
-                                    width={400}
-                                />
-                            </div>
-                            <div className='col-12 col-lg-6 d-flex align-items-center fs-2'>
-                                <div className='ps-5 m-5'>Search filters to allow users to refine their search based on criteria like location</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="my-element">
-                        <div className="row">
-                            <div className='col-12 col-lg-6 d-flex border-end border-5 border-info align-items-center justif y-content-end text-end fs-2 p-5'>
-                                <div className="ps-5 m-5">Check availability and almost instant booking confirmation</div>
-                            </div>
-                            <div className="col-12 col-lg-6 border-5 text-start">
-                                <Lottie
-                                    options={defaultOptions.booking}
-                                    height={400}
-                                    width={400}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="my-element">
-
-                        <div className="row">
-                            <div className="col-12 col-lg-6 border-end border-5">
-                                <Lottie
-                                    options={defaultOptions.secure}
-                                    height={400}
-                                    width={400}
-                                />
-                            </div>
-                            <div className='col-12 col-lg-6 d-flex align-items-center fs-2'>
-                                <div className='ps-5 m-5'>Secure Payment Option</div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="my-element">
-
-                        <div className="row">
-                            <div className='col-12 col-lg-6 d-flex border-end border-5 border-info align-items-center justif y-content-end text-end fs-2 p-5'>
-                                <div className="ps-5 m-5">Intuitive and easy-to-use User Friendly interface with navigation menus</div>
-                            </div>
-                            <div className="col-12 col-lg-6 border-5 text-start">
-                                <Lottie
-                                    options={defaultOptions.userFriendly}
-                                    height={400}
-                                    width={400}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="my-element">
-
-                        <div className="row">
-                            <div className="col-12 col-lg-6 border-end border-5">
-                                <Lottie
-                                    options={defaultOptions.database}
-                                    height={400}
-                                    width={400}
-                                />
-                            </div>
-                            <div className='col-12 col-lg-6 d-flex align-items-center fs-2'>
-                                <div className='ps-5 m-5'>Comprehensive Venue Database of different cricket venues</div>
-
+                            <hr />
+                            <div className="w-50 m-auto d-flex align-items-center my-element">
+                                <div className="d-flex align-items-center">
+                                    <div className='fs-4'>
+                                        <div className='p-5  text-end'>Comprehensive Venue Database of different cricket venues</div>
+                                    </div>
+                                    <div className='p-1'>
+                                        <Lottie
+                                            options={defaultOptions.database}
+                                            height={300}
+                                            width={300}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
