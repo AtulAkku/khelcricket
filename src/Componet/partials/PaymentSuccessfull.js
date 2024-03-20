@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import Payment from '../animations/paymentDone.json';
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";

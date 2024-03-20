@@ -24,7 +24,7 @@ const VenueModal = (props) => {
                   <div className='d-flex flex-column align-items-center'>
                     <span className="fs-4">{props.viewBooking.venueName}</span>
                     {/* <span className="fs-3"><a href={props.viewBooking.link} target="_blank"><FaLocationDot /></a></span> */}
-                    <span className="fs-6 mt-2"><a href={props.viewBooking.link} target="_blank" className="me-2"><FaLocationDot /></a>{props.viewBooking.location}</span>
+                    <span className="fs-6 mt-2"><a href={props.viewBooking.link} target="_blank" rel = "noreferrer" className="me-2"><FaLocationDot /></a>{props.viewBooking.location}</span>
                     <span className="fs-5 mt-2">Booking Date</span>
                     <span className="fs-3">{props.viewBooking.date}</span>
                     {/* <button type="button" className="btn btn-outline-light mt-2 px-5" onClick={props.closeVenueModal}>OK</button> */}

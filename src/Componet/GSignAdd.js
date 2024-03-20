@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { validateRequired, validatePhone, validatePinCode, validateEmail, validatePassword, confirmPassword } from '../Utils/FormValidation';
+import { validateRequired, validatePhone, validatePinCode} from '../Utils/FormValidation';
 import { toast, ToastContainer } from 'react-toastify';
 import jsonData from '../Utils/pincode.json';
 import { useLocation, useNavigate } from 'react-router-dom';

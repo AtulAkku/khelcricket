@@ -30,7 +30,7 @@ const BookingComp = (props) => {
                                     <tr key={index}>
                                         <td>{item.venueName}</td>
                                         <td>{item.date}</td>
-                                        <td className='text-center'><a href={item.link} target="_blank" className='fs-4'><FaMapLocationDot /></a></td>
+                                        <td className='text-center'><a href={item.link} target="_blank" rel="noreferrer" className='fs-4'><FaMapLocationDot /></a></td>
                                         <td className='text-center'>
                                             <div className="d-flex justify-content-around">
                                                 <span className='fs-4 text-warning' title='View' onClick={() => { props.handleVenueModal(item) }}><FaEye /></span>

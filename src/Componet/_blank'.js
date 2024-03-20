@@ -11,17 +11,17 @@ const HorizontalNav = () => {
             <div className="dropdown">
               <a href="#about" className="dropbtn">About</a>
               <div className="dropdown-content">
-                <a href="#">Submenu Item 1</a>
-                <a href="#">Submenu Item 2</a>
-                <a href="#">Submenu Item 3</a>
+                <a href="/">Submenu Item 1</a>
+                <a href="/">Submenu Item 2</a>
+                <a href="/">Submenu Item 3</a>
               </div>
             </div>
             <div className="dropdown">
               <a href="#support" className="dropbtn">Support</a>
               <div className="dropdown-content">
-                <a href="#">Submenu Item 1</a>
-                <a href="#">Submenu Item 2</a>
-                <a href="#">Submenu Item 3</a>
+                <a href="/">Submenu Item 1</a>
+                <a href="/">Submenu Item 2</a>
+                <a href="/">Submenu Item 3</a>
               </div>
             </div>
             <a href="#blog">Blog</a>
@@ -33,25 +33,25 @@ const HorizontalNav = () => {
             <div className="dropdown">
               <a href="#friends" className="dropbtn">Friends</a>
               <div className="dropdown-content">
-                <a href="#">Submenu Item 1</a>
-                <a href="#">Submenu Item 2</a>
-                <a href="#">Submenu Item 3</a>
+                <a href="/">Submenu Item 1</a>
+                <a href="/">Submenu Item 2</a>
+                <a href="/">Submenu Item 3</a>
               </div>
             </div>
             <div className="dropdown">
               <a href="#partners" className="dropbtn">Partners</a>
               <div className="dropdown-content">
-                <a href="#">Submenu Item 1</a>
-                <a href="#">Submenu Item 2</a>
-                <a href="#">Submenu Item 3</a>
+                <a href="/">Submenu Item 1</a>
+                <a href="/">Submenu Item 2</a>
+                <a href="/">Submenu Item 3</a>
               </div>
             </div>
             <div className="dropdown">
               <a href="#people" className="dropbtn">People</a>
               <div className="dropdown-content">
-                <a href="#">Submenu Item 1</a>
-                <a href="#">Submenu Item 2</a>
-                <a href="#">Submenu Item 3</a>
+                <a href="/">Submenu Item 1</a>
+                <a href="/">Submenu Item 2</a>
+                <a href="/">Submenu Item 3</a>
               </div>
             </div>
             <a href="#work">Work</a>

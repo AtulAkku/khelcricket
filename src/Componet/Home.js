@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Carousel from './partials/Carousel'
 import Hero from './partials/Hero'
 import Contact from './partials/Contact'
 import LowerNav from './partials/LowerNav'
-import { useLocation } from 'react-router-dom'
 import Features from './partials/Features'
 
 

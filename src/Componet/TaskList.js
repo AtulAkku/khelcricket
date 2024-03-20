@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaEdit, FaEye, FaPlus, FaRegCheckCircle, FaTrash } from 'react-icons/fa'
 import Modal from './Modal';
 import { ToastContainer, toast } from 'react-toastify';

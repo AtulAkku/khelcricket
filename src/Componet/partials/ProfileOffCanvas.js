@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-// import { useAuth } from '../../Utils/AuthContext';
 
 const ProfileOffCanvas = (props) => {
   const [selectedAvatar, setSelectedAvatar] = useState(props.selectedAvatar);
