@@ -26,7 +26,7 @@ const LowerNav = () => {
               {/* <p>The sound of leather on willow is music to ears !</p> */}
 
               <div className="mb-3 d-flex align-items-center">
-                <img src="img/qrImg.png" alt="QR Code" className="img-fluid w-25" />
+                <img src="img/QR-Code.jpg" alt="QR Code" className="img-fluid w-25" />
                 <div className="ms-3">
                   <div className="mb-2">Scan & Get the KHEL App now!</div>
                   <div className="d-flex justify-content-around fs-3">

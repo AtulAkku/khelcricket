@@ -19,7 +19,9 @@ const GSignAdd = () => {
         const requiredFields = ['phoneNo', 'pinCode'];
         const phoneInput = document.getElementById('phoneNo');
         const pinCodeInput = document.getElementById('pinCode');
-        validateRequired(requiredFields);
+        requiredFields.forEach(field => {
+            validateRequired(field);
+        });
         validatePhone(phoneInput, phoneInput.value);
         validatePinCode(pinCodeInput, parseInt(pinCodeInput.value));
         return document.querySelector('.is-invalid') === null;
@@ -40,8 +42,10 @@ const GSignAdd = () => {
         }
     }
     const Register = async (e) => {
+        console.log('in register');
         e.preventDefault();
         const isValid = validateForm();
+        console.log('outside valdiate');
         if (storedUsers.find((user) => user.email === email)) {
             toast.error('Account already exists! Please Login', {
                 position: 'top-right',
@@ -49,6 +53,7 @@ const GSignAdd = () => {
             return;
         }
         if (isValid) {
+            console.log('in isvalid');
             const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
             const newUser = { email, name, phoneNo, pinCode, city, state, avatarUrl : 'defaultAvtar.png' };
             const updatedUsers = [...storedUsers, newUser];
@@ -75,11 +80,12 @@ const GSignAdd = () => {
                         <div className="row">
                             <div className="form-group col-md-6">
                                 <label className="ms-1" htmlFor="phoneNo">Phone Number</label>
-                                <input type="text" className="form-control" id="phoneNo" placeholder="Phone Number" value={phoneNo} onChange={(e) => { setPhoneNo(e.target.value) }} /> <div id="phoneNoError" className="invalid-feedback"></div>
+                                <input type="text" className="form-control" id="phoneNo" placeholder="Phone Number" value={phoneNo} onChange={(e) => { setPhoneNo(e.target.value) }} />
+                                <div id="phoneNoVerify"></div>
                             </div>
                             <div className="form-group col-md-6">
                                 <label className="ms-1" htmlFor="pinCode">Pin Code</label>
-                                <input type="text" className="form-control" id="pinCode" placeholder="Pin Code" value={pinCode} onChange={searchCity} /> <div id="pinCodeError" className="invalid-feedback"></div>
+                                <input type="text" className="form-control" id="pinCode" placeholder="Pin Code" value={pinCode} onChange={searchCity} /> <div id="pinCodeVerify"></div>
                             </div>
                         </div>
                         <div className="row">

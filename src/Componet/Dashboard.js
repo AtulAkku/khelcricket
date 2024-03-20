@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [viewBooking, setViewBooking] = useState([]);
   const [storedBookings, setStoredBookings] = useState([]);
   const [userBookings, setUserBookings] = useState([]);
-  const [selectedAvatar, setSelectedAvatar] = useState(user.avatarUrl);
+  const [selectedAvatar, setSelectedAvatar] = useState(user.avatarUrl || 'defaultAvtar.png');
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('myBookings');
 
@@ -81,7 +81,7 @@ const Dashboard = () => {
           <div className="menu">
             <div className="row">
               <div className="col col-lg-5 p-3 text-center">
-                <img src={`/img/avatars/${selectedAvatar}`} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
+                <img src={`/img/avatars/${selectedAvatar || 'defaultAvtar.png'}`} className="img-fluid w-75 rounded-circle" alt="Selected Avatar" />
               </div>
               <div className="col col-lg-7 d-flex align-items-start flex-column justify-content-center my-auto">
                 <div className="h5">{user.name}</div>

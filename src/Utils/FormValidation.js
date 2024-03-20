@@ -1,7 +1,7 @@
 export const validateRequired = (field) => {
-        const inputField = document.getElementById(field);
-        const errorElement = document.getElementById(`${field}Verify`);
-        if (inputField.value === '') {
+    const inputField = document.getElementById(field);
+    const errorElement = document.getElementById(`${field}Verify`);
+    if (inputField.value === '') {
             inputField.classList.remove('is-valid');
             inputField.classList.add('is-invalid');
             errorElement.classList.remove('valid-feedback');
