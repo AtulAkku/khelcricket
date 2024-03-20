@@ -119,7 +119,7 @@ const Features = () => {
                 <div className='text-center h1 pb-4'>Spotlights</div>
                 <div className='contain er g-0 m-auto' style={{ maxWidth: "1400px" }}>
                     <div className="check">
-                        <div class="">
+                        <div className="">
                             <div className="row my-element">
                                 <div className="col-12 col-lg-6 border-end border-5 d-flex align-items-center">
                                     <div className='fs-4'>
